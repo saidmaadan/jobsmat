@@ -29,3 +29,5 @@ class CreateEmployers < ActiveRecord::Migration
     add_index :employers, :slug, unique: true
   end
 end
+
+

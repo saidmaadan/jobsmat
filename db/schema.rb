@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151215124234) do
+ActiveRecord::Schema.define(version: 20151215174034) do
 
   create_table "candidates", force: :cascade do |t|
     t.string   "name"
@@ -50,8 +50,9 @@ ActiveRecord::Schema.define(version: 20151215124234) do
     t.string   "skype_id"
     t.string   "phone_number"
     t.string   "slug"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.boolean  "admin",             default: false
   end
 
   add_index "candidates", ["slug"], name: "index_candidates_on_slug", unique: true
@@ -108,8 +109,11 @@ ActiveRecord::Schema.define(version: 20151215124234) do
     t.string   "logo"
     t.string   "auth_token"
     t.string   "slug"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.boolean  "admin",               default: false
+    t.boolean  "author",              default: false
+    t.text     "headline"
   end
 
   add_index "employers", ["slug"], name: "index_employers_on_slug", unique: true
