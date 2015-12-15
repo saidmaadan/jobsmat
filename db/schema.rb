@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151215121714) do
+ActiveRecord::Schema.define(version: 20151215124234) do
 
   create_table "candidates", force: :cascade do |t|
     t.string   "name"
@@ -55,6 +55,35 @@ ActiveRecord::Schema.define(version: 20151215121714) do
   end
 
   add_index "candidates", ["slug"], name: "index_candidates_on_slug", unique: true
+
+  create_table "companies", force: :cascade do |t|
+    t.string   "name"
+    t.text     "about"
+    t.string   "industry"
+    t.string   "founded"
+    t.string   "size"
+    t.string   "subsidiaries"
+    t.string   "location"
+    t.string   "website"
+    t.string   "logo"
+    t.string   "company_image"
+    t.string   "slug"
+    t.integer  "employer_id"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "youtube"
+    t.string   "linkedin"
+    t.string   "video"
+    t.string   "instagram"
+    t.string   "googleplus"
+    t.string   "pinterest"
+    t.string   "github"
+    t.text     "twitter_widget"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "companies", ["slug"], name: "index_companies_on_slug", unique: true
 
   create_table "employers", force: :cascade do |t|
     t.string   "name"
