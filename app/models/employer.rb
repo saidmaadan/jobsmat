@@ -1,5 +1,5 @@
 class Employer < ActiveRecord::Base
-  mount_uploader :emp_image EmpImageUploader
+  mount_uploader :emp_image, EmpImageUploader
   mount_uploader :logo, LogoUploader
   has_secure_password
 
