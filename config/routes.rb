@@ -6,11 +6,42 @@ Rails.application.routes.draw do
 
   get '/faq' =>'pages#faq'
 
-  resources :jobs
+  get "signin" => "sessions#new"
+  get '/auth/:provider/callback' => 'sessions#create'
+  resource :session
+  
+  get "signup" => "candidates#new", as: "signup"
+  get "candidates/:id/editprofile" => "candidates#editprofile", as: "profile/info"
+  resources :candidates do 
+    resources :works
+    resources :educations
+  end
+
+  get "register" => "employers#new", as: "register"
+  get "/:id/update-profile" => "employers#editprofile", as: "profile/update"
+  get "employers/signup" => "employers#home"
   resources :employers
-  resources :candidates
+
+  resources :jobs
+    resources :applies, except: [:show, :index]
+  end 
+
+  get "companies/:id/review" => "companies#review", as: "company/review"
+  get "companies/:id/addreview" => "companies#addreview", as: "company/addreview"
+  get "companies/:id/interview" => "companies#interview", as: "company/interview"
+  get "companies/:id/addinterview" => "companies#addinterview", as: "company/addinterview"
+  get "companies/:id/job" => "companies#job", as: "company/job"
+  get "companies/:id/about" => "companies#about", as: "company/about"
   resources :companies
+    resources :reviews, except: [:show, :index]
+    resources :interviews, except: [:show, :index]
+  end
+
   resources :tips
+
+  get '/contact' => 'contacts#new'
+  resources :contacts
+
   root 'pages#home'
   
   # The priority is based upon order of creation: first created -> highest priority.

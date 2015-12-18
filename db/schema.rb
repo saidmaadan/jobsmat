@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151218165223) do
+ActiveRecord::Schema.define(version: 20151218174641) do
+
+  create_table "applies", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.text     "message"
+    t.string   "resume"
+    t.integer  "candidate_id"
+    t.integer  "job_id"
+    t.integer  "employer_id"
+    t.string   "phone"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "candidates", force: :cascade do |t|
     t.string   "name"
@@ -151,6 +164,29 @@ ActiveRecord::Schema.define(version: 20151218165223) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
+  create_table "interviews", force: :cascade do |t|
+    t.string   "job_title"
+    t.text     "process"
+    t.text     "questions"
+    t.text     "anwsers"
+    t.string   "interview_difficulty"
+    t.string   "hired"
+    t.string   "how_heard"
+    t.string   "duration"
+    t.string   "when"
+    t.string   "where"
+    t.string   "when_month"
+    t.string   "duration_days"
+    t.string   "how_helpful"
+    t.integer  "candidate_id"
+    t.integer  "employer_id"
+    t.integer  "company_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "interviews", ["company_id"], name: "index_interviews_on_company_id"
+
   create_table "jobs", force: :cascade do |t|
     t.string   "title"
     t.string   "skills"
@@ -180,6 +216,26 @@ ActiveRecord::Schema.define(version: 20151218165223) do
   end
 
   add_index "jobs", ["slug"], name: "index_jobs_on_slug", unique: true
+
+  create_table "reviews", force: :cascade do |t|
+    t.string   "company_name"
+    t.integer  "rating"
+    t.string   "employee_status"
+    t.string   "employee_type"
+    t.string   "title"
+    t.text     "pros"
+    t.text     "cons"
+    t.text     "advice"
+    t.integer  "company_id"
+    t.integer  "employer_id"
+    t.integer  "candidate_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "reviews", ["candidate_id"], name: "index_reviews_on_candidate_id"
+  add_index "reviews", ["company_id"], name: "index_reviews_on_company_id"
+  add_index "reviews", ["employer_id"], name: "index_reviews_on_employer_id"
 
   create_table "tips", force: :cascade do |t|
     t.string   "title"
