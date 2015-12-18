@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :employers
   resources :candidates
   resources :companies
+  resources :tips
   root 'pages#home'
   
   # The priority is based upon order of creation: first created -> highest priority.
