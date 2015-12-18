@@ -5,16 +5,29 @@
     <title><%= content_for?(:title) ? yield(:title) : "Jobsmat" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Jobsmat" %>">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%# Modernizr is required for Zurb Foundation %>
+    <%= javascript_include_tag 'vendor/modernizr' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
   <body>
     <header>
-      <%= render 'layouts/navigation' %>
-    </header>
-    <main role="main">
-       <%= render 'layouts/messages' %>
-       <%= yield %>
-    </main>
+      <%= render 'layouts/top_navigation' %>
+    </header> 
+    <div class="off-canvas-wrap docs-wrap" data-offcanvas="">
+      <div class="inner-wrap">
+ 
+        
+          <%= render 'layouts/navigation' %>
+        <main role="main">
+           <%= render 'layouts/messages' %>
+           <%= yield %>
+        </main>
+
+        <a class="exit-off-canvas"></a>
+        <%= render "layouts/footer" %>
+      </div> 
+    </div>
+
   </body>
 </html>

@@ -1,19 +1,32 @@
-<%# navigation styled for Bootstrap 3.0 %>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to 'Home', root_path, class: 'navbar-brand' %>
-    </div>
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <%= render 'layouts/navigation_links' %>
-      </ul>
-    </div>
-  </div>
+<nav class="tab-bar">
+  <section class="left-small">
+    <a class="left-off-canvas-toggle menu-icon" aria-expanded="false"><span></span></a>
+  </section>
+
+  <section class="right tab-bar-section">
+    <h1 class="title"></h1>
+  </section>
+
 </nav>
+
+<aside class="left-off-canvas-menu">
+  <ul class="off-canvas-list">
+    <li><label>MENU</label></li>
+    <li class="name"><%= link_to 'Home', root_path %></li>
+    <li><%= link_to 'About', about_path %></li>
+    <li><a href="#">The Mayors</a></li>
+    <li><a href="#">The Traders</a></li>
+    <li><a href="#">The Merchant Princes</a></li>
+    <li><label>AUTHENTICATION</label></li>
+    <li><a href="#">The General</a></li>
+    <li><a href="#">The Mule</a></li>
+    <li><a href="#">Search by the Mule</a></li>
+    <li><a href="#">Search by the Foundation</a></li>
+  </ul>
+</aside>
+
+  
+  
+<!-- </div> -->
+
+<%# navigation styled for Zurb Foundation 5 %>
