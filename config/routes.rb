@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get "employers/signup" => "employers#home"
   resources :employers
 
-  resources :jobs
+  resources :jobs do
     resources :applies, except: [:show, :index]
   end 
 
@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   get "companies/:id/addinterview" => "companies#addinterview", as: "company/addinterview"
   get "companies/:id/job" => "companies#job", as: "company/job"
   get "companies/:id/about" => "companies#about", as: "company/about"
-  resources :companies
+  resources :companies do
     resources :reviews, except: [:show, :index]
     resources :interviews, except: [:show, :index]
   end
