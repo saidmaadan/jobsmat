@@ -12,7 +12,10 @@ Rails.application.routes.draw do
   
   get "signup" => "candidates#new", as: "signup"
   get "candidates/:id/editprofile" => "candidates#editprofile", as: "profile/info"
-  resources :candidates do 
+  resources :candidates do
+    collection do
+      get 'search'
+    end
     resources :works
     resources :educations
   end
@@ -20,9 +23,15 @@ Rails.application.routes.draw do
   get "register" => "employers#new", as: "register"
   get "/:id/update-profile" => "employers#editprofile", as: "profile/update"
   get "employers/signup" => "employers#home"
-  resources :employers
-
+  resources :employers do
+    collection do
+      get 'search'
+    end
+  end
   resources :jobs do
+    collection do
+      get 'search'
+    end
     resources :applies, except: [:show, :index]
   end 
 
@@ -33,6 +42,9 @@ Rails.application.routes.draw do
   get "companies/:id/job" => "companies#job", as: "company/job"
   get "companies/:id/about" => "companies#about", as: "company/about"
   resources :companies do
+    collection do
+      get 'search'
+    end
     resources :reviews, except: [:show, :index]
     resources :interviews, except: [:show, :index]
   end
