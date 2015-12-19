@@ -1,3 +1,31 @@
 // Place all the styles related to the contacts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'custom';
+
+.contact-map{
+  width: 100%;
+  #map iframe { 
+    width: 100%; 
+    height: 480px;
+    margin: auto;
+    margin-bottom: 30px
+  }
+}
+.contact-contact{
+  h2{
+    color: $primary-color;
+  }
+  .panel-title{
+    font-size: 1.3rem;
+  }
+}
+.address-contact{
+  h3{
+    color: #43ac6a;
+  }
+  h2{
+    color: $primary-color;
+  }
+}

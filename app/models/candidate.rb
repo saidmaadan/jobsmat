@@ -17,7 +17,11 @@ class Candidate < ActiveRecord::Base
                      format: /\A[A-Z0-9]+\z/i,
                      uniqueness: { case_sensitive: false }
   
+  has_many :works
+  has_many :educations
   has_many :jobs
+  has_many :applies, dependent: :destroy
+
 
   before_create {generate_token(:auth_token)}
 

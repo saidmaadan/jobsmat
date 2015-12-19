@@ -1,0 +1,90 @@
+<div class='contact-map hidden-xs'>
+  <div id='map'>
+    <iframe
+      
+      frameborder="0" style="border:0"
+      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB9C6EQog9vhhMKUOtl4Y8EsbNKv1BApPQ
+        &q=21+Matadi+Street,Zone 3,Abuja+23409&zoom=14" allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+<div class='contact-main-top'>
+  
+    <div class="row">
+      <div class='medium-8 small-12 columns contact-contact'>
+        <h2>Get Support</h2>
+        <p>Have a question about JobInbox, please use the email form below and drop us a note or give us a call(512) 999-0018 (6am-6pm CST daily); we’re happy to answer all your questions.
+        </p>
+        <div class="panel">
+          <h2 class="panel-title text-center">Contact us for questions or comments.</h2>
+          <%= form_for @contact do |f| %>
+            <div class="row collapse">
+              <div class="small-3 medium-2 columns">
+                <span class="prefix">http://</span>
+              </div>
+              <div class="small-9 medium-10 columns">
+                <%= f.text_field :name, class: 'form-control', placeholder: 'Kelsey Miller' %>
+              </div>
+            </div>
+
+            <div class="row collapse">
+              <div class="small-3 medium-2 columns">
+                <span class="prefix"><i class='fa fa-envelope'></i></span>
+              </div>
+              <div class="small-9 medium-10 columns">
+                <%= f.text_field :email, class: 'form-control', placeholder: 'yourname@company.com' %>
+              </div>
+            </div>
+
+            <div class="row collapse">
+              <div class="small-3 medium-2 columns">
+                <span class="prefix"><i class='fa fa-link'></i></span>
+              </div>
+              <div class="small-9 medium-10 columns">
+                <%= f.text_field :subject, class: 'form-control', placeholder: 'Subject' %>
+              </div>
+            </div>
+
+            <div class="row collapse">
+              <div class="small-12 medium-12 columns">
+                <%= f.text_area :messages, class: 'form-control', cols: 40, rows: 7, placeholder: 'Message' %>
+              </div>
+            </div>
+
+            <div class='form-group'>
+              <%= f.submit 'Send Message', class: 'secondary hollow button' %>   
+            </div>
+          <% end %>
+
+        </div>
+      </div>
+
+      <div class="medium-4 small-12 columns hidden-xs">
+        <div class="address-contact">
+          <h2>Connect With Us</h2>
+          <div class='social-link facebook'>
+            <a href="https://www.facebook.com/JobInbox" target="_blank"><i class="fa fa-facebook fa-2x"></i></a> 
+          </div>
+
+          <div class='social-link twitter'>
+            <a href="https://twitter.com/inventivelabsco" target="_blank"><i class="fa fa-twitter fa-2x"></i></a> 
+          </div>
+
+          <div class='social-link linkedin'>
+            <a href="https://www.linkedin.com/company/inventtive/" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a> 
+          </div>
+      
+          <h3 class='office'>JobsMat</h3>
+          <span>
+            <i class='fa fa-map-marker'></i>&nbsp; 21, Matadi Street, <br>
+            &nbsp;&nbsp;&nbsp;Zone 3, Abuja 23409
+          </span><br><br>
+          <p><i class='fa fa-phone'></i>&nbsp;080 5046 2452</p>
+          <a href="mailto:info@jobsmat.com"><i class='fa fa-envelope'></i>&nbsp;info@jobsmat.com</a><br>
+          <a href="mailto:support@jobsmat.com"><i class='fa fa-envelope'></i>&nbsp;support@jobsmat.com</a>
+        </div>
+      </div>
+
+  </div>
+</div>

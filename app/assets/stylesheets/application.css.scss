@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
+
+//  @font-face { 
+//   font-family: 'JobInboxFont7';
+//   src: asset-url('optotypo-regular-webfont.eot');
+//   src: asset-url('optotypo-regular-webfont.eot?#iefix') format('embedded-opentype'),
+//        asset-url('optotypo-regular-webfont.ttf'),
+//        asset-url('optotypo-regular-webfont.woff') format('woff'),
+//        asset-url('optotypo-regular-webfont.woff2') format('woff2');
+// }
