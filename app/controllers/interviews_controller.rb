@@ -1,16 +1,15 @@
-before_action :set_interview, only: [:edit, :update, :destroy]
+class InterviewsController < ApplicationController
+  before_action :set_interview, only: [:edit, :update, :destroy]
   before_action :set_company
   before_action :require_signin, except: [:search, :index, :show]
   before_action :check_user, only: [:edit, :update, :destroy]
 
-  # respond_to :html
   def new
     @interview = Interview.new
     @company = Company.friendly.find(params[:id])
   end
 
   def edit
-    #@company = Company.friendly.find(params[:id])
   end
 
   def create
@@ -25,15 +24,6 @@ before_action :set_interview, only: [:edit, :update, :destroy]
         render :new
       end
     end
-    #     InterviewMailer.interview_created((current_employer || current_candidate), @company.employer, @interview.pros, @interview.cons, @interview.advice, @interview.company_name).deliver
-    #     format.html { redirect_to @company, notice: 'Interview was successfully created.' }
-    #     format.json { render :show, status: :created, location: @interview }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @interview.errors, status: :unprocessable_entity }
-    #   end
-    # end
-  # end
 
   def update
     respond_to do |format|
@@ -46,6 +36,7 @@ before_action :set_interview, only: [:edit, :update, :destroy]
       end
     end
   end
+
   def destroy
     @interview.destroy
     respond_to do |format|
