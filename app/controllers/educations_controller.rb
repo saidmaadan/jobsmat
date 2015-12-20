@@ -1,4 +1,5 @@
-before_action :set_candidate
+class EducationsController < ApplicationController
+  before_action :set_candidate
   before_action :require_signin
 
   def index
