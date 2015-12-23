@@ -1,0 +1,489 @@
+<div class='row profile'>
+  <div class='large-3 medium-4 columns'>
+    <div class='hidden-for-small-only'>
+      <% if @candidate.cand_image_url %>
+        <%= image_tag @candidate.cand_image_url, class: "clearing-thumbs data-clearing"  %>
+      <% else %>
+          <%= profile_image_for@candidate, class: "clearing-thumbs data-clearing" %></p>
+      <% end %>
+       <ul class="tabs vertical" data-tab>
+        <li class="tab-title active"><a href="#home">Home</a></li>
+        <li class="tab-title"><a href="#bio">Bio</a></li>
+        <li class="tab-title"><a href="#resume">Résumé and Links</a></li>
+        <li class="tab-title"><a href="#education">Education and Work</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class='hidden-for-medium-up small-12 columns'>
+    <ul class="tabs" data-tab>
+      <li class="tab-title active"><a href="#panel11">HOME</a></li>
+      <li class="tab-title"><a href="#bio">BIO</a></li>
+      <li class="tab-title"><a href="#resume">Résumé</a></li>
+      <li class="tab-title"><a href="#education">Work</a></li>
+    </ul>
+  </div>
+  <div class='large-9 medium-8 small-12 columns'>
+     <div class="tabs-content">
+      <div class="content active" id="home">
+        <%= form_for @candidate, :html => { :multipart => true } do |f| %>
+              <%= render "shared/errors", object: @candidate %>
+                <div class='row'>
+                  <div class='medium-12 small-12 columns text-center'>
+                    <p>Profile Photo</p>
+                  </div><br>
+                  <div class='medium-12 small-12 columns profile-home-tab'>
+                    <div class='row panel' >
+                        <div class='medium-1 columns'></div>
+                          <div class='medium-4 small-5 columns'>
+                            <% if @candidate.cand_image_url %>
+                              <%= image_tag @candidate.cand_image_url, class: "image_edit_profile" %>
+                            <% else %>
+                              <%= profile_image_for@candidate, class: "image_edit_profile" %></p>
+                            <% end %>
+                          </div>
+                          <div class='medium-6 small-7 columns'><br>
+                            <p>Profile photo add personality to your page.
+                            </p>
+                            <small>Click on save button to update your profile photo</small>
+                            <p><%= f.file_field :cand_image  %></p>
+                          </div>
+                        
+                        <div class='medium-1 columns'></div>
+                    </div>
+                  </div>
+                </div><br>
+                  
+
+                  <div class="form-group">
+                    <div class='row'>
+                      <div class='medium-3 small-12 columns'>
+                        <%= f.label :name %>
+                      </div>
+                      <div class='medium-9 small-12 columns'>
+                        <%= f.text_field :name, size: 50, class: "form-control" %>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class='row'>
+                      <div class='medium-3 small-12 columns'>
+                        <%= f.label :city, "Location:" %>
+                      </div>
+                      <div class='medium-9 small-12 columns'>
+                        <%= f.text_field :city, size: 50, class: "form-control" %>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class='row'>
+                      <div class='medium-3 small-12 columns'>
+                        <%= f.label :phone_number, "Phone*" %>
+                      </div>
+                      <div class='medium-9 small-12 columns'>
+                        <%= f.text_field :phone_number, size: 50, class: "form-control" %>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class='row'>
+                      <div class='medium-3 small-12 columns'>
+                        <%= f.label :bb_pin, "BBM PIN" %>
+                      </div>
+                      <div class='medium-9 small-12 columns'>
+                        <%= f.text_field :bb_pin, size: 50, class: "form-control" %>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class='row'>
+                      <div class='medium-3 small-12 columns'>
+                        <%= f.label :skype_id, "SKYPE-ID" %>
+                      </div>
+                      <div class='medium-9 small-12 columns'>
+                        <%= f.text_field :skype_id, size: 50, class: "form-control" %>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="form-group">
+                    <div class='row'>
+                      <div class='medium-3 small-12 columns'>
+                      
+                      </div>
+                      <div class='medium-9 small-12 columns'>
+                        <%= f.submit "Save", class: "success hollow button" %>
+                      </div>
+                    </div>
+                      
+                    
+                  </div>
+            <% end %>
+
+          
+      </div>
+      <div class="content" id="bio">
+        <%= form_for(@candidate) do |f| %>
+          <%= render "shared/errors", object: @candidate %>
+
+              <div class="form-group">
+                <div class='row'>
+                  <div class='medium-3 small-12 columns'>
+                    <%= f.label :headline %>
+                  </div>
+                  <div class='medium-9 small-12 columns'>
+                    <%= f.text_area :headline, cols: 40, rows: 2, class: "form-control" %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class='row'>
+                  <div class='medium-3 small-12 columns'>
+                    <%= f.label :about, "Short bio" %>
+                  </div>
+                  <div class='medium-9 small-12 columns'>
+                    <%= f.text_area :about, cols: 40, rows: 7, class: "form-control" %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class='row'>
+                  <div class='medium-3 small-12 columns'>
+                  
+                  </div>
+                  <div class='medium-9 small-12 columns'>
+                    <%= f.submit "Save", class: "success hollow button" %>
+                  </div>
+                </div>   
+              </div>
+        <% end %>
+      </div>
+
+      <div class="content" id="resume">
+        <%= form_for @candidate, :html => { :multipart => true } do |f| %>
+              <%= render "shared/errors", object: @candidate %>
+                  <div class='row'>
+                    <div class='small-columns text-center'>
+                      <p>Social Links and Resume</p>
+                    </div>
+                  </div><br>
+                   <div class="form-group">
+                    <div class='row'>
+                      <div class='small-4 columns'>
+                        <%= f.label :resume, "Résumé" %>
+                      </div>
+                      <div class='small-4 columns'>
+                        <p><%= f.file_field :resume %></p>
+                      </div>
+                      <div class='small-4 columns'>
+                        <p><%= link_to "resume.pdf", @candidate.resume_url, :target => "_blank" if @candidate.resume_url %></p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class='row'>
+                      <div class='medium-3 small-12 columns'>
+                        <%= f.label :portfolio_url, "Personal Website" %>
+                      </div>
+                      <div class='medium-9 small-12 columns'>
+                        <%= f.text_field :portfolio_url, class: "form-control" %>
+                      </div>
+                 
+                  </div><br>
+
+                   <div class='row'>
+                      <div class='medium-3 small-12 columns'>
+                        <%= f.label :projects_link, "PortFolio" %>
+                      </div>
+                      <div class='medium-9 small-12 columns'>
+                        <%= f.text_field :projects_link, class: "form-control" %>
+                      </div>
+                    
+                  </div><br>
+
+                  <div class="form-group">
+                    <div class='row'>
+                      <div class='medium-3 small-12 columns'>
+                        <%= f.label :linkedin_url %>
+                      </div>
+                      <div class='medium-9 small-12 columns'>
+                        <div class="row collapse">
+                          <div class="small-6 medium-6 columns">
+                            <span class="prefix">https://www.linkedin.com/in/</span>
+                          </div>
+                          <div class="small-6 medium-6 columns">
+                            <%= f.text_field :linkedin_url, size: 50, class: "form-control", placeholder: "username" %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class='row'>
+                      <div class='medium-3 small-12 columns'>
+                        <%= f.label :github_url %>
+                      </div>
+                      <div class='medium-9 small-12 columns'>
+                        <div class="row collapse">
+                          <div class="small-6 medium-6 columns">
+                            <span class="prefix">https://www.github.com/</span>
+                          </div>
+                          <div class="small-6 medium-6 columns">
+                            <%= f.text_field :github_url, size: 50, class: "form-control", placeholder: "username" %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class='row'>
+                      <div class='medium-3 small-12 columns'>
+                        <%= f.label :facebook_url %>
+                      </div>
+                      <div class='medium-9 small-12 columns'>
+                        <div class="row collapse">
+                          <div class="small-6 medium-6 columns">
+                            <span class="prefix">https://www.facebook.com/</span>
+                          </div>
+                          <div class="small-6 medium-6 columns">
+                            <%= f.text_field :facebook_url, size: 50, class: "form-control", placeholder: "username" %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                 
+                  <div class="form-group">
+                    <div class='row'>
+                      <div class='medium-3 small-12 columns'>
+                        <%= f.label :twitter_url %>
+                      </div>
+                      <div class='medium-9 small-12 columns'>
+                        <div class="row collapse">
+                          <div class="small-6 medium-6 columns">
+                            <span class="prefix">https://www.twitter.com/</span>
+                          </div>
+                          <div class="small-6 medium-6 columns">
+                            <%= f.text_field :twitter_url, size: 50, class: "form-control", placeholder: "username" %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                 <div class="form-group">
+                    <div class='row'>
+                      <div class='medium-3 small-12 columns'>
+                        <%= f.label :dribbble_url %>
+                      </div>
+                      <div class='medium-9 small-12 columns'>
+                        <div class="row collapse">
+                          <div class="small-6 medium-6 columns">
+                            <span class="prefix">https://www.dribbble.com/</span>
+                          </div>
+                          <div class="small-6 medium-6 columns">
+                            <%= f.text_field :dribbble_url, size: 50, class: "form-control", placeholder: "username" %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class='row'>
+                      <div class='medium-3 small-12 columns'>
+                      
+                      </div>
+                      <div class='medium-9 small-12 columns'>
+                        <%= f.submit "Save", class: "success hollow button" %>
+                      </div>
+                    </div>
+                  </div>    
+            <% end %>
+
+      </div>
+      <div class="content" id="education">
+        <div class="educations-profile">
+            <div class="panel">
+                <h1 class='text-center'>Work and Education</h1><br>
+                <h2>Work History</h2><br>
+                <%= form_for([@candidate, @work]) do |f| %>
+                <%= render "shared/errors", object: @work %>
+                <div class="row">
+                  <div class='medium-6 columns'>
+                    <div class='form-group'>
+                      <%= f.text_field :company, class: 'form-control', placeholder: 'Company Name' %>
+                    </div>
+                  </div>
+                  <div class='medium-6 columns'>
+                    <div class='form-group'>
+                      <%= f.text_field :position, class: 'form-control', placeholder: 'Position' %>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class='large-2 medium-6 small-6 columns'>
+                    <div class='form-group'>
+                      <%= f.select :start_month, Work::START_MONTH, prompt: "START", class: "form-control" %>
+                      <%#= f.text_field :start_month, class: 'form-control', placeholder: 'Mon' %>
+                    </div>
+                  </div>
+                  <div class='large-2 medium-6 small-6 columns'>
+                    <div class='form-group'>
+                      <%= f.select :start_year, Work::START_YEAR, prompt: "START", class: "form-control" %>
+                    </div>
+                  </div>
+                  <div class='large-1 columns hidden-for-medium hidden-for-small-only text-center'> — </div>
+                  <div class='large-2 medium-6 small-6 columns'>
+                    <div class='form-group'>
+                      <%= f.select :end_month, Work::END_MONTH, prompt: "END", class: "form-control" %>
+                    </div>
+                  </div>
+                  <div class='large-2 medium-6 small-6 columns'>
+                    <div class='form-group'>
+                      <%= f.select :end_year, Work::END_YEAR, prompt: "END", class: "form-control" %>
+                    </div>
+                  </div>
+                  <div class='large-3 medium-12 small-12 columns '>
+                    <div class='form-group'>
+                             <%= f.select :status, Work::STATUS, prompt: "JOB STATUS", class: "form-control" %>
+                    </div>
+                  </div>
+                </div>
+              
+
+            <div class="row">
+              
+              <div class='small-12 columns text-center'>
+                <div class='form-group'>
+                  <%= f.text_area :description, cols: 40, rows: 7, class: 'form-control', placeholder: 'Summary' %>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              
+              <div class='small-12 columns text-center'>
+                <div class='form-group'>
+                  <%= f.submit "ADD", class: 'success hollow button' %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <% end %>
+        <% if @works.any? %>  
+          <% @works.each do |w| %>
+          <div class="works-profile">
+            <div class='row panel'>
+              <div class='medium-3 small-6 columns'>
+                <h5><%= w.company %></h5>
+              </div>
+              <div class='medium-3 small-6 columns'>
+                <h5><%= w.position %></h5>
+              </div>
+              <div class='medium-4 small-7 columns'>
+                <h5><%= w.start_month %> <%= w.start_year %> — 
+                <% if w.status == "CURRENT" %>
+                  <%= "present" %>
+                <% else %>
+                  <%= w.end_month %> <%= w.end_year %></h5>
+                <% end %>
+              </div>
+              <div class='medium-2 small-5 columns'>
+                <%= link_to "Edit", edit_candidate_work_path(@candidate, w) %> 
+                <%= link_to 'Delete', candidate_work_path(@candidate, w), method: :delete, data: {confirm: "Are You Sure?"} %>
+                
+              </div>
+              <div class='medium-12 small-12 columns'>
+                <%= w.description %>
+              </div>
+            </div><br>
+          </div>  
+          <% end %>
+        <% end %>
+
+
+        <div class='profile-education'>
+          <div class='panel'>
+            <h2>Education <span>*</span></h2>
+            <p>Enter "self taught" if you have no formal education</p>
+            <%= form_for([@candidate, @education]) do |f| %>
+              <%= render "shared/errors", object: @education %>
+              <div class="row">
+                <div class='small-5 columns'>
+                  <div class='form-group'>
+                    <%= f.text_field :school, class: 'form-control', placeholder: 'University/College' %>
+                  </div>
+                </div>
+                <div class='medium-5 small-8 columns'>
+                  <div class='form-group'>
+                    <%= f.text_field :degree, class: 'form-control', placeholder: 'B.S, Computer Science' %>
+                  </div>
+                </div>
+                <div class='medium-2 small-4 columns'>
+                  <div class='form-group'>
+                    <%= f.select :year, Education::YEAR, prompt: "YEAR", class: "form-control" %>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="row">
+                
+                <div class='medium-10 columns text-center'>
+                  <div class='form-group'>
+                    <%= f.submit "ADD", class: 'success hollow button' %>
+                  </div>
+                </div>
+              </div>
+              
+
+            <% end %>
+          </div>
+        </div>  
+
+        <div class='education-content'>
+          <% if @educations.any? %> 
+            <div class="panel">
+             
+              <% @educations.each do |e| %>
+                <div class='row'>
+                  <div class='medium-4 small-6 columns'>
+                    <h5><%= e.school %></h5>
+                  </div>
+                  <div class='medium-4 small-6 columns'>
+                    <h5><%= e.degree %></h5>
+                  </div>
+                  <div class='medium-2 small-6 columns'>
+                    <h5><%= e.year %></h5> 
+                  </div>
+                  <div class='medium-2 small-6 columns'>
+                    <%= link_to "Edit", edit_candidate_education_path(@candidate, e) %> 
+                    <%= link_to 'Delete', candidate_education_path(@candidate, e), method: :delete, data: {confirm: "Are You Sure?"} %>
+                    
+                  </div>
+                </div><br>  
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+        
+      </div>
+      <br><br>
+      </div>
+    </div>
+   </div>
+</div>
+
+ 
+    

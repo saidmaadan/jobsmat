@@ -44,7 +44,7 @@ class Employer < ActiveRecord::Base
   end
 
   def gravatar_id
-    Digest::MD5::hexdigest(email.downcase)
+    Digest::MD5::hexdigest(employer.email.downcase)
   end
 
   def self.authenticate(email_or_username, password)

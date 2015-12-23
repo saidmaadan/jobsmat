@@ -47,8 +47,15 @@ class CandidatesController < ApplicationController
     @candidate = Candidate.friendly.find(params[:id])
   end
 
-  def editprofile
+  def profile
     @candidate = Candidate.friendly.find(params[:id])
+    @work = Work.new
+    @work.candidate_id = @work_id
+    @works = Work.where(candidate_id: @candidate.id).order("created_at DESC")
+
+    @education = Education.new
+    @education.candidate_id = @education_id
+    @educations = Education.where(candidate_id: @candidate.id).order("created_at DESC")
   end
 
 
@@ -76,7 +83,7 @@ class CandidatesController < ApplicationController
     end
 
   def candidate_params
-    params.require(:candidate).permit(:name,:email,:password,:password_confirmation,:username,:about, :headline, :experience, :education, :desired_salary, :city, :zip_code, :country, :phone, :github_url, :twitter_url, :linkedin_url, :dribbble_url, :facebook_url, :provider, :uid, :auth_token, :skype_id, 
+    params.require(:candidate).permit(:name,:email,:password,:password_confirmation,:username,:about, :headline, :experience, :education, :desired_salary, :city, :zip_code, :country, :phone_number, :bb_pin, :github_url, :twitter_url, :linkedin_url, :dribbble_url, :facebook_url, :provider, :uid, :auth_token, :skype_id, 
       :availability, :skills, :job_type, :languages, :how_heard, :cand_image, :resume, :projects_link, :portfolio_url, :favorite_website, :image_url)
   end
 

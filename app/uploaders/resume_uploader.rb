@@ -6,7 +6,7 @@ class ResumeUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
   def extension_white_list
-    %w(jpg jpeg gif png)
+    %w(pdf doc)
   end
 
   # Choose what kind of storage to use for this uploader:

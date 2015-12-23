@@ -1,0 +1,70 @@
+<div class='row'>
+    <div class='medium-1 columns'></div>
+    <div class='medium-10 columns'>
+      <%= form_for([@candidate, @work]) do |f| %>
+      <%= render "shared/errors", object: @work %>
+      <div class="row">
+        <div class='medium-6 columns'>
+          <div class='form-group'>
+            <%= f.text_field :company, class: 'form-control', placeholder: 'Company Name' %>
+          </div>
+        </div>
+        <div class='medium-6 columns'>
+          <div class='form-group'>
+            <%= f.text_field :position, class: 'form-control', placeholder: 'Position' %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+            <div class='medium-2 small-3 columns'>
+              <div class='form-group'>
+                <%= f.text_field :start_month, class: 'form-control', placeholder: 'Mon' %>
+              </div>
+            </div>
+            <div class='medium-2 small-3 columns'>
+              <div class='form-group'>
+                <%= f.text_field :start_year, class: 'form-control', placeholder: 'Year' %>
+              </div>
+            </div>
+            <div class='medium-1 small-1 columns text-center'> -- </div>
+            <div class='medium-2 small-3 columns'>
+              <div class='form-group'>
+                <%= f.text_field :end_month, class: 'form-control', placeholder: 'Mon' %>
+              </div>
+            </div>
+            <div class='medium-2 small-3 columns'>
+              <div class='form-group'>
+                <%= f.text_field :end_year, class: 'form-control', placeholder: 'Year' %>
+              </div>
+            </div>
+            <div class='medium-2 small-3 columns'>
+              <div class='form-group'>
+                <%= f.select :status, Work::STATUS, prompt: "Status", class: "form-control" %>
+              </div>
+            </div>
+          </div>
+
+
+      <div class="row">
+        
+        <div class='medium-10 columns text-center'>
+          <div class='form-group'>
+            <%= f.text_area :description, class: 'form-control', placeholder: 'Summary' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        
+        <div class='medium-10 columns text-center'>
+          <div class='form-group'>
+            <%= f.submit "ADD", class: 'success hollow button' %>
+          </div>
+        </div>
+      </div>
+      
+
+      <% end %>
+    </div>
+    <div class='medium-1 columns'></div>
+  </div>

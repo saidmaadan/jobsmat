@@ -2,3 +2,100 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "custom";
+
+.profile-home-tab{
+  .panel{
+    background: $lightgreen-color;
+    border-radius: 20px;
+    img{
+      border-radius: 50%;
+      height: 200px
+
+    }
+  }
+}
+.cand-profile-image{
+  width: 156px;
+  height: 130px;
+  margin: auto;
+}
+.clearing-thumbs img{
+  width: 100%;
+  height: 100%;
+}
+.image_menu img{
+  width: 50px;
+  height: 50px;
+}
+.edit-table{
+  width: 100%;
+  table{
+    background: #FFFFFF;
+    border: solid 0px #DDDDDD;
+    margin-bottom: 1.25rem;
+    table-layout: auto;
+    .fa{
+      margin-right: 10px;
+    }
+    thead{
+      background-color: $green-color;
+      color: $white-color;
+
+      :hover{
+        color: $white-color;
+      }
+      th{
+        a{
+          color: $gray-color;
+         }
+      }
+    }
+  }
+}
+.edit-form .panel{
+  background: #eaf4ee;
+}
+.profile{
+  .tabs-content{
+    border: solid 1px $lightgreen-color;
+    padding: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+  }
+  img{
+    width: 90%;
+    height: 250px;
+  }
+ .tabs.vertical {
+    float: left;
+    margin: 0;
+    margin-bottom: 1.25rem !important;
+    max-width: 90%;
+    width: 90%;
+  }
+  .tabs dd > a, .tabs .tab-title > a {
+    display: block;
+    background-color: $lightgreen-color;
+    color: #222222;
+    font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    font-size: 1rem;
+    padding: 1rem 2rem;
+  }
+}
+.profile .tabs dd > a, .profile .tabs .tab-title > a:hover {
+  background-color: $green-color;
+  color: $white-color;
+}
+ul.off-canvas-list li label {
+  border-top: 0px solid #fff;
+}
+.show-img{
+  width: 100%;
+  img{
+    width: 156px;
+    height: 130px;
+    margin: auto;
+  }
+}

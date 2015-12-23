@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   resource :session
   
   get "signup" => "candidates#new", as: "signup"
-  get "candidates/:id/editprofile" => "candidates#editprofile", as: "profile/info"
+  get "update" => "candidates#edit", as: "update"
+  get "candidates/:id/profile" => "candidates#profile", as: "profile/info"
   resources :candidates do
     collection do
       get 'search'
@@ -28,6 +29,7 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
+  get "jobs/add" => "jobs#new", as: "jobs/add"
   resources :jobs do
     collection do
       get 'search'

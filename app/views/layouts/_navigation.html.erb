@@ -11,17 +11,58 @@
 
 <aside class="left-off-canvas-menu">
   <ul class="off-canvas-list">
-    <li><label>MENU</label></li>
-    <li class="name"><%= link_to 'Home', root_path %></li>
-    <li><%= link_to 'About', about_path %></li>
-    <li><a href="#">The Mayors</a></li>
-    <li><a href="#">The Traders</a></li>
-    <li><a href="#">The Merchant Princes</a></li>
-    <li><label>AUTHENTICATION</label></li>
-    <li><a href="#">The General</a></li>
-    <li><a href="#">The Mule</a></li>
-    <li><a href="#">Search by the Mule</a></li>
-    <li><a href="#">Search by the Foundation</a></li>
+    <% if current_candidate %>
+      <li><label>
+        <% if current_candidate.cand_image_url %>
+          <%#= link_to (image_tag current_candidate.cand_image_url, class: "image_menu"), current_candidate %>
+        <%# else %>
+          <label><%= profile_image_for@candidate %>&nbsp; <%= @candidate.name %></label>
+        <% end %>   
+      </li>
+      <li class="name"><%= link_to " @#{@candidate.username}", current_candidate %></li>
+      <li><i class="fa-fa-user"></i><%= link_to " Profile", current_candidate %></li> 
+      <li><%= link_to " Edit Profile", profile_info_path(current_candidate) %></li>
+      <li><%= link_to "Account Settings", edit_candidate_path(current_candidate) %></li>
+      <li><%= link_to ' Sign Out', session_path, method: :delete, class: ' fa fa-cut ' %></li>
+      <% if current_candidate_admin? %>
+        <li class="divider"></li>
+        <li><%= link_to ' Delete Account', @candidate, 
+            method: :delete, class: 'fa fa-warning ',
+            data: { confirm: 'Are you sure you want to permanently delete your account?' } %></li>
+      <% end %>
+    <% elsif current_employer %>
+      <li>
+        <% if current_employer.emp_image_url %>
+          <label><%= link_to (image_tag current_employer.emp_image_url), current_employer %>
+        <% else %>
+            <i class='fa fa-user fa-2x'></i>
+            <%= profile_image_for@employer %></label>
+        <% end %>
+      </li>
+      <li><%= link_to "Profile", current_employer %></li>
+      <li><%= link_to " Update Profile", profile_update_path(current_employer) %></li>
+      <li><%= link_to "Account Settings", edit_employer_path(current_employer) %></li>
+      <li><%=  link_to "Post Job", new_job_path %></li>
+      <li><%= link_to ' Sign Out', session_path, method: :delete, class: ' fa fa-cut ' %></li>
+      <% if current_employer_admin? %>
+        <li class="divider"></li>
+        <li><%= link_to ' Delete Account', @employer, 
+          method: :delete, class: 'fa fa-warning ',
+          data: { confirm: 'Are you sure you want to permanently delete your account?' } %></li>
+      <% end %> 
+    <% else %>
+      <li><label>MENU</label></li>
+   
+      <li class="name"><i class="fi-home"></i><%= link_to 'Applicant', signup_path %></li>
+      <li><%= link_to 'Employer', register_path %></li>
+      <li><%= link_to 'Login', signin_path %></li>
+    <% end %>
+    <li><label>Discover</label></li>
+    <li><%=  link_to "Jobs", jobs_path %></li>
+    <li><%=  link_to "Post a Job", new_job_path %></li>
+    <li><%= link_to ' Companies', companies_path %></li>
+    <li><%= link_to ' Tips & Insights', tips_path%></li>
+    <li><%= link_to ' Advanced Search', search_jobs_path %></li>
   </ul>
 </aside>
 
