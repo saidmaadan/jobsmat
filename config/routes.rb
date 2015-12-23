@@ -14,9 +14,6 @@ Rails.application.routes.draw do
   get "update" => "candidates#edit", as: "update"
   get "candidates/:id/profile" => "candidates#profile", as: "profile/info"
   resources :candidates do
-    collection do
-      get 'search'
-    end
     resources :works
     resources :educations
   end
