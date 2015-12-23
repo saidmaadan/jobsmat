@@ -11,7 +11,7 @@
                 <% if candidate.cand_image_url %>
                   <%= image_tag candidate.cand_image_url, class: "clearing-thumbs data-clearing"  %>
                 <% else %>
-                    <%= profile_image_forcandidate, class: "clearing-thumbs data-clearing" %></p>
+                    <%= profile_image_for(candidate), class: "clearing-thumbs data-clearing" %></p>
                 <% end %>
             </div>
             <div class='medium-8 small-7 colums'>
