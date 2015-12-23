@@ -4,13 +4,13 @@ class CandidatesController < ApplicationController
   before_action :correct_candidate, only: [:edit, :update, :delete]
   before_action :require_admin, only: [:delete]
 
-  def search
-    if params[:search].present?
-      @candidates = Candidate.search(params[:search])
-    else
-      @candidates = Candidate.order("created_at DESC").limit(3)
-    end
-  end
+  # def search
+  #   if params[:search].present?
+  #     @candidates = Candidate.search(params[:search])
+  #   else
+  #     @candidates = Candidate.order("created_at DESC").limit(3)
+  #   end
+  # end
   
   def index
     @candidates = Candidate.all 
@@ -84,7 +84,7 @@ class CandidatesController < ApplicationController
 
   def candidate_params
     params.require(:candidate).permit(:name,:email,:password,:password_confirmation,:username,:about, :headline, :experience, :education, :desired_salary, :city, :zip_code, :country, :phone_number, :bb_pin, :github_url, :twitter_url, :linkedin_url, :dribbble_url, :facebook_url, :provider, :uid, :auth_token, :skype_id, 
-      :availability, :skills, :job_type, :languages, :how_heard, :cand_image, :resume, :projects_link, :portfolio_url, :favorite_website, :image_url)
+      :availability, :skills, :job_type, :languages, :how_heard, :cand_image, :resume, :projects_link, :portfolio_url, :favorite_website, :image_url, :slug)
   end
 
 end
