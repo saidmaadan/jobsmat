@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "custom";
 
+//------------------------PROFILE----------------------------
 .profile-home-tab{
   .panel{
     background: $lightgreen-color;
@@ -52,17 +53,20 @@
     }
   }
 }
-.edit-form .panel{
-  background: #eaf4ee;
-}
+
 .profile{
+  margin-top: 40px;
+  .profile-img{
+    margin-top: 40px;
+  }
   .tabs-content{
+    margin-top: 40px;
     border: solid 1px $lightgreen-color;
     padding: 15px;
     padding-left: 20px;
     padding-right: 20px;
     border-radius: 10px;
-    margin-top: 30px;
+    background: $white-color;
   }
   img{
     width: 90%;
@@ -91,11 +95,65 @@
 ul.off-canvas-list li label {
   border-top: 0px solid #fff;
 }
+.educations-profile{
+  .work{
+    border: 1px solid $lightgreen-color;
+    background: $white-color;
+    border-radius: 15px;
+    padding: 15px 20px;
+    margin-bottom: 30px;
+  }
+  .works{
+    border: 1px solid $lightgreen-color;
+    background: $lightgray-color;
+    border-radius: 15px;
+    padding: 15px 20px;
+    margin-bottom: 30px;
+  }
+}
+.works-profile .works{
+    border: 1px solid $lightgreen-color;
+    background: $lightgray-color;
+    border-radius: 15px;
+    padding: 15px 20px;
+    margin-bottom: 30px;
+  }
+//------------------------SHOW----------------------------
 .show-img{
   width: 100%;
   img{
     width: 156px;
     height: 130px;
     margin: auto;
+  }
+}
+.show-content{
+  margin-top: 20px;
+  border: solid 1px $lightgreen-color;
+  border-radius: 10px;
+  background: $white-color;
+  padding: 20px 20px;
+  width: 100%;
+}
+.show-aside{
+  margin-top: 20px;
+  border: solid 1px $lightgreen-color;
+  border-radius: 10px;
+  background: $white-color;
+  padding: 20px 20px;
+  h3{
+    color: $green-color;
+    border-bottom: 1px solid $lightgreen-color;
+  }
+}
+//------------------------EDIT----------------------------
+.edit-candidates{
+  margin-top: 60px;
+  .edit-form{
+    margin-top: 30px;
+    border: solid 1px $lightgreen-color;
+    border-radius: 10px;
+    background: $white-color;
+    padding: 20px 30px;
   }
 }

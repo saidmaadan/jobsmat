@@ -1,5 +1,5 @@
 <div class='row profile'>
-  <div class='large-3 medium-4 columns'>
+  <div class='large-3 medium-4 columns profile-img'>
     <div class='hidden-for-small-only'>
       <% if @candidate.cand_image_url %>
         <%= image_tag @candidate.cand_image_url, class: "clearing-thumbs data-clearing"  %>
@@ -312,7 +312,7 @@
       </div>
       <div class="content" id="education">
         <div class="educations-profile">
-            <div class="panel">
+            <div class="work">
                 <h1 class='text-center'>Work and Education</h1><br>
                 <h2>Work History</h2><br>
                 <%= form_for([@candidate, @work]) do |f| %>
@@ -379,42 +379,50 @@
             </div>
           </div>
         </div>
-
         <% end %>
-        <% if @works.any? %>  
-          <% @works.each do |w| %>
-          <div class="works-profile">
-            <div class='row panel'>
-              <div class='medium-3 small-6 columns'>
-                <h5><%= w.company %></h5>
-              </div>
-              <div class='medium-3 small-6 columns'>
-                <h5><%= w.position %></h5>
-              </div>
-              <div class='medium-4 small-7 columns'>
-                <h5><%= w.start_month %> <%= w.start_year %> — 
-                <% if w.status == "CURRENT" %>
-                  <%= "present" %>
-                <% else %>
-                  <%= w.end_month %> <%= w.end_year %></h5>
-                <% end %>
-              </div>
-              <div class='medium-2 small-5 columns'>
-                <%= link_to "Edit", edit_candidate_work_path(@candidate, w) %> 
-                <%= link_to 'Delete', candidate_work_path(@candidate, w), method: :delete, data: {confirm: "Are You Sure?"} %>
-                
-              </div>
-              <div class='medium-12 small-12 columns'>
-                <%= w.description %>
-              </div>
-            </div><br>
-          </div>  
-          <% end %>
+        <div class="works-profile">
+          <% if @works.any? %>
+          <div class='works'>  
+            <% @works.each do |w| %>
+              <div class='row'>
+
+                <div class='medium-3 small-6 columns'>
+                  <h5><%= w.company %></h5>
+                </div>
+
+                <div class='medium-3 small-6 columns'>
+                  <h5><%= w.position %></h5>
+                </div>
+
+                <div class='medium-4 small-7 columns'>
+                  <h5><%= w.start_month %> <%= w.start_year %> — 
+                  <% if w.status == "CURRENT" %>
+                    <%= "present" %>
+                  <% else %>
+                    <%= w.end_month %> <%= w.end_year %></h5>
+                  <% end %>
+                </div>
+
+                <div class='medium-2 small-5 columns'>
+                  <%= link_to "Edit", edit_candidate_work_path(@candidate, w) %> 
+                  <%= link_to 'Delete', candidate_work_path(@candidate, w), method: :delete, data: {confirm: "Are You Sure?"} %>
+                  
+                </div>
+
+                <div class='medium-12 small-12 columns'>
+                  <%= w.description %>
+                </div>
+
+              </div><br>
+            
+            <% end %>
+          </div>
         <% end %>
+      </div>  
 
 
-        <div class='profile-education'>
-          <div class='panel'>
+        <div class='educations-profile'>
+          <div class='work'>
             <h2>Education <span>*</span></h2>
             <p>Enter "self taught" if you have no formal education</p>
             <%= form_for([@candidate, @education]) do |f| %>
@@ -451,9 +459,9 @@
           </div>
         </div>  
 
-        <div class='education-content'>
+        <div class='works-profile'>
           <% if @educations.any? %> 
-            <div class="panel">
+            <div class="works">
              
               <% @educations.each do |e| %>
                 <div class='row'>
