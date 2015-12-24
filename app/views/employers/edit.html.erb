@@ -1,0 +1,29 @@
+<div class='employers-edit'>
+  <div class='row'>
+    <div class='medium-3 columns'>
+      <% if @employer.emp_image_url %>
+        <%= image_tag @employer.emp_image_url, class: 'img-responsive' %>
+      <% else %>
+        <%= profile_image_for@employer, class: "img-responsive" %>
+      <% end %> 
+    </div>
+  <div class='medium-6 columns'>
+    <h2 class='text-center'>Account Setting</h2>
+    <%= render 'form' %>
+  </div>
+  <div class='medium-3 columns'>
+    <h3>Latest Jobs</h3><hr>
+    <% Job.all.order('created_at DESC').limit(5).each do |job| %>
+       <% if job %>
+          <div class='row'>
+            <div class='medium-12 columns employers-main'>
+              <h2><%= link_to job.title, job %></h2>
+            </div>
+          </div>
+          <% end %>
+      <% end %>
+        
+  </div>
+
+  </div>
+</div>
