@@ -1,0 +1,33 @@
+<div class='row'>
+  <div class='medium-10 medium-offset-1 columns'>
+    <%= form_for([@candidate, @education]) do |f| %>
+      <%= render "shared/errors", object: @education %>
+      <div class="row">
+        <div class='medium-5 columns'>
+          <div class='form-group'>
+            <%= f.text_field :school, placeholder: 'University/College' %>
+          </div>
+        </div>
+        <div class='medium-6 columns'>
+          <div class='form-group'>
+            <%= f.text_field :degree, placeholder: 'B.S, Computer Science' %>
+          </div>
+        </div>
+        <div class='medium-6 columns'>
+          <div class='form-group'>
+            <%= f.select :year, Education::YEAR, prompt: "YEAR" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        
+        <div class='medium-10 columns text-center'>
+          <div class='form-group'>
+            <%= f.submit "ADD", class: 'success button' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

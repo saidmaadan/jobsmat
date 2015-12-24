@@ -5,10 +5,10 @@ class Job < ActiveRecord::Base
   has_many :applies
 
   extend FriendlyId
-  friendly_id :slug_candidates, use: :slugged
+  friendly_id :slug_jobs, use: :slugged
   searchkick
   
-  def slug_candidates
+  def slug_jobs
     [
       :title,
       [:title, :skills],

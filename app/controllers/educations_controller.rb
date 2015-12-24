@@ -22,11 +22,11 @@ class EducationsController < ApplicationController
 
   def edit
     # @candidate = Candidate.friendly.find(params[:id])
-    @education = Education.find(params[:id])
+    @education = Education.friendly.find(params[:id])
   end
 
   def update
-    @education = Education.find(params[:id])
+    @education = Education.friendly.find(params[:id])
     if @education.update(education_params)
       redirect_to candidate_path(@candidate), notice: "Education Status Updated"
     else
@@ -35,7 +35,7 @@ class EducationsController < ApplicationController
   end
 
   def destroy
-    @education = @candidate.educations.find(params[:id])
+    @education = @candidate.educations.friendly.find(params[:id])
     @education.destroy
     redirect_to candidate_path(@candidate), notice: "School Removed"
   end

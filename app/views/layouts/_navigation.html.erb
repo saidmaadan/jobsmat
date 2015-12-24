@@ -14,9 +14,9 @@
     <% if current_candidate %>
       <li><label>
         <% if current_candidate.cand_image_url %>
-          <%#= link_to (image_tag current_candidate.cand_image_url, class: "image_menu"), current_candidate %>
-        <%# else %>
-          <label><%= profile_image_for@candidate %>&nbsp; <%= @candidate.name %></label>
+          <%= link_to (image_tag current_candidate.cand_image_url, class: "image_menu"), current_candidate %>
+        <% else %>
+          <label><%= profile_image_for@candidate %>&nbsp; Hello <%= @candidate.name %></label>
         <% end %>   
       </li>
       <li class="name"><%= link_to " @#{@candidate.username}", current_candidate %></li>

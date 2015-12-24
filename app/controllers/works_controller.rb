@@ -21,11 +21,11 @@ class WorksController < ApplicationController
 
   def edit
     # @candidate = Candidate.friendly.find(params[:id])
-    @work = Work.find(params[:id])
+    @work = Work.friendly.find(params[:id])
   end
 
   def update
-    @work = Work.find(params[:id])
+    @work = Work.friendly.find(params[:id])
     if @work.update(work_params)
       redirect_to candidate_path(@candidate), notice: "WorK Experience Updated"
     else
@@ -34,7 +34,7 @@ class WorksController < ApplicationController
   end
 
   def destroy
-    @work = @candidate.works.find(params[:id])
+    @work = @candidate.works.friendly.find(params[:id])
     @work.destroy
     redirect_to candidate_path(@candidate), notice: "Work Removed"
   end

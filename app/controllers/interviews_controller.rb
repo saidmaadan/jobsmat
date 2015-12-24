@@ -47,7 +47,7 @@ class InterviewsController < ApplicationController
 
   private
     def set_interview
-      @interview = Interview.find(params[:id])
+      @interview = Interview.friendly.find(params[:id])
     end
 
     def set_company

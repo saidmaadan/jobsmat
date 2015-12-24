@@ -1,36 +1,118 @@
-<div class='row'>
-    <div class='large-4 medium-3 columns hidden-for-small-only'>
-    <br>
-
-      <p>
+<div class='row edit-candidates'>
+  <div class='large-3 medium-4 columns hidden-for-small-only'>
+  <br>
+    <div class='cand-profile-image clearing-thumbs'>
       <% if @candidate.cand_image_url %>
         <%= image_tag @candidate.cand_image_url %>
       <% else %>
         <%= profile_image_for@candidate %></p>
       <% end %>
-      
-      <div class="list-group">
-         <% if  @candidate.resume_url %>
-          <%= link_to "Résumé", @candidate.resume_url, :target => "_blank", class: "list-group-item active" if @candidate.resume_url  %>
-        <% else %>
-          <%= link_to "Upload Résumé", profile_info_path+"#resume", class: "list-group-item active" if current_candidate?(@candidate) %>
-        <% end %>
-        
-        
-        
-        <%= link_to "Personal Website", @candidate.portfolio_url, target: "_blank", class: "list-group-item" if @candidate.portfolio_url  %>
-        <%= link_to "Blog/PortFolio", @candidate.projects_link, target: "_blank", class: "list-group-item" if @candidate.projects_link  %>
-        <%= link_to "Linkedin", "http://linkedin.com/in/" + @candidate.linkedin_url, target: "_blank", class: "list-group-item" if @candidate.linkedin_url %>
-        <%= link_to "Twitter", "http://twitter.com/" + @candidate.twitter_url, target: "_blank", class: "list-group-item" if @candidate.twitter_url %>
-        <%= link_to "Github", "http://github.com/" + @candidate.github_url, target: "_blank", class: "list-group-item" if @candidate.github_url %>
-        <%= link_to "Facebook", "http://facebook.com/" + @candidate.facebook_url, target: "_blank", class: "list-group-item" if @candidate.facebook_url %>
-        <%= link_to "Dribbble", "http://dribbble.com/" + @candidate.dribbble_url, target: "_blank", class: "list-group-item" if @candidate.dribbble_url %>
-        <a href="#" class="list-group-item"><%= @candidate.linkedin_url %></a>
-      </div>
     </div>
-    <div class='large-8 medium-8 small-12 columns edit-works'>
+    <%#= @candidate.image_url %>
+    <%#= @candidate.headline %>
+    <div class='edit-table'>
+      <table>
+        <thead>
+          <tr>
+            <th style= "width=100%">
+              </i><% if  @candidate.resume_url %>
+              <i class='fa fa-briefcase'></i>
+              <%= link_to "Résumé", @candidate.resume_url, :target => "_blank" if @candidate.resume_url  %>
+            <% else %>
+              <i class='fa fa-briefcase fa-1x'></i>
+              </i><%= link_to "Upload Résumé", profile_info_path+"#resume" if current_candidate?(@candidate)  %>
+            <% end %>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if @candidate.portfolio_url %> 
+            <tr>
+              <td><%= link_to "Personal Website", @candidate.portfolio_url, target: "_blank" %></td>
+            </tr>
+          <% end %>
+          <% if @candidate.projects_link %>
+            <tr>
+              <td><%= link_to "Blog/PortFolio", @candidate.projects_link, target: "_blank" %></td>
+            </tr>
+          <% end %>
+          <% if @candidate.linkedin_url %>
+            <tr>
+              <td><%= link_to "Linkedin", "http://linkedin.com/in/" + @candidate.linkedin_url, target: "_blank"  %></td>
+            </tr>
+          <% end %>
+          <% if @candidate.twitter_url %>
+            <tr>
+              <td><%= link_to "Twitter", "http://twitter.com/" + @candidate.twitter_url, target: "_blank"  %></td>
+            </tr>
+          <% end %>
+          <% if @candidate.github_url %>
+            <tr>
+              <td><%= link_to "Github", "http://github.com/" + @candidate.github_url, target: "_blank" %></td>
+            </tr>
+          <% end %>
+          <% if @candidate.facebook_url %>
+            <tr>
+              <td><%= link_to "Facebook", "http://facebook.com/" + @candidate.facebook_url, target: "_blank"  %></td>
+            </tr>
+          <% end %>
+          <tr>
+            <td><%= link_to "Update Profile", profile_info_path(current_candidate) %></td>
+          </tr>
+          <tr>
+            <td><%= link_to "Settings", edit_candidate_path(current_candidate) %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class='small-12 columns hidden-for-medium-up'>
+    <div class='edit-table'>
+      <table>
+        <thead>
+          <tr>
+            <th style= "width=100%">
+            <% if  @candidate.resume_url %>
+              <%= link_to "Résumé", @candidate.resume_url, :target => "_blank" if @candidate.resume_url  %>
+            <% else %>
+              <%= link_to "Upload Résumé", profile_info_path+"#resume" if current_candidate?(@candidate)  %>
+            <% end %>
+            </th>         
+            <% if @candidate.portfolio_url %> 
+              <th><%= link_to "Personal Website", @candidate.portfolio_url, target: "_blank" %>
+              </th> 
+            <% end %>
+            <% if @candidate.projects_link %> 
+              <th><%= link_to "Blog/PortFolio", @candidate.projects_link, target: "_blank" %>
+              </th>
+            <% end %>
+            <% if @candidate.linkedin_url %> 
+              <th><%= link_to "Linkedin", "http://linkedin.com/in/" + @candidate.linkedin_url, target: "_blank"  %>
+              </th>  
+            <% end %>
+            <% if @candidate.twitter_url %> 
+              <th><%= link_to "Twitter", "http://twitter.com/" + @candidate.twitter_url, target: "_blank"  %>
+              </th> 
+            <% end %>
+            <% if @candidate.github_url %> 
+              <th><%= link_to "Github", "http://github.com/" + @candidate.github_url, target: "_blank" %>
+              </th>  
+            <% end %>
+            <% if @candidate.facebook_url %> 
+              <th><%= link_to "Facebook", "http://facebook.com/" + @candidate.facebook_url, target: "_blank"  %>
+              </th>
+            <% end %>
+            <th><%= link_to "Update Profile", profile_info_path(current_candidate) %></th>
+            <th><%= link_to "Settings", edit_candidate_path(current_candidate) %></th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+  
+  <div class='large-9 medium-8 small-12 columns edit-works'>
 
-      <div class='edit-form well'>
+    <div class='edit-form well'>
         <h2 class='text-center'>Update your Job Experience at <%= @work.company %></h2>
         <%= form_for([@candidate, @work]) do |f| %>
           <%= render "shared/errors", object: @work %>
@@ -88,14 +170,11 @@
             
             <div class='medium-10 columns text-center'>
               <div class='form-group'>
-                <%= f.submit "ADD", class: 'success hollow button' %>
+                <%= f.submit "UPDATE", class: 'success hollow button' %>
               </div>
             </div>
           </div>
-          
-
         <% end %>
       </div>
-    </div>
-    <div class='large-1 columns'></div>
   </div>
+</div>

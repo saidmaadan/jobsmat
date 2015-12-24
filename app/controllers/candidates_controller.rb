@@ -1,6 +1,6 @@
 class CandidatesController < ApplicationController
 
-  before_action :require_signin, except: [:new, :create, :search]
+  before_action :require_signin, except: [:new, :create]
   before_action :correct_candidate, only: [:edit, :update, :delete]
   before_action :require_admin, only: [:delete]
 

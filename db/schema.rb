@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151223103236) do
+ActiveRecord::Schema.define(version: 20151224075126) do
 
   create_table "applies", force: :cascade do |t|
     t.string   "name"
@@ -117,9 +117,11 @@ ActiveRecord::Schema.define(version: 20151223103236) do
     t.integer  "candidate_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "slug"
   end
 
   add_index "educations", ["candidate_id"], name: "index_educations_on_candidate_id"
+  add_index "educations", ["slug"], name: "index_educations_on_slug", unique: true
 
   create_table "employers", force: :cascade do |t|
     t.string   "name"
@@ -185,9 +187,11 @@ ActiveRecord::Schema.define(version: 20151223103236) do
     t.integer  "company_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.string   "slug"
   end
 
   add_index "interviews", ["company_id"], name: "index_interviews_on_company_id"
+  add_index "interviews", ["slug"], name: "index_interviews_on_slug", unique: true
 
   create_table "jobs", force: :cascade do |t|
     t.string   "title"
@@ -233,11 +237,13 @@ ActiveRecord::Schema.define(version: 20151223103236) do
     t.integer  "candidate_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "slug"
   end
 
   add_index "reviews", ["candidate_id"], name: "index_reviews_on_candidate_id"
   add_index "reviews", ["company_id"], name: "index_reviews_on_company_id"
   add_index "reviews", ["employer_id"], name: "index_reviews_on_employer_id"
+  add_index "reviews", ["slug"], name: "index_reviews_on_slug", unique: true
 
   create_table "tips", force: :cascade do |t|
     t.string   "title"
@@ -264,8 +270,10 @@ ActiveRecord::Schema.define(version: 20151223103236) do
     t.integer  "candidate_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "slug"
   end
 
   add_index "works", ["candidate_id"], name: "index_works_on_candidate_id"
+  add_index "works", ["slug"], name: "index_works_on_slug", unique: true
 
 end
