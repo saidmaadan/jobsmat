@@ -13,11 +13,8 @@
   <ul class="off-canvas-list">
     <% if current_candidate %>
       <li><label>
-        <% if current_candidate.cand_image_url %>
-          <%= link_to (image_tag current_candidate.cand_image_url, class: "image_menu"), current_candidate %>
-        <% else %>
-          <label><%= profile_image_for@candidate %>&nbsp; Hello <%= @candidate.name %></label>
-        <% end %>   
+        Hello, <%= @candidate.name %></label>
+      
       </li>
       <li class="name"><%= link_to " @#{@candidate.username}", current_candidate %></li>
       <li><i class="fa-fa-user"></i><%= link_to " Profile", current_candidate %></li> 
@@ -31,13 +28,8 @@
             data: { confirm: 'Are you sure you want to permanently delete your account?' } %></li>
       <% end %>
     <% elsif current_employer %>
-      <li>
-        <% if current_employer.emp_image_url %>
-          <label><%= link_to (image_tag current_employer.emp_image_url), current_employer %>
-        <% else %>
-            <i class='fa fa-user fa-2x'></i>
-            <%= profile_image_for@employer %></label>
-        <% end %>
+      <li><label>
+          Hello, <%= @employer.name %> </label>
       </li>
       <li><%= link_to "Profile", current_employer %></li>
       <li><%= link_to " Update Profile", profile_update_path(current_employer) %></li>

@@ -74,6 +74,6 @@ class EmployersController < ApplicationController
 
   def employer_params
     params.require(:employer).permit(:name, :email, :password, :password_confirmation, :username, :company_name, :location,
-      :zip_code,:twitter,:linkedin,:facebook,:website_url, :instagram, :company_description, :logo, :headlines, :industry, :company_size, :skype_id, :phone_number, :emp_image, :auth_token)
+      :zip_code,:twitter,:linkedin,:facebook,:website_url, :instagram, :company_description, :logo, :headlines, :industry, :company_size, :skype_id, :phone_number, :EmpImage, :emp_image, :auth_token)
   end
 end

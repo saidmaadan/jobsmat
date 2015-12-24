@@ -43,10 +43,6 @@ class Employer < ActiveRecord::Base
     end while Employer.exists?(column => self[column])
   end
 
-  # def gravatar_id
-  #   Digest::MD5::hexdigest(employer.email.downcase)
-  # end
-
   def self.authenticate(email_or_username, password)
     employer = Employer.find_by(email: email_or_username) || Employer.find_by(username: email_or_username)
     employer && employer.authenticate(password)

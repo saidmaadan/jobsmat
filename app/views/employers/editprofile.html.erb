@@ -4,7 +4,7 @@
     <% if @employer.emp_image_url %>
       <%= image_tag @employer.emp_image_url, class: 'img-responsive' %>
     <% else %>
-      <%= profile_image_for@employer, class: "img-responsive" %>
+      <i class='fa fa-user fa-4x'></i>
     <% end %> 
     <h1><%= @employer.name %></h1>
   </div>
@@ -155,7 +155,7 @@
       </div>
 
       <div class="form-group">
-        <%= f.submit "Update Profile", class: "btn btn-success" %>
+        <%= f.submit "Update Profile", class: "success button" %>
       </div>
 <% end %>
 

@@ -8,7 +8,11 @@
             <div class='large-3 medium-4 small-6 columns'>
             <div class='row'>
             <div class='medium-4 small-5 columns'>
-                <p><%= profile_image_for(employer) %></p>
+              <% if employer.emp_image_url %>
+                <%= image_tag employer.emp_image_url %>
+              <% else %>
+                <i class='fa fa-user fa-4x'></i>
+              <% end %> 
             </div>
             <div class='medium-8 small-7 columns'>
                 <h4><%= link_to employer.name, employer %></h4>

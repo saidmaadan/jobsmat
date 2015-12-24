@@ -4,7 +4,7 @@
       <% if @employer.emp_image_url %>
         <%= image_tag @employer.emp_image_url, class: 'img-responsive' %>
       <% else %>
-        <%= profile_image_for@employer, class: "img-responsive" %>
+        <i class='fa fa-user fa-4x'></i>
       <% end %> 
     </div>
   <div class='medium-6 columns'>

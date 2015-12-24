@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151224075126) do
+ActiveRecord::Schema.define(version: 20151224131308) do
 
   create_table "applies", force: :cascade do |t|
     t.string   "name"
@@ -151,6 +151,7 @@ ActiveRecord::Schema.define(version: 20151224075126) do
     t.boolean  "admin",               default: false
     t.boolean  "author",              default: false
     t.text     "headline"
+    t.string   "emp_image"
   end
 
   add_index "employers", ["slug"], name: "index_employers_on_slug", unique: true
