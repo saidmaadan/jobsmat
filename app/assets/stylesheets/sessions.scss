@@ -2,3 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "custom";
+
+.session{
+  margin-top: 20px;
+  background: $white-color;
+  border-radius: 10px;
+  border: 1px solid $lightgreen-color;
+  padding: 30px 50px;
+  h2{
+    text-align: center;
+    color: $green-color;
+  }
+}

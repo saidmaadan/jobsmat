@@ -1,0 +1,81 @@
+<div class='row'>
+  <% if current_candidate || current_employer %>
+  <% else %>
+    <div class='medium-10 medium-offset-1 columns'>
+      <div class='jobs-search'>
+         <div class='jobs-search-form text-center'>
+          <%= form_tag search_jobs_path, method: :get, class: "navbar-form" do %>
+            <p>
+              <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Enter job title, keywords, city", size: 30 %>
+              <%= submit_tag 'FIND TECH JOBS', name: nil, class: "btn btn-success" %>
+            </p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class='row'>
+  <div class='medium-9 columns jobs-list'>
+    <div class="row">
+      <div class="digg_pagination"><br>
+        <div class="page_info">
+          <%= page_entries_info @jobs %> 
+        </div>
+        <%= will_paginate @collection, renderer: BootstrapPagination::Rails, class: 'text-center' %> 
+             <%#= will_paginate @jobs, :container => false, class: "paginate-display" %>   
+              <%#= will_paginate @jobs, :page_links => false %> 
+      </div>
+    </div>
+                   
+    <% @jobs.each do |job| %>
+      <div class='small-12 columns job-listing'>
+        <div class='row'>
+          <div class='medium-2 small-4 columns '>
+
+            <% if job.logo_url %>
+              <%= image_tag job.logo_url %>
+            
+              <%# elsif job.company_name = @company.name %>
+                <%#= image_tag @company.logo_url %>
+            
+            <% else %>
+              <%= image_tag "https://s3.amazonaws.com/inventivelabs/jobinbox/logos/jobinbox1.png" %>
+            <% end %>
+          </div>
+          <div class='medium-6 small-8 columns'>
+            <h4><%= job.company_name %></h4>
+            <h5><%= link_to job.title, job %></h5>
+            <%= truncate job.description, length: 100, separator: ' ' %><br>
+            <%= link_to "View full job description", job %>
+          </div>
+          <div class='medium-2 small-5 columns'>
+            <%= job.position_type %><br>
+            <%= time_ago_in_words(job.created_at) %> ago
+          </div>
+          <div class='medium-2 small-7 columns'>
+           <%= job.city %>, <%= job.state %> <br> <%= job.zip_code %> <%= job.country %>
+          </div> 
+        </div>
+      </div>
+    <% end %>
+  </div>
+     
+  <div class='hidden-for-small medium-3 columns'><br><br>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- MasmaSpace News -->
+    <ins class="adsbygoogle"
+       style="display:inline-block;width:300px;height:600px"
+       data-ad-client="ca-pub-1207389406711656"
+       data-ad-slot="8952579198"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+</div>
+    
+
+
+
+

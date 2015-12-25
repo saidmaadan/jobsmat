@@ -1,0 +1,128 @@
+<%= form_for @job, :html => { :multipart => true } do |f| %>
+  <%= render "shared/errors", object: @job %>
+  
+    <div class='form-group'>
+      <div class='row'>
+        <div class='large-8 medium-7 columns'>
+          <%= f.label :company_name, class: 'control-label' %>
+          <%= f.text_field :company_name, autofocus: true, placeholder: "Company Name", class: "form-control" %>
+        </div>
+       <div class='large-4 medium-5 columns'>
+           <%= f.label :logo, "Company Logo", class: 'control-label' %>
+           <%= f.file_field :logo %>
+        </div>
+      </div>
+    </div>
+    
+    <div class='form-group'>
+      <div class='row'>
+        <div class='small-6 columns'>
+          <%= f.label :industry, class: 'control-label' %>
+          <%= f.select :industry, Job::INDUSTRY, prompt: "Select one", class: "form-control" %>
+        </div>
+        <div class='small-6 columns'>
+          <%= f.label :company_size, class: 'control-label' %>
+          <%= f.select :company_size, Job::COMPANY_SIZE, prompt: "Select one", class: "form-control" %>
+        </div>
+      </div>
+    </div>
+    
+     <div class='form-group'>
+      <div class='row'>
+         <div class='medium-6 columns'>
+           <%= f.label :website_url, "Company Website", class: 'control-label' %>
+          <%= f.text_field :website_url, placeholder: "http://companyname.com", class: "form-control" %>
+        </div>
+        <div class='medium-6 columns'>
+          <%= f.label :title, class: 'control-label' %>
+          <%= f.text_field :title, placeholder: "Job title", class: "form-control" %>
+        </div>
+      </div>
+    </div>
+   
+    <div class='form-group'>
+      <div class='row'>
+         <div class='medium-6 columns'>
+            <%= f.label :company_description, class: 'control-label' %>
+            <%= f.text_area :company_description, cols: 40, rows: 7, placeholder: "Brief description about your company, what you are up to, service and product", class: "form-control" %>
+          </div>
+          <div class='medium-6 columns'>
+            <%= f.label :description, class: 'control-label' %>
+            <%= f.text_area :description, cols: 40, rows: 7, placeholder: "Job description", class: "form-control" %>
+          </div>
+        </div>
+      </div>
+     
+    
+    <div class='form-group'>
+      <%= f.label :skills, class: 'control-label' %>
+      <%= f.text_area :skills, cols: 40, rows: 7, class: "form-control" %>
+    </div>
+    
+    <div class='form-group'>
+      <%= f.label :responsibility, class: 'control-label' %>
+      <%= f.text_area :responsibility, cols: 40, rows: 7, placeholder: "List of job responsibilties",class: "form-control" %>
+    </div>
+    
+    <div class='form-group'>
+      <%= f.label :city, "Location", class: 'control-label' %>
+      <div class='row'>
+          <div class='medium-6 columns'>
+          <%= f.text_field :city, class: "form-control", cols: 20, placeholder: "City e.g Austin" %>
+           <%= f.text_field :zip_code, class: "form-control", placeholder: "Zip code e.g 78701" %></div>
+          <div class='medium-6 columns'>
+            <%= f.text_field :state, class: "form-control", placeholder: "State e.g Texas" %>
+            <%= f.text_field :country, class: "form-control", placeholder: "Country e.g USA" %>
+          </div>
+        </div>
+    </div>
+    
+    
+    <div class='form-group'>
+      <%= f.label :salary, "Pay Rate", class: 'control-label' %>
+      <div class='row'>
+        <div class='medium-8 small-7 columns'>
+          <%= f.text_field :salary, class: "form-control", placeholder: "Salary Range" %></div>
+        <div class='medium-4 small-5 columns'>
+          <%= f.select :pay_rate, Job::PAY_RATE, prompt: "Select one", class: "form-control" %>
+        </div>
+    </div>
+    
+    
+    <div class='form-group'>
+      <div class='row'>
+        <div class='medium-4 columns'>
+          <%= f.label :position_type, class: 'control-label' %>
+          <%= f.select :position_type, Job::POSITION_TYPE, prompt: "Select one", class: "form-control" %>
+        </div>
+        <div class='medium-4 columns'>
+          <%= f.label :experience, class: 'control-label' %> 
+          <%= f.select :experience, Job::EXPERIENCE, prompt: "Select one", class: "form-control" %>
+        </div>
+         <div class='medium-4 columns'>
+            <%= f.label :travel_required, class: 'control-label' %>
+            <%= f.select :travel_required, Job::TRAVEL_REQUIRED, prompt: "Select one", class: "form-control" %>
+          </div>
+         </div>
+      </div>
+
+      
+    <div class='form-group'>
+      <div class='row'>
+        <div class='medium-6 columns'>
+          <%= f.label :email, class: 'control-label' %>
+          <%= f.text_field :email, class: "form-control", placeholder: "apply@companyname.com" %>
+        </div>
+        <div class='medium-6 columns'>
+          <%= f.label :url, class: 'control-label' %>
+        <%= f.text_field :url, class: "form-control", placeholder: "http://companyname.com/job.html" %>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class='form-group'>
+      <%= f.submit class: 'success button' %> <%= link_to "Cancel", jobs_path, class: 'secondary hollow button' %>
+  </div>
+<% end %>
+ 

@@ -1,0 +1,176 @@
+
+<div class="row">
+  <div class="large-9 medium-8 small-12 columns">
+    <% if @job.logo %>
+      <div class="job-top-title">
+        <div class="row">
+          <div class="medium-2 small-3 columns">
+            <%= image_tag @job.logo_url %>
+          </div>
+          <div class="medium-10 small-9 columns">
+            <div class="row">
+              <div class="small-12 columns">
+                <h2><%= @job.title %></h2>
+              </div>
+              <div class="medium-8 small-12 columns">
+                
+                <p><span><%= @job.company_name %></span><br>
+                <%= @job.city if @job.city %>, <%= @job.state if @job.state %>&nbsp; <%= @job.zip_code if @job.zip_code %>&nbsp; <%= @job.country if @job.country %><br> Posted <%= time_ago_in_words(@job.created_at) %> ago
+                </p>
+              </div>
+              <div class="medium-4 small-12 columns">
+                <% if !@job.email? %>
+                  <%= link_to "Apply on Career Site", @job.url, :target => "_blank", class: "success expanded button" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% else %>
+      <div class="job-top-title">
+        <div class="row">
+          <div class="medium-9 small-12 columns">
+            <h2><%= @job.title %></h2>
+            <p><span><%= @job.company_name %></span>,&nbsp;
+              <%= @job.city if @job.city %>, <%= @job.state if @job.state %>&nbsp; <%= @job.zip_code if @job.zip_code %>&nbsp; <%= @job.country if @job.country %>&nbsp;&nbsp;Posted <%= time_ago_in_words(@job.created_at) %> ago
+            </p>
+          </div>
+          <div class="medium-3 small-12 columns button">
+            <% if @job.email.nil? %>
+              <%= link_to "Apply on Career Site", @job.url, :target => "_blank", class: "success large button" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+ 
+    <div class="job-body">
+      <h3>Job Description</h3>
+      <h5>Job Type: <%= @job.position_type %> </h5>
+      <% if @job.salary %>
+      <h5>Salary: <%= number_to_currency(@job.salary) %>&nbsp; <%= @job.pay_rate %></h5>
+      <% else %>
+      <h5>Salary: Not Specified</h5>
+      <% end %>
+
+      <%= @job.description %>
+
+      <% if @job.responsibility %>
+        <h3>Responsibilities</h3>
+        <%= @job.responsibility %>
+      <% end %>
+
+      <% if @job.skills %>
+        <h3>Job Requirements/Skills</h3>
+        <%= @job.skills %>
+      <% end %>
+
+      <% if (@job.position_type || @job.industry || @job.experience || @job.travel_required) %>
+        <h2>JOB SNAPSHOT</h2>
+      <% end %>
+      <% if @job.position_type %>
+        <h4>Employment Type: <%= @job.position_type %></h4>
+      <% end %>
+      
+      <% if @job.industry %>
+        <h4>Industry: <%= @job.industry %></h4>
+      <% end %>
+      <% if @job.experience %>
+        <h4>Experience: <%= @job.experience %></h4>
+      <% end %>
+
+      <% if @job.travel_required %>
+        <h4>Require travel: <%= @job.travel_required %></h4>
+      <% end %>
+    </div>
+
+    <div class="job-company-details">
+      <h2>About <%= @job.company_name %></h2>
+      <span><%= link_to @job.website_url, @job.website_url, :target => "_blank" %></span><br>
+      <p><%= @job.company_description %></p>
+    </div>
+  
+    <% if current_employer_admin? %>
+      <div class="job-update">
+        <%= link_to "Edit", edit_job_path(@job), class: 'success button' %>
+        <%= link_to "Delete", job_path(@job), method: :delete, data: {confirm: 'Are you sure?' }, class: 'alert button' %>
+      </div>
+    <% end %>
+  </div>
+
+
+  <div class="large-3 medium-4 small-12 columns">
+    <% if @job.email? %>
+      <div class="job-apply">
+        <h2>Apply on JobInbox</h2><hr>
+        <%= form_for [@job, @apply] do |f| %>
+          <% if current_candidate %>
+            <div class="form-group">
+            <%= f.text_field :name, value: "#{current_candidate.name}", class: "form-control" 
+             %>
+            </div>
+            <div class="form-group">
+              <%= f.text_field :email, value: "#{current_candidate.email}", class: "form-control"  %>
+            </div>
+            <div class="form-group">
+              <%= f.text_field :phone_number, class: "form-control", value: "#{current_candidate.phone_number}" %>
+            </div>
+            <div class="form-group">
+              <%#= f.label :message,  %>
+              <%= f.text_area :message, class: "form-control", value: "Dear Hiring Manager,
+
+              'I feel that my skills and experience are a great fit for this position. Please feel free to contact me to arrange an interview. I look forward to learning more about this opportunity." %>
+            </div>
+            <div class="form-group">
+              <%= f.file_field :resume, class: "form-control" %>
+              &nbsp;&nbsp; <%= link_to "resume.pdf", current_candidate.resume_url, :target => "_blank" if current_candidate.resume_url  %>
+            </div>
+            <div class="form-group">
+              <%= f.submit class: 'success button' %>
+            </div>
+          <% else %>
+            <div class="form-group">
+            <%= f.text_field :name, class: "form-control", placeholder: "Your name"  %>
+            </div>
+            <div class="form-group">
+              <%= f.text_field :email, class: "form-control", placeholder: "name@company.com"  %>
+            </div>
+            <div class="form-group">
+              <%= f.text_field :phone, class: "form-control", placeholder: "(123) 456-7890"  %>
+            </div>
+            <div class="form-group">
+              <%#= f.label :message,  %>
+              <%= f.text_area :message, class: "form-control", value: "Dear Hiring Manager, 
+              I feel that my skills and experience are a great fit for this position. Please feel free to contact me to arrange an interview. I look forward to learning more about this opportunity.", cols: 40, rows: 3 %>
+            </div>
+            <div class="form-group">
+              <%= f.label :resume %><br>
+              <%= f.file_field :resume, class: "form-control"  %>
+            </div>
+            <div class="form-group">
+              <%= f.submit class: 'success button' %>
+            </div>
+          <% end %>
+        <% end %>
+      <% else %>
+        <div class="text-center">
+            
+          </div>
+      </div>
+    <% end %> 
+    <div class="job-ad hidden-for-small-only">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- MasmaSpace News -->
+      <ins class="adsbygoogle"
+         style="display:inline-block;width:300px;height:600px"
+         data-ad-client="ca-pub-1207389406711656"
+         data-ad-slot="8952579198"></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    
+  </div>
+</div>
+  

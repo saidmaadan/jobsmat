@@ -56,12 +56,11 @@
   padding: 15px;
   h1{
     font-size: 1.3rem;
-    color: $green-color;
     text-align: center;
+    font-weight: 900;
   }
   h2{
     font-size: 1.1rem;
-    color: $primary-color;
     text-align: center;
   }
   .fa{
@@ -74,8 +73,8 @@
   .company-info{
     font-weight: 900;
     span{
-      font-weight: 400;
-      color: $green-color;
+      font-weight: bold;
+      //color: $green-color;
       padding-left: 10px;
     }
   }
@@ -88,7 +87,7 @@
   padding: 15px;
   h2{
     font-size: 1.2rem;
-    color: $green-color;
+    font-weight: bold;
   }
 }
 .employer-nav .edit-table{
