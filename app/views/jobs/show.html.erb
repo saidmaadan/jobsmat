@@ -1,6 +1,6 @@
 
 <div class="row">
-  <div class="large-9 medium-8 small-12 columns">
+  <div class="medium-8 small-12 columns">
     <% if @job.logo %>
       <div class="job-top-title">
         <div class="row">
@@ -100,10 +100,10 @@
   </div>
 
 
-  <div class="large-3 medium-4 small-12 columns">
+  <div class="medium-4 small-12 columns">
     <% if @job.email? %>
       <div class="job-apply">
-        <h2>Apply on JobInbox</h2><hr>
+        <h2>Apply on JobsMat</h2><hr>
         <%= form_for [@job, @apply] do |f| %>
           <% if current_candidate %>
             <div class="form-group">
@@ -148,18 +148,18 @@
               <%= f.label :resume %><br>
               <%= f.file_field :resume, class: "form-control"  %>
             </div>
-            <div class="form-group">
-              <%= f.submit class: 'success button' %>
+            <div class="form-group text-center">
+              <%= f.submit "Apply", class: ' success hollow button' %>
             </div>
           <% end %>
         <% end %>
       <% else %>
-        <div class="text-center">
+        <!-- <div class="text-center">
             
-          </div>
+          </div> -->
       </div>
-    <% end %> 
-    <div class="job-ad hidden-for-small-only">
+    <% end %> </div>
+    <div class="hidden-for-small-only">
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- MasmaSpace News -->
       <ins class="adsbygoogle"

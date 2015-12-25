@@ -15,6 +15,7 @@
 @mixin twelve-columns {
   @extend .small-12;
   @extend .columns;
+
   }
 @mixin six-columns-centered {
   @extend .small-6;
@@ -41,6 +42,7 @@
 main {
   @include twelve-columns;
   background-color: #fff;
+
   }
 section {
   @extend .row;
