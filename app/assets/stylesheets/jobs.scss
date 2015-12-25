@@ -90,3 +90,40 @@
   }
 }
 
+.job-listing{
+  margin-top: 10px;
+  background: $white-color;
+  border-radius: 1px;
+  border: 1px solid $lightgreen-color;
+  padding: 15px;
+  h4{
+    font-size: 1.2rem;
+    color: $primary-color;
+  }
+}
+.job-ads{
+  margin-top: 30px;
+  width: 100%;
+}
+
+.job-ads-listing{
+  margin-top: 30px;
+  width: 100%;
+}
+
+.job-logo img{
+  margin-top: 20px;
+    width: 90%;
+    height: 90px;
+}
+.job-button {
+  button.warning, .button.warning{
+  margin-top: 10px;
+  }
+  button.small, .button.small {
+    padding: 0.7rem;
+    font-size: 0.8125rem;
+    margin-left: 14px;
+    border-radius: 5px
+  }
+}

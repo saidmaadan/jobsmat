@@ -32,45 +32,55 @@
     <% @jobs.each do |job| %>
       <div class='small-12 columns job-listing'>
         <div class='row'>
-          <div class='medium-2 small-4 columns '>
-
-            <% if job.logo_url %>
-              <%= image_tag job.logo_url %>
-            
-              <%# elsif job.company_name = @company.name %>
-                <%#= image_tag @company.logo_url %>
-            
-            <% else %>
-              <%= image_tag "https://s3.amazonaws.com/inventivelabs/jobinbox/logos/jobinbox1.png" %>
-            <% end %>
+          <div class='large-2 medium-4 columns'>
+            <div class='hidden-for-small-only job-logo'>
+              <% if job.logo_url %>
+                <%= image_tag job.logo_url %>
+              
+                <%# elsif job.company_name = @company.name %>
+                  <%#= image_tag @company.logo_url %>
+              
+              <% else %>
+                <%= image_tag "https://s3.amazonaws.com/inventivelabs/jobinbox/logos/jobinbox1.png" %>
+              <% end %>
+            </div>
           </div>
-          <div class='medium-6 small-8 columns'>
+          <div class='large-5 medium-8 small-12 columns'>
             <h4><%= job.company_name %></h4>
             <h5><%= link_to job.title, job %></h5>
             <%= truncate job.description, length: 100, separator: ' ' %><br>
-            <%= link_to "View full job description", job %>
+            <%#= link_to "View full job details", job %>
           </div>
-          <div class='medium-2 small-5 columns'>
-            <%= job.position_type %><br>
-            <%= time_ago_in_words(job.created_at) %> ago
+          <div class='large-5 medium-8 small-12 columns'>
+            <div class='row'><br>
+              <div class='medium-6 small-12 columns'>
+                <%= job.position_type %><br>
+                <%= time_ago_in_words(job.created_at) %> ago
+              </div>
+              <div class='medium-6 small-12 columns'>
+               <%= job.city %>, <%= job.state %> <br> <%= job.zip_code %> <%= job.country %>
+              </div>
+              <div class='job-button'>
+                <%= link_to "Apply for this Job", job, class: 'small warning button' %>
+              </div>
+            </div>
           </div>
-          <div class='medium-2 small-7 columns'>
-           <%= job.city %>, <%= job.state %> <br> <%= job.zip_code %> <%= job.country %>
-          </div> 
         </div>
       </div>
-    <% end %><br>
-     
-  <div class='hidden-for-small medium-4 columns'>
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <!-- MasmaSpace News -->
-    <ins class="adsbygoogle"
-       style="display:inline-block;width:300px;height:600px"
-       data-ad-client="ca-pub-1207389406711656"
-       data-ad-slot="8952579198"></ins>
-    <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+    <% end %>
+  </div>
+  <div class='medium-4 columns'>
+    <div class='hidden-for-small-only job-ads-listing'>
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- MasmaSpace News -->
+      <ins class="adsbygoogle"
+         style="display:inline-block;width:300px;height:600px"
+         data-ad-client="ca-pub-1207389406711656"
+         data-ad-slot="8952579198"></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
   </div>
 </div>
     
