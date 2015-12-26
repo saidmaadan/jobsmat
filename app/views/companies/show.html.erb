@@ -1,0 +1,246 @@
+<div class='company-content'>
+  <div class='row'>
+    <div class='medium-9 columns'>
+      <div class='row'>
+        <div class='medium-12 columns'>
+          <div class='company-imgbg'>
+            <%= image_tag @company.company_image_url, class: "img-responsive" if @company.company_image_url %>
+          </div>
+        </div>
+        <div class='medium-12 company-main'>
+          <div class='row well'>
+            <div class='medium-4 columns hidden-for-small-only company_logo text-center'>
+              <%= image_tag @company.logo_url if @company.logo_url %>
+            </div>
+            <div class='medium-8 small-12 columns'>
+              <div class='row'>
+                <div class='medium-8 columns'>
+                  <h2><%= @company.name %></h2>
+                  <%= link_to " #{@company.website}", @company.website, :target => "_blank" %><br>
+                </div>
+                <div class='medium-4 columns'><br>
+                  <% if current_employer || current_candidate %>
+                    <span class=" small success button fa fa-plus"><%= link_to "  Add Review", company_addreview_path(@company) %></span>&nbsp;&nbsp;
+                  <% else %>
+                    <%= link_to 'Signin to Add-Review', signin_path, class: 'small success button' %>
+                  <% end %>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='medium-12 columns'>
+                  <div class='company-reviewinterview'>
+                    <div class='review-star'>
+                      <% if @reviews.blank? %>
+                      <% else %>
+                        <div class="star-rating" data-score= <%= @avg_rating %> ></div>
+                      <% end %>
+                    </div>
+                    <div class='review-rating text-center'>
+                      <%= "#{@reviews.length} " %><br>Reviews
+                    </div>
+                    <div class='interview-rating text-center'>
+                      <%= "#{@interviews.length} " %><br>Interviews
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+
+        <div class='medium-12 columns'>
+          <div class='row'>
+            <div class='medium-4 small-12 columns'>
+              <div class='company-tab'>
+
+                <div class="list-group">
+          
+                  <%= link_to "#{@company.name}", @company, class: "list-group-item active"   %>
+                  <%= link_to "About #{@company.name}", company_about_path(@company), class: "list-group-item"   %>
+                  <%= link_to "#{@company.name} Jobs", company_job_path(@company), class: "list-group-item" %>
+                  <%= link_to "Reviews", company_review_path(@company), class: "list-group-item"  %>
+                  <%= link_to "Interviews", company_interview_path(@company), class: "list-group-item"  %>
+                   <% if current_employer || current_candidate %>
+                    <%= link_to "Write a Reviews", company_addreview_path(@company), class: "list-group-item"  %>
+                    <%= link_to "Add-Interviews", company_addinterview_path(@company), class: "list-group-item"  %>
+                    <% end %>    
+                  </div>     
+                </div>
+              </div>
+              <div class='medium-8 small-12 columns company-content-tab'>
+                 <div class='row company-side'>
+                  <div class='medium-12 columns'>
+                    <div class='row '>
+                      <div class='medium-3 columns'>
+                        Website
+                      </div>
+                      <div class='medium-9 columns'>
+                        <%= @company.website %>
+                      </div>
+                      <div class='medium-3 columns'>
+                        Type
+                      </div>
+                      <div class='medium-9 columns'>
+                        <%= @company.industry %>
+                      </div>
+
+                       <div class='medium-3'>
+                        Size
+                      </div>
+                      <div class='medium-9 columns'>
+                        <%= @company.size %>+ Employees
+                      </div>
+                      <div class='medium-3 columns'>
+                        Founded
+                      </div>
+                      <div class='medium-9 columns'>
+                        <%= @company.founded%>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+               
+                <div class="tab-content">
+                  <p><%= @company.about %></p>
+                </div>  
+              </div>   
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div class='medium-3 columns hidden-for-small-only'> 
+      <div class='row company-side'>
+        <% if @company.facebook? || @company.twitter? || @company.youtube? || @company.linkedin? || @company.instagram? %>
+          <div class='medium-12 columns well'>
+            <h2 class='text-center'>Connect with <%= @company.name %></h2>
+        
+            <div class='social-link facebook'>
+              <%= link_to "", @company.facebook, :target => "_blank", class: "fa fa-facebook fa-2x" if @company.facebook? %>
+            </div>
+            <div class='social-link twitter'>
+              <%= link_to "", @company.twitter, :target => "_blank", class: "fa fa-twitter fa-2x" if @company.twitter? %>
+            </div>
+            <div class='social-link youtube'>
+              <%= link_to "", @company.youtube, :target => "_blank", class: "fa fa-youtube fa-2x" if @company.youtube? %>
+            </div>
+            <div class='social-link linkedin'>
+              <%= link_to "", @company.linkedin, :target => "_blank", class: "fa fa-linkedin fa-2x" if @company.linkedin? %>
+            </div>
+            <div class='social-link instagram'>
+              <%= link_to "", @company.instagram, :target => "_blank", class: "fa fa-instagram fa-2x" if @company.instagram? %>
+            </div>
+            <div class='social-link googleplus'>
+              <%= link_to "", @company.googleplus, :target => "_blank", class: "fa fa-google-plus fa-2x" if @company.googleplus? %>
+            </div>
+            <div class='social-link pinterest'>
+              <%= link_to "", @company.pinterest, :target => "_blank", class: "fa fa-pinterest-p fa-2x" if @company.pinterest? %>
+            </div>
+            <% if @company.github? %>
+              <div class='social-link github'>
+                <%= link_to "", @company.github, :target => "_blank", class: "fa fa-github-alt fa-2x" %>
+              </div>
+            <% end %>
+            
+          </div>
+         <% else %>
+        <% end %> 
+      </div>
+
+      <div class='row company-side'>
+        <% if @company.video %>
+          <p><iframe  src="//www.youtube.com/embed/<%= @company.video %>" frameborder="0" allowfullscreen class="img-responsive text-center" style="width:100%;height:250px;"></iframe>
+          </p>
+        <% end %>
+      </div>
+
+      <div class='row company-side well'>
+         <% @jobs.each do |job| %>
+            <% if job.company_name == @company.name %>
+              <div class='row'>
+                <div class='medium-12 columns'>
+                  <h2>Carear At <%= company.name %></h2>
+                  <hr>
+                  <%= image_tag @company.company_image_url, class: "img-responsive", style: "height:140px;" if @company.company_image_url %>
+                  <h2><%= link_to job.title, job %></h2>
+                  <%= link_to "more...", company_job_path(@company), class: "text-right" %>
+                </div>
+              </div>
+            <% end %>
+          <% end %> 
+      </div>
+
+      <div class='row company-side'>
+        <div class='medium-12 columns'>
+          <div class='row'>
+            <div class='medium-12 columns well text-left'>
+              <div class='row text-left'>
+                <div class='medium-3 columns'>
+                  Website:&nbsp;
+                </div>
+                <div class='medium-9 columns'>
+                  <%= @company.website %>
+                </div>
+              </div><hr>
+              <div class='row text-left'>
+                <div class='medium-3 columns'>
+                  Type:&nbsp;
+                </div>
+                <div class='medium-9 columns'>
+                  <%= @company.industry %>
+                </div>
+              </div><hr>
+              <div class='row text-left'>
+                 <div class='medium-3 columns'>
+                  Size:&nbsp;
+                </div>
+                <div class='medium-9 columns'>
+                  <%= @company.size %>+ Employees
+                </div>
+              </div><hr>
+              <div class='row text-left'>
+                <div class='medium-3 columns'>
+                  Founded:&nbsp;
+                </div>
+                <div class='medium-9 columns'>
+                  <%= @company.founded%>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class='row company-side'>
+        <%= (@company.twitter_widget) %>
+        <a class="twitter-timeline" href="https://twitter.com/IBM" data-widget-id="653272632431804416">Tweets by @IBM</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+      </div>
+     
+      <% if @reviews.blank? %>
+      <% else %>
+        <h3><%= @company.name %> Reviews</h3><hr>
+          <div class="star-rating" data-score= <%= @avg_rating %> ></div>
+            <p><%= "#{@reviews.length} reviews" %></p>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  $('.star-rating').raty({
+    path: 'https://s3.amazonaws.com/foodplace/uploads/stars',
+    readOnly: true,
+    score: function(){
+      return $(this).attr('data-score');
+    }
+  });
+  $('.write-review').on('click', function(){
+    $('.review-form').toggle("slow");
+    });
+    
+</script>
+
+

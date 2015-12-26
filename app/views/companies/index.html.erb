@@ -1,0 +1,111 @@
+<div class='companies'>
+  <div class='jumbotron'>
+    <div class='companies-h1'>
+      <h1>Search for company</h1>
+    </div>
+    <div class='page-search-form'>
+      <div class="large-12 columns">
+        <%= form_tag search_companies_path, method: :get do %> 
+          <div class="row collapse"> 
+            <div class="small-10 columns">
+              <%= text_field_tag :search, params[:search], placeholder: "Search for your next career jobs..." %>
+            </div>
+            <div class="small-2 columns">
+              <%= submit_tag 'Search', name: nil, class: "success button postfix" %>
+            </div>   
+          </div>
+        <% end %>
+      </div>
+    </div>  
+  </div>
+</div>
+<div class='companies-top'>
+  <div class='jumbotron'>
+    <div class='row'>
+      <div class='text-left'>
+        <h2 class='text-center'>Companies Reviews and Interview tips</h2>
+        <div class='medium-4 columns'>
+          <div class='row'>
+            <div class='small-2 columns'>
+              <i class='fa fa-users fa-2x'style='color:#fd7700;'></i>
+            </div>
+            <div class='small-10 columns'>
+              <h4>Read from the horses</h4>
+              <p>Read what past and present employees has to say about any company</p>
+            </div>
+          </div>
+        </div>
+        <div class='medium-4 columns'>
+          <div class='row'>
+            <div class='small-2 columns'>
+              <i class='fa fa-briefcase fa-2x', style='color:gray;'></i>
+            </div>
+            <div class='small-10 columns'>
+              <h4>Read Reviews from Employees</h4>
+              <p>See what real employees have to say about any company</p>
+            </div>
+          </div>
+        </div>
+        <div class='medium-4 columns'>
+          <div class='row'>
+            <div class='small-2 columns'>
+              <i class='fa fa-briefcase fa-2x ', style='color:#5cb85c;'></i>
+            </div>
+            <div class='small-10 columns'>
+              <h4>Read Reviews from Employees</h4>
+              <p>See what real employees have to say about any company</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class='companies-middle'>
+  <div class='jumbotron'>
+    <div class='jobsmatr'>
+    <div class='row jobsmat'>
+      <div class='medium-1 columns'></div>
+      <div class='medium-10 columns'>
+        <h2 class='text-center'>Featured Companies</h2>
+        <%# @companies.in_groups_of(3) do |group| %>
+          <div class='row'>
+            <% @companies.each do |company| %>
+                <div class='medium-4 small-12 columns'>
+                  <div class='row'>
+                    <div class='medium-5 small-5 columns company-feature'><br>
+                      <%= image_tag company.logo_url if company.logo_url %>
+                    </div>
+                    <div class='medium-7 small-7 columns company-name'>
+                      <h4><%= link_to company.name, company %></h4>
+                      <div class='review-rating'>
+                        <%= "#{company.reviews.length} Reviews" %> 
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+        <%# end %>
+        <%#= will_paginate @companies, renderer: BootstrapPagination::Rails %>
+          
+      </div>
+      <div class='hidden-for-small-only medium-1 columns'></div>
+    </div>
+  </div>
+  </div>
+</div>
+<!-- <div class='companies-bottom'>
+  <div class='jumbotron'>
+  </div>
+</div> -->
+
+<script>
+  $('.star-rating').raty({
+    path: 'https://s3.amazonaws.com/foodplace/uploads/stars',
+    readOnly: true,
+    score: function(){
+      return $(this).attr('data-score');
+    }
+  });
+</script>

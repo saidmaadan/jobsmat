@@ -190,6 +190,6 @@ class CompaniesController < ApplicationController
     @company = Company.friendly.find(params[:id])
   end
   def company_params
-    params.require(:company).permit(:name,:about, :founded, :size,:industry,:location,:website,:subsidiaries, :facebook, :twitter, :linkedin, :youtube, :video, :instagram, :googleplus, :pinterest, :github, :slug, :employer_id,:logo,:avatar, :twitter_widget)
+    params.require(:company).permit(:name,:about, :founded, :size,:industry,:location,:website,:subsidiaries, :facebook, :twitter, :linkedin, :youtube, :video, :instagram, :googleplus, :pinterest, :github, :slug, :employer_id,:logo, :company_image, :twitter_widget)
   end
 end

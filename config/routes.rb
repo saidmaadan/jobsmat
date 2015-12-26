@@ -34,6 +34,9 @@ Rails.application.routes.draw do
     resources :applies, except: [:show, :index]
   end 
 
+
+  
+  get "companies/add" => "companies#new", as: "companies/add"
   get "companies/:id/review" => "companies#review", as: "company/review"
   get "companies/:id/addreview" => "companies#addreview", as: "company/addreview"
   get "companies/:id/interview" => "companies#interview", as: "company/interview"
@@ -48,6 +51,7 @@ Rails.application.routes.draw do
     resources :interviews, except: [:show, :index]
   end
 
+  get "tips/add" => "tips#new", as: "tips/add"
   resources :tips
 
   get '/contact' => 'contacts#new'
