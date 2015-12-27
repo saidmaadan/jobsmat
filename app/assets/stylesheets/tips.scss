@@ -2,3 +2,71 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "custom";
+
+.row .tips{
+  margin-top: 20px;
+}
+.tips-listing{
+  img{
+    width: 100%;
+    height: 120px;
+  }
+}
+
+.tips-listing-side{
+  h2{
+    font-size: 1.4rem;
+    color: $primary-color;
+    font-weight: 400;
+    border-bottom: 1px solid $lightgray-color;
+  }
+  h3{
+    font-size: 1.1rem;
+    margin-bottom: -3px;
+  }
+  p{
+    // font-weight: 900;
+    font-size: .7rem
+  }
+  
+}
+
+.tip-details{
+  padding: 20px;
+  img{
+    width: 100%;
+    height: 350px;
+  }
+  h2{
+    font-size: 1.5rem;
+    font-weight: 900;
+  }
+  p{
+    font-size: 1rem;
+  }
+}
+
+.tip-details-side{
+  h2{
+    font-size: 1.4rem;
+    color: $primary-color;
+    font-weight: 400;
+    border-bottom: 1px solid $lightgray-color;
+  }
+  h3{
+    font-size: 1.1rem;
+    margin-bottom: -3px;
+  }
+  p{
+    // font-weight: 900;
+    font-size: .7rem
+  }
+  
+}
+.tip-details-side-border{
+  border-top: 1px solid $green-color;
+  border-left: 1px solid $lightgray-color;
+  border-bottom: 2px solid $lightgray-color;
+  padding: 15px 10px; 
+  margin-bottom: 10px
+}

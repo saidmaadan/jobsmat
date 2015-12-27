@@ -7,7 +7,7 @@
   margin-top: 0px;
   .jobsmatron{
     height: 100%;
-    background-image: url('https://s3.amazonaws.com/inventivelabs/jobsmat/imgs/jobsmat3.jpg');
+    background-image: url('https://s3.amazonaws.com/inventivelabs/jobsmat/imgs/jobsmat12.jpg');
     background-size: cover;
     text-align: center;
     right: 0;
@@ -16,19 +16,27 @@
   .home-top{
       //margin: 10% auto 10%;
       width: 80%;
-      margin: 8% auto 15%;
-      background: linear-gradient(200deg, rgba(22, 33, 6, 0) 0%, rgba(125, 132, 128, 0.9) 100%);
-      //background: linear-gradient(200deg, rgba(22,33,6,0) 0%, rgba(75,134,104,0.9) 100%);
+      margin: 7% auto;
+      //background: linear-gradient(200deg, rgba(22, 33, 6, 0) 0%, rgba(125, 132, 128, 0.9) 100%);
+      background: linear-gradient(200deg, rgba(22,33,6,0) 0%, rgba(75,134,104,0.9) 100%);
       box-shadow: rgba(0,0,0,0.15) 1px 1px 5px;
-      padding-bottom: 120px;
-      padding-top: 50px;
+      padding-bottom: 100px;
+      padding-top: 20px;
       border-radius: 10px;
+      text-align: center;
       h1{
-        text-align: center;
         font-size: 3rem;
         font-weight: 900;
         color: $lightgreen-color;
-        padding-bottom: 20px;
+        margin-bottom: -10px;
+      }
+      p{
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: $primary-color;
+        color: #ddd;
+        //padding-bottom: 15px;
+        
       }
       input[type="text"], .postfix.button{
         height: 3rem;

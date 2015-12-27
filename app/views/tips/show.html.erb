@@ -1,0 +1,44 @@
+<div class='row jobsmat'>
+  <div class='medium-8 small-12 columns'>
+    <div class="tip-details">
+      <% if @tip.logo_url %>
+        <%= image_tag @tip.logo_url %>
+      <% else %>
+        <%= image_tag "https://s3.amazonaws.com/inventivelabs/jobsmat/imgs/jobsmat2.jpg" %>
+      <% end %>
+      <h2><%= link_to @tip.title %></h2>
+      <p><%=  @tip.content %></p>
+      <p><%= link_to @tip.source_url, @tip.source_url %></p> 
+    </div>
+    <% if current_employer_admin? %>
+      <ul class="button-group radius">
+        <li><%= link_to "Edit", edit_tip_path(@tip), class: 'warning button' %></li>
+        <li><%= link_to "Delete", tip_path(@tip), method: :delete, data: {confirm: 'Are you sure?' }, class: 'alert button' %></li>
+      </ul>
+    <% end %>
+  </div>
+  <div class='medium-4 hide-for-small-only columns tip-details-side'>
+    <% if @jobs %>
+      <div class='tip-details-side-border'>
+        <h2>Recent Jobs</h2>
+        <% @jobs.each do |job| %>
+          <h3><%= link_to job.title, job %></h3>
+          <p><%= "@#{job.company_name}" %></p>
+        <% end %>
+      </div>
+    <% end %>
+    <!-- <div class='tip-details-side-border'>
+      
+    </div> -->
+    <div class='tip-details-side-border'>
+      <p>I really knew I was rich when I had $10,000. I knew a long time ago that I was going to be doing something I loved doing with people that I loved doing it with. In 1958, I had my dad take me out of the will, as I knew I would be rich anyway. I let my two sisters have all the estate.
+      I bet we all in this room live about the same. We eat about the same and sleep about the same. We pretty much drive a car for 10 years. All this stuff doesn't make it any different. I will watch the Super Bowl on a big screen television just like you. We are living the same life. I have two luxuries: I get to do what I want to do every day and I get to travel a lot faster than you.
+      </p>
+    </div>
+    <div class='tip-details-side-border'>
+      <p>I really knew I was rich when I had $10,000. I knew a long time ago that I was going to be doing something I loved doing with people that I loved doing it with. In 1958, I had my dad take me out of the will, as I knew I would be rich anyway. I let my two sisters have all the estate.
+      </p>
+    </div>
+  </div>
+</div>
+

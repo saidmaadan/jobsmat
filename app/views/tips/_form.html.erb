@@ -1,0 +1,28 @@
+<%= form_for @tip, :html => { :multipart => true } do |f| %>
+  <%= render "shared/errors", object: @tip %>
+  
+    <div class='form-group'>
+      <%= f.label :title %>
+      <%= f.text_field :title, autofocus: true, placeholder: "Post title" %>
+    </div>
+    
+    <div class='form-group'>
+      <%= f.label :content %>
+      <%= f.text_area :content %>
+    </div>
+
+    <div class='form-group'>
+      <%= f.label :source_url %>
+      <%= f.text_field :source_url, placeholder: "Source Url" %>
+    </div>
+
+    <div class='form-group'>
+      <%= f.label :logo, "Upload Image", class: 'control-label' %>
+      <%= f.file_field :logo %>
+    </div>
+    
+    <div class='form-group'>
+      <%= f.submit "Post", class: 'small success button' %> <%= link_to "Cancel", tips_path, class: 'small secondary button' %>
+  </div>
+<% end %>
+ 

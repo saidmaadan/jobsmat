@@ -3,6 +3,7 @@ class TipsController < ApplicationController
   
   def index
     @tips = Tip.all
+    @jobs = Job.order("created_at DESC").limit(4)
   end
 
   def new
@@ -20,6 +21,7 @@ class TipsController < ApplicationController
 
   def show
     @tip = Tip.friendly.find(params[:id])
+    @jobs = Job.order("created_at DESC").limit(4)
   end
 
   def edit
@@ -35,9 +37,10 @@ class TipsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @tip = Tip.friendly.find(params[:id])
     @tip.destroy
+    redirect_to @tip
   end
 
   private
