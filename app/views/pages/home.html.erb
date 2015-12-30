@@ -1,24 +1,248 @@
-<div class='home-main'>
-  <div class='jobsmatron'>
-    <div class='row'>
-      <div class='home-top'>
-        <!-- <h1>Find the Right Job</h1> -->
-        <h1>Find Your Dream Job Today!</h1>
-        <p>Search and find the job that's right for you.</p>
-        <div class="medium-10 medium-offset-1 small-12 columns">
-          <%= form_tag search_jobs_path, method: :get do %> 
-            <div class="row collapse"> 
-              <div class="small-10 columns">
-                <%= text_field_tag :search, params[:search], placeholder: "Search for your next career jobs..." %>
+<div class='home'>
+  <div class='home-head'>
+    <div class="fade">
+      <% @companies.limit(12).each do |company| %>  
+        <div>
+          <span>
+            <%= image_tag company.company_image_url alt: company.name %>
+            <span class='medium-8 medium-offset-2 columns contents'>
+              <h1 class="hide-for-small hide-for-medium">Find Your Dream Job Today!</h1>
+              <p class="hide-for-small-only">Search and find the job that's right for you.</p>
+              <div class="medium-10 medium-offset-1 small-12 columns">
+                <%= form_tag search_jobs_path, method: :get do %> 
+                  <div class="row collapse"> 
+                    <div class="small-9 columns">
+                      <%= text_field_tag :search, params[:search], placeholder: "Search for your next career jobs..." %>
+                    </div>
+                    <div class="small-3 columns">
+                      <%= submit_tag 'Job Search', name: nil, class: "warning button postfix " %>
+                    </div>   
+                  </div>
+                <% end %>
               </div>
-              <div class="small-2 columns">
-                <%= submit_tag 'Search', name: nil, class: "warning button postfix " %>
-              </div>   
-            </div>
-          <% end %>
+            </span>
+            <span class='content hide-for-small hide-for-medium'>
+              <%= image_tag company.logo_url, alt: company.name %>
+              <span> 
+                <h4><%= link_to company.name, company %></h4>
+                <p><%= company.industry %></p>
+              </span>
+            </span> 
+            <span class='content-medium center show-for-medium-only'>
+              <%= image_tag company.logo_url, alt: company.name %>
+              <span> 
+                <h4><%= link_to company.name, company %></h4>
+              </span>
+            </span> 
+          </span> 
+        </div>
+      <% end %>
+    </div> 
+  </div>
+
+  <div class='home-top'>
+    <div class='row'>
+       <h2 class='text-center'>Appy for the job that's right for you.</h2>
+      <div class='large-4 medium-6 columns'>
+        <div class='row'>
+          <div class='large-3 medium-3 small-3 columns'>
+            <img src="https://s3.amazonaws.com/inventivelabs/jobinbox/imgs/profile.png"> 
+          </div>
+          <div class='large-9 medium-9 small-9 columns'>
+            <h3 class='text-left'>Create eye catching Profile</h3>
+            <p>Upload your resume, add personality to your page with your profile photo. Express youself about what you are looking for and what you have done, add links to your projects. </p>
+          </div>
+        </div>
+      </div>
+
+      <div class='large-4 medium-6 columns'>
+        <div class='row'>
+          <div class='large-3 medium-3 small-3 columns'>
+            <img src="https://s3.amazonaws.com/inventivelabs/jobinbox/imgs/search.png"> 
+          </div>
+          <div class='large-9 medium-9 small-9 columns'>
+            <h3 class='text-left'>Search for Jobs</h3>
+            <p>Search and explore millions of latest jobs across best job boards and employers nationwide.</p>  
+          </div>
+        </div>
+      </div>
+
+      <div class='large-4 medium-12 columns'>
+        <div class='row'>
+          <div class='large-3 medium-2 small-3 columns'>
+            <img src="https://s3.amazonaws.com/inventivelabs/jobinbox/imgs/profile1.png"> 
+          </div>
+          <div class='large-9 medium-10 small-9 columns'>
+            <h3 class='text-left'>Read Reviews from Employees</h3>
+            <p>Get to know more about your future employer and company work ethics and cultures. Read what real employers have to say about them.</p> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class='home-main'>
+    <div class='jobsmatron'>
+      <div class='row'>
+        <div class='medium-10 medium-offset-1 columns'>
+          <h2>Companies on JobsMat</h2>
+          <div class="responsive">
+            <% @companies.order("created_at ASC").each do |company| %>  
+              <div>
+                <%= link_to (image_tag company.logo), company, alt: company.name %>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
   </div>  
+
+  
+  <div class='home-background'>
+    <div class='row'>
+      <div class='medium-6 columns'>
+        <h2>Applicants</h2>
+        <i class='fa fa-user fa-4x'></i><br><br>
+        <% if current_candidate %>
+          <%= link_to " Upload Resume", profile_info_path(current_candidate), class: 'success button' %>
+        <% else %>
+          <%= link_to "Upload Resume", signin_path, class: 'success button' %>
+        <% end %>
+      </div>
+      <div class='medium-6 columns'>
+        <h2>Employers</h2>
+        <i class='fa fa-users fa-4x'></i><br><br>
+        <% if current_employer %>
+          <%= link_to "Post a Job", jobs_add_path, class: 'warning button' %>
+        <% else %>
+          <%= link_to "Post a Job", signin_path, class: 'warning button' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class='home-tips-scroll'>
+    <div class='row'>
+       <h2 class='text-center'><i class='fa fa-file'></i> Latest Insights</h2><br>
+      <div class='autoplay'>
+        <% @tips.each do |tip| %>
+          <% if tip.logo_url %>
+            <div>
+              <%= image_tag tip.logo_url %>
+              <h3 class='tips-scroll-h hide-for-small'><%= link_to tip.title, tip %></h3>
+              
+            </div> 
+          <% end %>
+        <% end %> 
+      </div>
+    </div>
+  </div>
+
+  <div class='home-bottom'>
+    <div class='row data-equalizer'>
+      <div class='medium-12 columns'>
+        <h2 class='text-center'>New trends nationwide</h2>
+        <% @jobs.each do |job| %>
+          <% if job %>
+            <div class='large-3 medium-4 small-6 columns data-equalizer-watch'>
+              <h3><%= link_to job.title, job %></h3>
+                <p><span><%= job.company_name %><br></span><%= job.city if job.city %>,&nbsp;<%= job.state if job.state %></p>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <!-- <div class='home-main'>
+    <div class='jobsmatron'>
+      <div class='row'>
+        <div class='home-top'>
+          <h1>Find the Right Job</h1>
+          <h1>Find Your Dream Job Today!</h1>
+          <p>Search and find the job that's right for you.</p>
+          <div class="medium-10 medium-offset-1 small-12 columns">
+            <%#= form_tag search_jobs_path, method: :get do %> 
+              <div class="row collapse"> 
+                <div class="small-10 columns">
+                  <%#= text_field_tag :search, params[:search], placeholder: "Search for your next career jobs..." %>
+                </div>
+                <div class="small-2 columns">
+                  <%#= submit_tag 'Search', name: nil, class: "warning button postfix " %>
+                </div>   
+              </div>
+            <%# end %>
+          </div>
+        </div>
+      </div>
+    </div>  
+  </div> 
+   -->
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+      $('.fade').slick({
+        dots: true,
+        infinite: true,
+        arrows: true,
+        speed: 1000,
+        fade: true,
+        swipe: true,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        cssEase: 'linear'
+        
+      });
+
+      $('.autoplay').slick({
+        infinite: true,
+        arrows: true,
+        swipe: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        cssEase: 'linear'
+      });
+
+      $('.responsive').slick({
+        dots: true,
+        infinite: false,
+        arrows: true,
+        speed: 500,
+        slidesToShow: 6,
+        slidesToScroll: 6,
+        responsive: [
+          {
+            breakpoint: 990,
+            settings: {
+              slidesToShow: 4,
+              slidesToScroll: 4,
+              infinite: true,
+              dots: true
+            }
+          },
+          {
+            breakpoint: 800,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2
+            }
+          }
+          // You can unslick at a given breakpoint now by adding:
+          // settings: "unslick"
+          // instead of a settings object
+        ]
+      });
+    });
+  
+  </script>
  

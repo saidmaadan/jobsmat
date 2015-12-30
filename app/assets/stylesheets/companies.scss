@@ -3,6 +3,113 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "custom";
 
+.company-head{
+  width: 106%;
+  height: 100%;
+  margin-bottom: 2px;
+  margin-left: -20px;
+  margin-right: -20px;
+  span{
+    img{
+      max-width: 1500px;
+      min-width: 1500px;
+      min-width: 500px;
+      max-height: 500px;
+      width: 104%;
+      height: 100%;
+    }
+    .content{
+      position: relative;
+      float: left;
+      margin-left: 3%;
+      margin-top: -12%;
+      color: #ddd;
+      background: linear-gradient(200deg, rgba(22, 33, 6, 0) 0%, rgb(4, 4, 4) 100%);
+      box-shadow: rgba(0,0,0,0.15) 1px 1px 5px;
+      padding: 15px;
+      img{
+          max-width: 100px;
+          min-width: 100px;
+          min-width: 100px;
+          max-height: 100px;
+          width: 100px;
+          height: 100px;
+          float: left;
+          margin-right: 10px;
+      }
+      span{
+        float: right;
+        margin-top: 0px;
+        text-align: left;
+        a{
+          color: $lightgreen-color;
+          font-size: 18px;
+          font-weight: 900;
+        }
+        a:hover{
+          color: $green-color;
+        }
+        p{
+          font-size: 16px;
+        }
+      }
+    }
+    .content-medium{
+      position: relative;
+      float: left;
+      margin-left: 40%;
+      margin-top: -7.5%;
+      color: #ddd;
+      background: linear-gradient(200deg, rgba(22, 33, 6, 0) 0%, rgb(4, 4, 4) 100%);
+      box-shadow: rgba(0,0,0,0.15) 1px 1px 5px;
+      padding: 5px;
+      img{
+        max-width: 40px;
+        min-width: 40px;
+        min-width: 40px;
+        max-height: 40px;
+        width: 40px;
+        height: 40px;
+        float: left;
+        margin-right: 10px;
+      }
+      span{
+        float: right;
+        margin-top: 0px;
+        text-align: left;
+        a{
+          color: $lightgreen-color;
+          font-size: 18px;
+          font-weight: 900;
+        }
+        a:hover{
+          color: $green-color;
+        }
+      }
+    }
+    .contents{
+      position: relative;
+      float: left;
+      margin-top: -30%;
+      color: #ddd;
+      background: linear-gradient(200deg, rgba(22, 33, 6, 0) 0%, rgba(75, 134, 104, 0.9) 100%);
+      box-shadow: rgba(0, 0, 0, 0.15) 1px 1px 5px;
+      padding-bottom: 10px;
+      padding-top: 10px;
+      text-align: center;
+      input[type="text"], .postfix.button{
+        height: 3.5rem;
+      }
+      h1{
+        font-size: 2rem;
+        font-weight: 900;
+        color: $lightgreen-color;
+        
+      }
+    }
+  }
+}
+
 .company-feature{
   img{
     width: 100%;

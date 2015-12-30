@@ -1,7 +1,8 @@
 class PagesController < ApplicationController
   def home
-    @companies = Company.all
+    @companies = Company.order("created_at ASC")
     @jobs = Job.all.order("created_at DESC")
+    @tips = Tip.all.order("created_at DESC").limit(12)
   end
 
   def about

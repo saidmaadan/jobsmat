@@ -3,27 +3,115 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "custom";
 
-.home-main{
-  margin-top: 0px;
-  .jobsmatron{
-    height: 100%;
-    background-image: url('https://s3.amazonaws.com/inventivelabs/jobsmat/imgs/jobsmat12.jpg');
-    background-size: cover;
-    text-align: center;
-    right: 0;
-    left: 0;
+.home{
+  h2{
+    font-size: 22px;
+    font-weight: 500;
+    color: $head-color;
+    font-family: Helvetica Neue, HelveticaNeue;
   }
-  .home-top{
-      //margin: 10% auto 10%;
-      width: 80%;
-      margin: 7% auto;
-      //background: linear-gradient(200deg, rgba(22, 33, 6, 0) 0%, rgba(125, 132, 128, 0.9) 100%);
-      background: linear-gradient(200deg, rgba(22,33,6,0) 0%, rgba(75,134,104,0.9) 100%);
+  h3{
+    font-size: 16px;
+    font-weight: 400;
+    color: $body-color;
+  }
+}
+.home-head{
+  width: 106%;
+  height: 100%;
+  margin-bottom: 2px;
+  margin-left: -20px;
+  margin-right: -20px;
+
+  span{
+    img{
+      max-width: 1500px;
+      min-width: 1500px;
+      min-width: 500px;
+      max-height: 500px;
+      width: 100%;
+      height: 100%;
+    }
+   
+    .content{
+      position: relative;
+      float: left;
+      margin-left: 3%;
+      margin-top: -10%;
+      color: #ddd;
+      background: linear-gradient(200deg, rgba(22, 33, 6, 0) 0%, rgb(4, 4, 4) 100%);
       box-shadow: rgba(0,0,0,0.15) 1px 1px 5px;
-      padding-bottom: 100px;
-      padding-top: 20px;
-      border-radius: 10px;
+      padding: 15px;
+      img{
+          max-width: 80px;
+          min-width: 80px;
+          min-width: 80px;
+          max-height: 80px;
+          width: 80px;
+          height: 80px;
+          float: left;
+          margin-right: 10px;
+      }
+      span{
+        float: right;
+        margin-top: 0px;
+        text-align: left;
+        a{
+          color: $lightgreen-color;
+          font-size: 18px;
+          font-weight: 900;
+        }
+        a:hover{
+          color: $green-color;
+        }
+      }
+    }
+    .content-medium{
+      position: relative;
+      float: right;
+      margin-right: 40%;
+      margin-top: -7.5%;
+      color: #ddd;
+      background: linear-gradient(200deg, rgba(22, 33, 6, 0) 0%, rgb(4, 4, 4) 100%);
+      box-shadow: rgba(0,0,0,0.15) 1px 1px 5px;
+      padding: 5px 15px;
+      img{
+        max-width: 40px;
+        min-width: 40px;
+        min-width: 40px;
+        max-height: 40px;
+        width: 40px;
+        height: 40px;
+        float: left;
+        margin-right: 10px;
+      }
+      span{
+        float: right;
+        margin-top: 0px;
+        text-align: left;
+        a{
+          color: $lightgreen-color;
+          font-size: 18px;
+          font-weight: 900;
+        }
+        a:hover{
+          color: $green-color;
+        }
+      }
+    }
+    .contents{
+      position: relative;
+      float: left;
+      margin-top: -30%;
+      color: #ddd;
+      background: linear-gradient(200deg, rgba(22, 33, 6, 0) 0%, rgba(75, 134, 104, 0.9) 100%);
+      box-shadow: rgba(0, 0, 0, 0.15) 1px 1px 5px;
+      padding-bottom: 10px;
+      padding-top: 10px;
       text-align: center;
+      input[type="text"], .postfix.button{
+        height: 3.3rem;
+      }
       h1{
         font-size: 3rem;
         font-weight: 900;
@@ -33,14 +121,155 @@
       p{
         font-size: 1.5rem;
         font-weight: 400;
-        color: $primary-color;
-        color: #ddd;
-        //padding-bottom: 15px;
+        color: $lightgreen-color;
         
       }
       input[type="text"], .postfix.button{
-        height: 3rem;
+        height: 3.5rem;
       }
     }
+  }
 }
+
+//-------------------------Home-Top----------------------------
+
+.home-top{
+  margin-top: 10px;
+  img{
+    // width: 50px;
+    // height: 50px;
+  }
+}
+
+//--------------------------Home-Main------------------------
+
+.home-main{
+  width: 108%;
+  margin-top: 20px;
+  .jobsmatron{
+    height: 100%;
+    width: 108%;
+    border-top: 2px solid #ddd;
+    background: $white-color;
+    background-size: cover;
+    text-align: center;
+    right: 0;
+    left: 0;
+    padding: 30px;
+    img{
+      max-width: 100px;
+      min-width: 100px;
+      min-width: 100px;
+      max-height: 100px;
+      width: 100px;
+      height: 100px;
+      padding-top: 15px;
+    }
+    h2{
+      margin-bottom: 10px
+    }
+  }
+}
+
+.home-bottom{
+  h2{
+    margin-top: 15px;
+  }
+}
+
+//---------------------Home-Background------------------
+.home-background{
+  height: 100%;
+  width: 108%;
+  margin-left: -20px;
+  margin-right: -20px;
+  text-align: center;
+  right: 0;
+  left: 0;
+  padding: 30px;
+  background-image:url('https://s3.amazonaws.com/inventivelabs/jobsmat/imgs/jobsmat12.jpg');
+  background-size: cover;
+}
+
+//----------------home-tips-scroll-----------------------
+
+.home-tips-scroll{
+  height: 100%;
+  width: 108%;
+  margin-left: -20px;
+  margin-right: -20px;
+  background: $white-color;
+  text-align: center;
+  right: 0;
+  left: 0;
+  padding: 30px;
+  img{
+    height: 200px;
+    width: 100%;
+    margin-right: 5px;
+  }
+  .tips-scroll-h{
+    position: relative;
+    width: 98%;
+    margin: auto;
+    margin-top: -40%;
+    background: linear-gradient(200deg, rgba(22, 33, 6, 0) 0%, #1B2F23 100%);
+    //background: linear-gradient(200deg, rgba(22, 33, 6, 0) 0%, rgb(4, 4, 4) 100%);
+    box-shadow: rgba(0,0,0,0.15) 1px 1px 5px;
+    padding: 10px 15px;
+    a{
+      color: $lightgreen-color;
+      font-size: 19px;
+    }
+    a:hover{
+      text-decoration: underline;
+      color: $green-color;
+    }
+  }
+}
+
+
+
+
+
+// .home-main{
+//   margin-top: 0px;
+//   .jobsmatron{
+//     height: 100%;
+//     background-image: url('https://s3.amazonaws.com/inventivelabs/jobsmat/imgs/jobsmat12.jpg');
+//     background-size: cover;
+//     text-align: center;
+//     right: 0;
+//     left: 0;
+//   }
+//   .home-top{
+//       //margin: 10% auto 10%;
+//       width: 80%;
+//       margin: 7% auto;
+//       //background: linear-gradient(200deg, rgba(22, 33, 6, 0) 0%, rgba(125, 132, 128, 0.9) 100%);
+//       background: linear-gradient(200deg, rgba(22,33,6,0) 0%, rgba(75,134,104,0.9) 100%);
+//       box-shadow: rgba(0,0,0,0.15) 1px 1px 5px;
+//       padding-bottom: 100px;
+//       padding-top: 20px;
+//       border-radius: 10px;
+//       text-align: center;
+//       h1{
+//         font-size: 3rem;
+//         font-weight: 900;
+//         color: $lightgreen-color;
+//         margin-bottom: -10px;
+//       }
+//       p{
+//         font-size: 1.5rem;
+//         font-weight: 400;
+//         color: $primary-color;
+//         color: #ddd;
+//         //padding-bottom: 15px;
+        
+//       }
+//       input[type="text"], .postfix.button{
+//         height: 3rem;
+//       }
+//     }
+// }
 
