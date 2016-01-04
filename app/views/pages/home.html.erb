@@ -61,7 +61,7 @@
             <img src="https://s3.amazonaws.com/inventivelabs/jobinbox/imgs/search.png"> 
           </div>
           <div class='large-9 medium-9 small-9 columns'>
-            <h3 class='text-left'>Search for Jobs</h3>
+            <h3 class='text-left'>Search and find your dream Job</h3>
             <p>Search and explore millions of latest jobs across best job boards and employers nationwide.</p>  
           </div>
         </div>
@@ -99,15 +99,15 @@
   </div>  
 
   
-  <div class='home-background'>
+  <aside class='home-background'>
     <div class='row'>
       <div class='medium-6 columns'>
         <h2>Applicants</h2>
         <i class='fa fa-user fa-4x'></i><br><br>
         <% if current_candidate %>
-          <%= link_to " Upload Resume", profile_info_path(current_candidate), class: 'success button' %>
+          <%= link_to " Upload Resume", profile_info_path(current_candidate), class: 'alert button' %>
         <% else %>
-          <%= link_to "Upload Resume", signin_path, class: 'success button' %>
+          <%= link_to "Upload Resume", signin_path, class: 'alert button' %>
         <% end %>
       </div>
       <div class='medium-6 columns'>
@@ -120,7 +120,7 @@
         <% end %>
       </div>
     </div>
-  </div>
+  </aside>
 
   <div class='home-tips-scroll'>
     <div class='row'>
@@ -129,7 +129,7 @@
         <% @tips.each do |tip| %>
           <% if tip.logo_url %>
             <div>
-              <%= image_tag tip.logo_url %>
+              <%= link_to (image_tag tip.logo_url), tip %>
               <h3 class='tips-scroll-h hide-for-small'><%= link_to tip.title, tip %></h3>
               
             </div> 
@@ -140,12 +140,20 @@
   </div>
 
   <div class='home-bottom'>
-    <div class='row data-equalizer'>
+    <div class='row'>
       <div class='medium-12 columns'>
         <h2 class='text-center'>New trends nationwide</h2>
         <% @jobs.each do |job| %>
           <% if job %>
-            <div class='large-3 medium-4 small-6 columns data-equalizer-watch'>
+            <div class='hide-for-small large-3 medium-4 columns'>
+              <h3><%= link_to job.title, job %></h3>
+                <p><span><%= job.company_name %><br></span><%= job.city if job.city %>,&nbsp;<%= job.state if job.state %></p>
+            </div>
+          <% end %>
+        <% end %>
+        <% @jobs.limit(4).each do |job| %>
+          <% if job %>
+            <div class='hide-for-medium-up small-6 columns'>
               <h3><%= link_to job.title, job %></h3>
                 <p><span><%= job.company_name %><br></span><%= job.city if job.city %>,&nbsp;<%= job.state if job.state %></p>
             </div>

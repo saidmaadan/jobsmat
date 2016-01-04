@@ -21,11 +21,15 @@ class AppliesController < ApplicationController
         email = params[:apply][:email]
         message = params[:apply][:message]
         resume = params[:apply][:resume]
-        ApplyMailer.apply_created(current_candidate, @job.employer, @apply.message, @apply.resume).deliver
+        phone = params[:apply][:phone]
+        job_id = params[:apply][:job_id]
+        candidate_id = params[:apply][:candidate_id]
+        employer_id = params[:apply][:employer_id]
+        ApplyMailer.new_application(current_candidate, @job.employer, @apply.name, @apply.email, @apply.phone, @apply.job_id, @apply.message, @apply.resume).deliver_now
         format.html { redirect_to @job, notice: 'You have successfully applied for this job.' }
-        format.json { render :show, status: :created, location: @apply }
+        format.json { render :show, status: :created, location: @job }
       else
-        format.html { render :new }
+        format.html { render :job }
         format.json { render json: @apply.errors, status: :unprocessable_entity }
       end
     end
@@ -67,7 +71,7 @@ class AppliesController < ApplicationController
 
 
     def apply_params
-      params.require(:apply).permit(:message)
+      params.require(:apply).permit(:name, :email,:resume, :message, :job_id, :employer_id, :candidate_id, :phone)
     end
 end
 

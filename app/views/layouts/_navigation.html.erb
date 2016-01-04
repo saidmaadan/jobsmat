@@ -4,11 +4,11 @@
   </section>
 <!-- style: "margin-top: -30px;" -->
   <section class="right tab-bar-section">
-    <h1 class="title hidden-for-small">
-      <% if current_candidate %>
+    <h1 class="title hidden-for-small right">
+      <% if current_candidate || current_employer %>
         Howdy! <%#= @candidate.name %>
       <% else %>
-        <ul class="button-group radius" style="margin-top: -18px;">
+        <ul class="button-group radius" style="margin-top: -15px;">
           <li><%=  link_to "POST A JOB", jobs_add_path, class: " warning button" %></li>
           <li><%= link_to 'UPLOAD RESUME', signin_path, class: " alert button" %></li>
           

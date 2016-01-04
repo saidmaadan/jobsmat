@@ -1,6 +1,6 @@
 @import "foundation";
-@import "slick";
-@import "slick-theme";
+// @import "slick";
+// @import "slick-theme";
 
 $primary-color: #f08a24;
 $green-color: #43ac6a;
@@ -155,8 +155,8 @@ ul.off-canvas-list li a:hover{
   border-right: none;
 }
 .tab-bar .menu-icon span::after {
-    box-shadow: 0 0 0 1px #f08a24, 0 7px 0 1px #f08a24, 0 14px 0 1px #f08424;
-    width: 1.6rem;
+    box-shadow: 0 0 0 1px #eaf4ee, 0 7px 0 1px #eaf4ee, 0 14px 0 1px #eaf4ee;
+    width: 1.8rem;
 }
 
 .left-bar{
@@ -265,11 +265,16 @@ main{
   color: #ddd;
   bottom: 0;
   padding: 10px;
-  background: $green-color;
+  background-color: $green-color;
   a{
     color: #ddd;
   }
   p{
     margin-bottom: -1px;
   }
+}
+footer{
+  background: url('https://www.inventivelabs.co/assets/images/bg-earth.png')no-repeat center -50px;
+  height: 100%;
+  width: 100%;
 }

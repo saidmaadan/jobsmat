@@ -1,5 +1,5 @@
 class ApplyMailer < ApplicationMailer
-  def apply_created(current_candidate, job_employer, name, email, phone, message, resume)
+  def new_application(current_candidate, job_employer, name, email, phone, message, job, resume)
 
     @current_candidate = current_candidate
     @job_employer = job_employer
@@ -8,9 +8,10 @@ class ApplyMailer < ApplicationMailer
     @phone = phone
     @message = message
     @resume = resume
+    @job = job
 
-    mail(to: job_employer.email_address,
-      from: "hr@job-inbox.com",
+    mail(to: job_employer.email,
+      from: "hr@jobsmat.com",
       subject: "Application Submitted",
     )
   end

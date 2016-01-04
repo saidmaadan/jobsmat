@@ -178,18 +178,30 @@
 }
 
 //---------------------Home-Background------------------
-.home-background{
+aside{
   height: 100%;
-  width: 108%;
-  margin-left: -20px;
-  margin-right: -20px;
+  width: 100%;
+  // margin-left: -20px;
+  // margin-right: -20px;
   text-align: center;
   right: 0;
   left: 0;
-  padding: 30px;
-  background-image:url('https://s3.amazonaws.com/inventivelabs/jobsmat/imgs/jobsmat12.jpg');
-  background-size: cover;
+
+  // padding: 30px;
+  background: url('https://www.inventivelabs.co/assets/images/bg-earth.png')no-repeat center -50px;
+  //background-image:url('https://s3.amazonaws.com/inventivelabs/jobsmat/imgs/jpb-search.jpg');
+  // background-size: cover;  
 }
+.home-background{
+    background-color: $green-color;
+    //background-color: $lightgreen-color;
+    //background: url('https://www.inventivelabs.co/assets/images/bg-earth.png')no-repeat center -50px;
+    height: 100%;
+    width: 108%;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding: 30px;
+  }
 
 //----------------home-tips-scroll-----------------------
 
@@ -204,7 +216,7 @@
   left: 0;
   padding: 30px;
   img{
-    height: 200px;
+    height: 220px;
     width: 100%;
     margin-right: 5px;
   }
