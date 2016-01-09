@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.raty
-//= require ckeditor-jquery
 //= require comments
 //= require foundation
 //= require_tree .

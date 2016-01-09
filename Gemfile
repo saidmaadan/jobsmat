@@ -38,7 +38,7 @@ gem 'nifty-generators'
 gem 'font-awesome-sass'
 gem 'social-share-button'
 gem 'jquery-turbolinks'
-gem 'ckeditor_rails'
+#gem 'ckeditor_rails'
 gem 'rails_12factor', group: :production
 group :development do
   gem 'better_errors'
