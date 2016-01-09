@@ -24,7 +24,6 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'foundation-rails'
-# gem 'bootstrap-sass'
 gem 'high_voltage'
 gem 'carrierwave'
 gem 'fog'
@@ -38,7 +37,7 @@ gem 'nifty-generators'
 gem 'font-awesome-sass'
 gem 'social-share-button'
 gem 'jquery-turbolinks'
-#gem 'ckeditor_rails'
+gem 'ckeditor_rails'
 gem 'rails_12factor', group: :production
 group :development do
   gem 'better_errors'

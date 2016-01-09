@@ -136,6 +136,21 @@
   border-bottom: 2px solid #ddd;
   border-right: 2px solid $lightgreen-color;
 }
+
+.company-new-form{
+  padding: 20px 20px;
+  h3{
+    font-size: 22px;
+    font-weight: normal;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid $lightgreen-color;
+  }
+  .company-new{
+    padding-top: 20px;
+    //border-top: 1px solid $lightgreen-color;
+  }
+}
 .company-bgimage{
   width: 102.8%;
   height: 100%;
