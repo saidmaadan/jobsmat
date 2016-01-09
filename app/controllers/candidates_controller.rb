@@ -28,14 +28,12 @@ class CandidatesController < ApplicationController
   end
 
   def new
-    @candidate = Candidate.new
-    
+    @candidate = Candidate.new 
   end
 
   def create
     @candidate = Candidate.new(candidate_params)
-    if @candidate.save
-      
+    if @candidate.save 
       session[:candidate_id] = @candidate.id
       redirect_to @candidate, notice: "Thanks for signing up as candidate"
     else
