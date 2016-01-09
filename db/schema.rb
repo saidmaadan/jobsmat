@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151225101158) do
+ActiveRecord::Schema.define(version: 20160107175109) do
 
   create_table "applies", force: :cascade do |t|
     t.string   "name"
@@ -72,6 +72,21 @@ ActiveRecord::Schema.define(version: 20151225101158) do
 
   add_index "candidates", ["slug"], name: "index_candidates_on_slug", unique: true
 
+  create_table "comments", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.text     "body"
+    t.integer  "tip_id"
+    t.integer  "employer_id"
+    t.integer  "candidate_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "comments", ["candidate_id"], name: "index_comments_on_candidate_id"
+  add_index "comments", ["employer_id"], name: "index_comments_on_employer_id"
+  add_index "comments", ["tip_id"], name: "index_comments_on_tip_id"
+
   create_table "companies", force: :cascade do |t|
     t.string   "name"
     t.text     "about"
@@ -95,8 +110,11 @@ ActiveRecord::Schema.define(version: 20151225101158) do
     t.string   "pinterest"
     t.string   "github"
     t.text     "twitter_widget"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "twitter_username"
+    t.string   "twitter_widget_id"
+    t.string   "facebook_username"
   end
 
   add_index "companies", ["slug"], name: "index_companies_on_slug", unique: true

@@ -16,6 +16,20 @@
         <li><%= link_to "Delete", tip_path(@tip), method: :delete, data: {confirm: 'Are you sure?' }, class: 'alert button' %></li>
       </ul>
     <% end %>
+    <p><%= link_to "Comments", "#", id: "comments-link" %></p>
+    <section id='comments-section'>
+      <div id='comments'>
+        <%= render partial: "comments/comment" %>
+      </div>
+      <%= form_for [@tip, @tip.comments.new], remote: true do |f| %>
+        <fieldset>
+          <%= f.text_field :name %>
+          <%= f.text_field :email %>
+          <%= f.text_area :body, rows: 2, cols: 60, placehoder: "Write a comment..." %>
+          <%= f.submit 'Post Comment', class: 'success button' %>
+        </fieldset>
+      <% end %>
+    </section>
   </div>
   <div class='medium-4 hide-for-small-only columns tip-details-side'>
     <% if @jobs %>

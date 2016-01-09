@@ -26,6 +26,13 @@ html, body {
 
 }
 
+.row {
+    margin: 0 auto;
+    max-width: 73.5rem;
+    width: 100%;
+    padding: 0;
+}
+
 .stars-rating, img {
   display: inline;
   max-width: 100%;

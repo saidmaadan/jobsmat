@@ -8,8 +8,8 @@ class ReviewMailer < ApplicationMailer
     @cons = cons
     @advice = advice
 
-    mail(to: current_employer.email_address,
-      from: "hr@job-inbox.com",
+    mail(to: current_employer.email,
+      from: "hr@jobsmat.com",
       subject: "Review Created",
     )
   end

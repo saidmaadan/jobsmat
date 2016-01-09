@@ -1,10 +1,12 @@
 <div class='home'>
   <div class='home-head'>
     <div class="fade">
-      <% @companies.limit(12).each do |company| %>  
+      <% @companies.limit(30).each do |company| %>  
         <div>
           <span>
-            <%= image_tag company.company_image_url alt: company.name %>
+            <%# if company.company_image_url %>
+              <%= image_tag company.company_image_url alt: company.name %>
+            <%# end %>
             <span class='medium-8 medium-offset-2 columns contents'>
               <h1 class="hide-for-small hide-for-medium">Find Your Dream Job Today!</h1>
               <p class="hide-for-small-only">Search and find the job that's right for you.</p>
@@ -22,7 +24,9 @@
               </div>
             </span>
             <span class='content hide-for-small hide-for-medium'>
-              <%= image_tag company.logo_url, alt: company.name %>
+              <%# if company.logo_url %>
+                <%= image_tag company.logo_url, alt: company.name %>
+              <%# end %>
               <span> 
                 <h4><%= link_to company.name, company %></h4>
                 <p><%= company.industry %></p>
@@ -35,6 +39,7 @@
               </span>
             </span> 
           </span> 
+          <button type="button" class="slick-prev">Previous</button>
         </div>
       <% end %>
     </div> 
@@ -84,8 +89,9 @@
   <div class='home-main'>
     <div class='jobsmatron'>
       <div class='row'>
-        <div class='medium-10 medium-offset-1 columns'>
-          <h2>Companies on JobsMat</h2>
+        <h2 class='text-center'>Companies on JobsMat</h2>
+        <div class='medium-12 columns'>
+          
           <div class="responsive">
             <% @companies.order("created_at ASC").each do |company| %>  
               <div>
@@ -143,7 +149,7 @@
     <div class='row'>
       <div class='medium-12 columns'>
         <h2 class='text-center'>New trends nationwide</h2>
-        <% @jobs.each do |job| %>
+        <% @jobs.limit(12).each do |job| %>
           <% if job %>
             <div class='hide-for-small large-3 medium-4 columns'>
               <h3><%= link_to job.title, job %></h3>
@@ -219,8 +225,8 @@
         infinite: false,
         arrows: true,
         speed: 500,
-        slidesToShow: 6,
-        slidesToScroll: 6,
+        slidesToShow: 7,
+        slidesToScroll: 7,
         responsive: [
           {
             breakpoint: 990,

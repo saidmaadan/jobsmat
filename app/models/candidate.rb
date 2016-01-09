@@ -21,6 +21,7 @@ class Candidate < ActiveRecord::Base
   has_many :educations
   has_many :jobs
   has_many :applies, dependent: :destroy
+  has_many :comments
 
 
   before_create {generate_token(:auth_token)}

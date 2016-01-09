@@ -52,7 +52,9 @@ Rails.application.routes.draw do
   end
 
   get "tips/add" => "tips#new", as: "tips/add"
-  resources :tips
+  resources :tips do
+    resources :comments
+  end
 
   get '/contact' => 'contacts#new'
   resources :contacts

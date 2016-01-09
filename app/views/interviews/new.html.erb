@@ -1,0 +1,14 @@
+<div class='row'>
+  <div class='interview-new '>
+    <div class='medium=10 medium-offset-1 small-12 columns company'>
+      <div class='company-imgbg'>
+        <%= image_tag @company.company_image_url if company_image_url %>
+      </div>
+    </div><br>
+    <div class='medium-8 medium-offset-2 columns company'>
+      <h3 class='text-center'>Share Your Interview Experienced with <%= @company.name %></h3>
+      <%= render 'form' %>
+      <%= link_to 'Back', company_path(@company) %>
+    </div>
+  </div>
+</div>

@@ -22,6 +22,7 @@ class TipsController < ApplicationController
   def show
     @tip = Tip.friendly.find(params[:id])
     @jobs = Job.order("created_at DESC").limit(4)
+    @comments = Comment.where(tip_id: @tip.id).order("created_at DESC")
   end
 
   def edit

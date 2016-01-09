@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :require_admin, except: [:index, :show, :search, :job]
+  before_action :require_admin, only: [:new, :create, :edit, :update, :delete]
   before_action :set_company, only: [:show, :edit, :update, :destroy, :review, :interview, :addreview, :job, :addinterview, :about]
 
   def search
@@ -49,7 +49,7 @@ class CompaniesController < ApplicationController
     end
     @reviews = Review.where(company_id: @company.id).order("created_at DESC").paginate(:page => params[:page], :per_page => 3)
     @companies = Company.all.order("created_at DESC").limit(8)
-    @jobs = Job.all.paginate(:page => params[:page], :per_page => 3)
+    @jobs = Job.all.order("created_at DESC")
     @jobs = @company.jobs.paginate(:page => params[:page], :per_page => 3)
 
     @interview = Interview.new
@@ -190,6 +190,6 @@ class CompaniesController < ApplicationController
     @company = Company.friendly.find(params[:id])
   end
   def company_params
-    params.require(:company).permit(:name,:about, :founded, :size,:industry,:location,:website,:subsidiaries, :facebook, :twitter, :linkedin, :youtube, :video, :instagram, :googleplus, :pinterest, :github, :slug, :employer_id,:logo, :company_image, :twitter_widget)
+    params.require(:company).permit(:name,:about, :founded, :size,:industry,:location,:website,:subsidiaries, :facebook, :twitter, :linkedin, :youtube, :video, :instagram, :googleplus, :pinterest, :github, :slug, :employer_id,:logo, :company_image, :twitter_username, :twitter_widget_id, :facebook_username, :twitter_widget)
   end
 end

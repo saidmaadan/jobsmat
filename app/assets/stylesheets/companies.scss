@@ -122,3 +122,223 @@
     font-size: 1.4rem;
   }
 }
+
+//--------------------------SHOW-------------------------------
+.company-show{
+  margin-top: 20px;
+}
+.company{
+  margin-top: 10px;
+  background: $white-color;
+  border-radius: 1px;
+  border-top: 1px solid $lightgreen-color;
+  border-left: 1px solid $lightgreen-color;
+  border-bottom: 2px solid #ddd;
+  border-right: 2px solid $lightgreen-color;
+}
+.company-bgimage{
+  width: 102.8%;
+  height: 100%;
+  img{
+    width: 115%;
+    height: 100%;
+    max-height: 250px;
+    margin-left: -13px;
+  }
+}
+.company-logo{
+  img{
+    margin-top: -40px;
+    width: 100px;
+    height: 100px;
+  }
+  span{
+    font-size: 22px;
+    font-weight: bold;
+    margin-left: 10px;
+  }
+}
+
+.company-info{
+  margin-top: 15px;
+}
+.company-main-top{
+  padding: 10px 20px;
+  h3{
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 18px;
+    vertical-align: middle;
+    word-spacing: 0px;
+    padding-bottom: 10px;
+  }
+  span{
+  font-weight: bold;
+  font-size: 14px;
+  }
+  p{
+    padding-top: 30px;
+  }
+}
+.company-main-nav{
+  padding: 10px 20px;
+  .tabs{
+    margin-left: 20px;
+  }
+  
+  .tabs dd > a, .tabs .tab-title > a {
+    margin-top: 10px;
+    
+    text-align: center;
+    display: block;
+    background-color: #fff;
+    color: #333;
+    padding: 7px;
+    font-size: 15px;
+  }
+  .tabs .tab-title > a:hover {
+    margin-top: 10px;
+    display: block;
+    background-color: $lightgreen-color;
+    color: $primary-color;
+  }
+  .tabs .tab-title .active a {
+    background-color: $lightgreen-color;
+    color: $primary-color;
+  }
+  .tabs-content{
+    border-top: 1px solid #ddd;
+    padding: 10px 30px 10px;
+    padding-right: 0;
+
+  }
+}
+.company-follow{
+  p{
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    font-size: 18px;
+    font-weight: normal;
+    color: #333;
+  }
+  .tabs dd > a, .tabs .tab-title > a {
+    display: block;
+    background-color: #fff;
+    color: #222222;
+    font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    font-size: 1rem;
+    padding: 0;
+  }
+  .tabs dd > a, .tabs .tab-title > a:hover {
+    display: block;
+    background-color: #fff;
+    color: #222222;
+    font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    font-size: 1rem;
+    padding: 0;
+  }
+  .facebook-so{
+    margin-left: 20px;
+    background: #435f9d;
+    padding: 10px 20px;
+    margin-bottom: 15px;
+    color: #fff;
+  }
+  .facebook-so.hover{
+    margin-left: 20px;
+    background: #fff;
+    padding: 10px 20px;
+    margin-bottom: 15px;
+    color: #000;
+  }
+  .twitter-so{
+    margin-bottom: 10px;
+    background: #2bb6e9;
+    padding: 10px 20px;
+    color: #fff;
+  }
+  .fa{
+    margin-right: 15px;
+  }
+  .fa-facebook{
+    color: #fff;
+  }
+  .fa-twitter{
+    color: #fff;
+  }
+  .tabs-content{
+    width: 100%;
+    margin: auto;
+    .social-tab{
+      width: 90%;
+      margin-left: 30px;
+    }
+  }
+}
+.company-video{
+  p{
+    padding-left: 15px;
+    font-size: 18px;
+    font-weight: normal;
+    color: #333;
+  }
+  .company-video-content{
+    margin-left: 0px;
+  }
+}
+
+.company-social{
+  margin-top: 20px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  p{
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    font-size: 18px;
+    font-weight: normal;
+    color: #333;
+  }
+  .social-link{
+    display: inline;
+    
+    .fa{
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      color: #fff;
+      padding-top: 5px;
+      padding-left: 10px;
+      margin-left: 10px;
+    }
+    .fa-2x{
+      font-size: 2em;
+    }
+    .fa-twitter{
+      background: #2bb6e9;
+    }
+    .fa-youtube{
+      background: #d9292c;
+    }
+    .fa-linkedin{
+      background: #0079b6;
+    }
+     .fa-facebook{
+      background: #435f9d;
+    }
+    .fa-instagram{
+      background: #004879;
+    }
+    .fa-google-plus{
+      background: #d9292c;
+    }
+    .fa-pinterest-p{
+      background: #c72527;
+    }
+     .fa-github-alt{
+      background: #ddd;
+    }
+  }
+}
+
