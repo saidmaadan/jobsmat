@@ -39,7 +39,7 @@
           <%= f.label :duration, "how long was the entire process?", class: 'control-label' %>
           <div class='row'>
             <div class='small-6 columns'>
-              <%= f.text_field :duration, placeholder: '#' %>
+              <%= f.text_field :duration, placeholder: 'Enter number e.g 4' %>
             </div>
             <div class='small-6 columns'>
               <%= f.select :duration_days, Interview::DURATION_DAYS, prompt: "Select one", class: "form-control" %>
@@ -64,7 +64,7 @@
      
     <div class="form-group">
       <%= f.label :where, "where was this interview?" %>
-      <%= f.text_field :where, placeholder: "e.g, Austin, TX" %>
+      <%= f.text_field :where, placeholder: "e.g, Abuja, FCT" %>
     </div>
     
     <div class="form-group">

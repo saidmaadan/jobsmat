@@ -1,62 +1,6 @@
 <div class='company-show'>
-  <div class='row'>
-    <div class='medium-12 columns company'>
-      <div class='company-bgimage'>
-        <% if @company.company_image_url %>
-          <%= image_tag @company.company_image_url %>
-        <% else %>
-        <% end %>
-      </div>
-      <div class='row'>
-        <div class='medium-12 columns company-logo'>
-          <% if @company.logo_url %>
-            <%= image_tag @company.logo_url %>
-          <% else %>
-          <% end %>
-          <span><%= @company.name %></span>
-        </div>
-        <div class='medium-12 columns company-info'>
-          <div class='row'>
-            <div class='medium-8 small-12 columns'>
-              <table>
-                <thead>
-                  <tr>
-                    <% if @reviews.blank? %>
-                    <% else %>
-                      <th style= "width=100%">
-                        <div class='review-star'>
-                          <div class="star-rating" data-score= <%= @avg_rating %> ></div> 
-                        </div>
-                      </th> 
-                    <% end %>        
-                    <th>
-                      <div class='review-rating text-center'>
-                        <%= "#{@reviews.length} " %><br>Reviews
-                      </div>
-                    </th> 
-                    <th>
-                      <div class='interview-rating text-center'>
-                         <%= "#{@interviews.length} " %><br>Interviews
-                      </div>
-                    </th>
-                  </tr>
-                </thead>
-              </table> 
-            </div>
-            <div class='medium-4 small-12 columns'>
-              <% if current_employer || current_candidate %>
-                <span class=" small success button fa fa-plus"><%= link_to "  Add Review", company_addreview_path(@company) %></span>&nbsp;&nbsp;
-              <% else %>
-                <%= link_to 'Signin to Add-Review', signin_path, class: 'small success button right' %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <%= render "companies/myshare/header" %>
   
- 
   <div class='medium-12 columns company-main'>
      <div class='row'>
       <div class='medium-8 columns'>
@@ -111,176 +55,24 @@
               <p><%= truncate(@company.about, length: 400, seperate: "...") %></p>
             </div>  
           </div>
+
           <div class='medium-12 columns company-main-nav company'>
-            <div class='company-main-tab'>
-              <ul class="tabs" data-tab role="tablist">
-                <li class="tab-title active" role="presentation"><a href="#about" role="tab" tabindex="0" aria-selected="true" aria-controls="about">About <%= @company.name %></a></li>
-                <li class="tab-title" role="presentation"><a href="#review" role="tab" tabindex="0" aria-selected="false" aria-controls="review">Reviews</a></li>
-                <li class="tab-title" role="presentation"><a href="#interview" role="tab" tabindex="0" aria-selected="false" aria-controls="interview">Interview</a></li>
-                <li class="tab-title" role="presentation"><a href="#add-review" role="tab" tabindex="0" aria-selected="false" aria-controls="add-review">Add Review</a></li>
-                <li class="tab-title" role="presentation"><a href="#add-interview" role="tab" tabindex="0" aria-selected="false" aria-controls="add-interview">Add Interview</a></li>
-              </ul>
-              <div class="tabs-content ">
-                <section role="tabpanel" aria-hidden="false" class="content active" id="about">
-                 <p><%= @company.about %></p>
-                </section>
-                <section role="tabpanel" aria-hidden="true" class="content" id="review">
-                  <% if @reviews.blank? %>
-                  <% else %>
-                    <h3><%= @company.name %> Reviews</h3><hr>
-                      <div class="star-rating" data-score= <%= @avg_rating %> ></div>
-                        <p><%= "#{@reviews.length} reviews" %></p>
-                  <% end %>
-                </section>
-                <section role="tabpanel" aria-hidden="true" class="content" id="interview">
-                  <h2>Third panel content goes here...</h2>
-                </section>
-                <section role="tabpanel" aria-hidden="true" class="content" id="add-review">
-                  <div class='small-12 columns review-form'>
-                    <%= render partial: 'reviews/form' %> 
-                  </div>
-                </section>
-                <section role="tabpanel" aria-hidden="true" class="content" id="add-interview">
-                  <div class='small-12 columns interview-form'>
-                    <%= render partial: 'interviews/form' %>
-                  </div>
-                </section>
-              </div>
-            </div>
+            <%= render partial: "companies/myshare/company_about" %>
           </div>
-         
+          
           <div class='medium-12 columns company-main-job company'>
-            <% @jobs.each do |job| %>
-              <% if job.company_name == @company.name %>
-              <div class='company-job'>
-                <h2>Carear At <%= @company.name %></h2>
-                <div class='medium-12 columns'>
-                  <div class='row'>
-                    <div class='medium-3 small-5 columns'>
-                      <%= image_tag @company.company_image_url, style: "height:140px;" if @company.company_image_url %>
-                    </div>
-                    <div class='medium-9 small-7 columns'>
-                      <h2><%= link_to job.title, job %></h2>
-                      <%= truncate(job.description, length: 200, seperator: "") %>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-          <% end %> 
+            <%= render partial: "companies/myshare/company_jobs" %>
           </div>
         </div>
       </div>
       
       <div class='medium-4 columns company-aside'>
-
-        <div class='company-social company'>
-          <% if @company.facebook? || @company.twitter? || @company.youtube? || @company.linkedin? || @company.instagram? %>
-              <p>Connect with <%= @company.name %></p>
-          
-              <div class='social-link facebook'>
-                <%= link_to "", @company.facebook, :target => "_blank", class: "fa fa-facebook fa-2x" if @company.facebook? %>
-              </div>
-              <div class='social-link twitter'>
-                <%= link_to "", @company.twitter, :target => "_blank", class: "fa fa-twitter fa-2x" if @company.twitter? %>
-              </div>
-              <div class='social-link youtube'>
-                <%= link_to "", @company.youtube, :target => "_blank", class: "fa fa-youtube fa-2x" if @company.youtube? %>
-              </div>
-              <div class='social-link linkedin'>
-                <%= link_to "", @company.linkedin, :target => "_blank", class: "fa fa-linkedin fa-2x" if @company.linkedin? %>
-              </div>
-              <div class='social-link instagram'>
-                <%= link_to "", @company.instagram, :target => "_blank", class: "fa fa-instagram fa-2x" if @company.instagram? %>
-              </div>
-              <div class='social-link googleplus'>
-                <%= link_to "", @company.googleplus, :target => "_blank", class: "fa fa-google-plus fa-2x" if @company.googleplus? %>
-              </div>
-              <div class='social-link pinterest'>
-                <%= link_to "", @company.pinterest, :target => "_blank", class: "fa fa-pinterest-p fa-2x" if @company.pinterest? %>
-              </div>
-              <% if @company.github? %>
-                <div class='social-link github'>
-                  <%= link_to "", @company.github, :target => "_blank", class: "fa fa-github-alt fa-2x" %>
-                </div>
-              <% end %>
-           <% else %>
-          <% end %> 
-        </div>
-        <% if @company.facebook_username || @company.twitter_username %>
-          <div class='hide-for-medium-down company-follow company'>
-            <p>Follow <%= @company.name.capitalize %></p>
-            <ul class="tabs" data-tab role="tablist">
-              <% if @company.facebook_username %>
-                <li class="tab-title active" role="presentation"><a href="#facebook" role="tab" tabindex="0" aria-selected="true" aria-controls="facebook"><span class='facebook-so'><i class='fa fa-facebook'></i>Facebook</span></a></li>
-              <% end %>
-              <% if @company.twitter_username %>
-                <li class="tab-title" role="presentation"><a href="#twitter" role="tab" tabindex="0" aria-selected="false" aria-controls="twitter"><span class='twitter-so'><i class='fa fa-twitter'></i>Twitter</span></a></li>
-              <% end %>
-            </ul>
-            <div class="tabs-content">
-              <section role="tabpanel" aria-hidden="false" class="content active" id="facebook">
-                <div class='social-tab'><%= render "facebook" %>
-                </div>
-              </section>
-              <section role="tabpanel" aria-hidden="true" class="content" id="twitter">
-               <div class='social-tab'><%= render "twitter" %></div>
-              </section>
-            </div>
-          </div>
-        <% end %>
-        <% if @company.video %>
-          <div class='company-video company'>
-            <% if @company.video %><br>
-              <div class='company-video-content'>
-                <p>Company Video</p>
-                <p><iframe  src="//www.youtube.com/embed/<%= @company.video %>" frameborder="0" allowfullscreen style="width:97%;height:250px;margin:auto;"></iframe>
-                </p>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
+        <%= render partial: "companies/myshare/aside" %>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
-
-<div class='medium-12 columns'>
-          <div class='row'>
-            <div class='medium-4 small-12 columns'>
-              <div class='company-tab'>
-<p><%= link_to " #{@company.website}", @company.website, :target => "_blank" %></p>
-                <div class="list-group">
-          
-                  <%= link_to "#{@company.name}", @company, class: "list-group-item active"   %>
-                  <%= link_to "About #{@company.name}", company_about_path(@company), class: "list-group-item"   %>
-                  <%= link_to "#{@company.name} Jobs", company_job_path(@company), class: "list-group-item" %>
-                  <%= link_to "Reviews", company_review_path(@company), class: "list-group-item"  %>
-                  <%= link_to "Interviews", company_interview_path(@company), class: "list-group-item"  %>
-                   <% if current_employer || current_candidate %>
-                    <%= link_to "Write a Reviews", company_addreview_path(@company), class: "list-group-item"  %>
-                    <%= link_to "Add-Interviews", company_addinterview_path(@company), class: "list-group-item"  %>
-                    <% end %>    
-                  </div>     
-                </div>
-              </div>
              
-<script>
-  $('.star-rating').raty({
-    path: 'https://s3.amazonaws.com/foodplace/uploads/stars',
-    readOnly: true,
-    score: function(){
-      return $(this).attr('data-score');
-    }
-  });
-  $('.write-review').on('click', function(){
-    $('.review-form').toggle("slow");
-    });
-    
-</script>
+<%= render partial: "companies/myshare/script" %>
 
 

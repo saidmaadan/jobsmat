@@ -1,0 +1,67 @@
+<div class='company-social company'>
+  <% if @company.facebook? || @company.twitter? || @company.youtube? || @company.linkedin? || @company.instagram? %>
+      <p>Connect with <%= @company.name %></p>
+  
+      <div class='social-link facebook'>
+        <%= link_to "", @company.facebook, :target => "_blank", class: "fa fa-facebook fa-2x" if @company.facebook? %>
+      </div>
+      <div class='social-link twitter'>
+        <%= link_to "", @company.twitter, :target => "_blank", class: "fa fa-twitter fa-2x" if @company.twitter? %>
+      </div>
+      <div class='social-link youtube'>
+        <%= link_to "", @company.youtube, :target => "_blank", class: "fa fa-youtube fa-2x" if @company.youtube? %>
+      </div>
+      <div class='social-link linkedin'>
+        <%= link_to "", @company.linkedin, :target => "_blank", class: "fa fa-linkedin fa-2x" if @company.linkedin? %>
+      </div>
+      <div class='social-link instagram'>
+        <%= link_to "", @company.instagram, :target => "_blank", class: "fa fa-instagram fa-2x" if @company.instagram? %>
+      </div>
+      <div class='social-link googleplus'>
+        <%= link_to "", @company.googleplus, :target => "_blank", class: "fa fa-google-plus fa-2x" if @company.googleplus? %>
+      </div>
+      <div class='social-link pinterest'>
+        <%= link_to "", @company.pinterest, :target => "_blank", class: "fa fa-pinterest-p fa-2x" if @company.pinterest? %>
+      </div>
+      <% if @company.github? %>
+        <div class='social-link github'>
+          <%= link_to "", @company.github, :target => "_blank", class: "fa fa-github-alt fa-2x" %>
+        </div>
+      <% end %>
+   <% else %>
+  <% end %> 
+</div>
+<% if @company.facebook_username || @company.twitter_username %>
+  <div class='hide-for-medium-down company-follow company'>
+    <p>Follow <%= @company.name.capitalize %></p>
+    <ul class="tabs" data-tab role="tablist">
+      <% if @company.facebook_username %>
+        <li class="tab-title " role="presentation"><a href="#facebook" role="tab" tabindex="0" aria-selected="true" aria-controls="facebook"><span class='facebook-so'><i class='fa fa-facebook'></i>Facebook</span></a></li>
+      <% end %>
+      <% if @company.twitter_username? && @company.twitter_widget_id? %>
+        <li class="tab-title active" role="presentation"><a href="#twitter" role="tab" tabindex="0" aria-selected="false" aria-controls="twitter"><span class='twitter-so'><i class='fa fa-twitter'></i>Twitter</span></a></li>
+      <% end %>
+    </ul>
+    <div class="tabs-content">
+      <section role="tabpanel" aria-hidden="false" class="content active" id="facebook">
+        <div class='social-tab'><%= render partial: "companies/myshare/facebook" %>
+        </div>
+      </section>
+      <section role="tabpanel" aria-hidden="true" class="content" id="twitter">
+       <div class='social-tab'><%= render partial: "companies/myshare/twitter" %></div>
+      </section>
+      
+    </div>
+  </div>
+<% end %>
+<% if @company.video? %>
+  <div class='company-video company'>
+    <% if @company.video %><br>
+      <div class='company-video-content'>
+        <p>Company Video</p>
+        <p><iframe  src="//www.youtube.com/embed/<%= @company.video %>" frameborder="0" allowfullscreen style="width:97%;height:250px;margin:auto;"></iframe>
+        </p>
+      </div>
+    <% end %>
+  </div>
+<% end %>

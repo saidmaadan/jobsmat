@@ -1,0 +1,76 @@
+<div class='company-show'>
+  <%= render "companies/myshare/header" %>
+  <% if @interviews.blank? %>
+    <div class='medium-12 columns company-main'>
+      <div class='row'>
+        <div class='medium-12 columns company-main-top company'>
+          <h3>No reviews yet. Be the first to post your review for <%= link_to @company.name, company_addreview_path(@company) %></h3>
+        </div>
+      </div>
+    </div>
+  <% else %>
+  <div class='medium-12 columns company-main'>
+    <div class='row'>
+      <div class='medium-8 columns'>
+        <div class='row'>
+          <div class='medium-12 columns company-main-top company'>
+              <h3><%= @company.name %> Interviews</h3><hr>
+              <% @interviews.each do |interview| %>
+                <div class="row">
+                  <div class='small-12 columns'>
+                    <h2><%= interview.job_title %></h2>
+                  </div>
+                  <div class='small-12 columns'>
+                    <h3><%= "Accepted offer" if interview.hired == "Yes" %></h3>
+                  </div>
+                  <div class='small-12 columns'>
+                    <h2>Application Process</h2>
+                    <p><%= "I applied via #{interview.how_heard}" if interview.how_heard %>.&nbsp; <%= "The process took #{interview.duration} #{interview.duration_days}" %>.&nbsp;<%= "I interviewed at #{@company.name} #{interview.where}"  %></p>
+                  </div>
+                  <div class='small-12 columns'>
+                    <% if interview.process%>
+                      <h3>Interview Process</h3>
+                      <p><%= interview.process %></p>
+                    <% end %>
+                  </div>
+                  <div class='small-12 columns'>
+                    <% if interview.questions %>
+                      <h3>Interview Questions </h3>
+                      <p><%= interview.questions %></p>
+                    <% end %>
+                  </div>
+                  <div class='small-12 columns'>
+                    <% if current_employer || current_candidate %>
+                      <% if interview.anwsers %>
+                        <h3>Interview Anwsers </h3>
+                        <p><%= interview.anwsers %></p>
+                      <% end %>
+                    <% end %>
+                  </div><br>
+                  <div class='text-center'>
+                    <% if current_employer || current_candidate %>
+                      <%= link_to "Edit", edit_company_interview_path(@company, interview) %> | 
+                      <%= link_to "Delete", company_interview_path(@company, interview), method: :delete, data: { confirm: 'Are you sure?' }%>
+                    <% end %>
+                  </div>
+                  <br>   
+                </div>
+                  <hr>
+              <% end %>
+            
+              <%= will_paginate @interviews, renderer: BootstrapPagination::Rails, class: 'text-center' %> 
+            </div>
+          </div>
+        </div>
+      
+        <div class='medium-4 columns company-aside'>
+         <%= render partial: "companies/myshare/aside" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+             
+<%= render partial: "companies/myshare/script" %>
+
+

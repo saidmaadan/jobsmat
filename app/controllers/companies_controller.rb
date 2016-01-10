@@ -50,8 +50,8 @@ class CompaniesController < ApplicationController
     @reviews = Review.where(company_id: @company.id).order("created_at DESC").paginate(:page => params[:page], :per_page => 3)
     @companies = Company.all.order("created_at DESC").limit(8)
     @jobs = Job.all.order("created_at DESC")
-    @jobs = @company.jobs.paginate(:page => params[:page], :per_page => 3)
-
+    #@jobs = @company.jobs.all.order("created_at DESC")
+  
     @interview = Interview.new
     @interview.company_id = @company_id
     @interviews = Interview.where(company_id: @company.id).order("created_at DESC").paginate(:page => params[:page], :per_page => 2)
@@ -70,9 +70,10 @@ class CompaniesController < ApplicationController
     end
     @reviews = Review.where(company_id: @company.id).order("created_at DESC").paginate(:page => params[:page], :per_page => 3)
     @companies = Company.all.order("created_at DESC").limit(8)
+    #@jobs = Job.all.order("created_at DESC")
     @jobs = Job.all.order("created_at DESC")
-    #@jobs = Job.all.paginate(:page => params[:page], :per_page => 5)
-    #@jobs = @company.jobs.paginate(:page => params[:page], :per_page => 3)
+    
+    #@jobs = @company.jobs.paginate(:page => params[:page], :per_page => 7)
 
     @interview = Interview.new
     @interview.company_id = @company_id
@@ -90,7 +91,7 @@ class CompaniesController < ApplicationController
     @reviews = Review.where(company_id: @company.id).order("created_at DESC").paginate(:page => params[:page], :per_page => 3)
     @companies = Company.all.order("created_at DESC").limit(8)
     @jobs = Job.all.paginate(:page => params[:page], :per_page => 3)
-    @jobs = @company.jobs.paginate(:page => params[:page], :per_page => 3)
+    #@jobs = @company.jobs.paginate(:page => params[:page], :per_page => 3)
 
     @interview = Interview.new
     @interview.company_id = @company_id

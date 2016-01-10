@@ -1,0 +1,14 @@
+<script>
+  $('.star-rating').raty({
+    path: 'https://s3.amazonaws.com/foodplace/uploads/stars',
+    readOnly: true,
+    score: function(){
+      return $(this).attr('data-score');
+    }
+  });
+  $('.write-review').on('click', function(){
+    $('.review-form').toggle("slow");
+    });
+    
+</script>
+

@@ -11,7 +11,7 @@ class Interview < ActiveRecord::Base
   INTERVIEW_DIFFICULTY = ['Very Easy', 'Easy', 'Average', 'Very Difficult', "Difficult"]
   HOW_HEARD = ['Online', 'Employee Referral', 'Staffing Agency', 'Recruiter', "In-Person", "College or University", "Other"]
   HOW_HELPFUL = ['Very helpful', 'Helpful', 'Not helpful', 'I do not use Job-Inbox for my interview preparation']
-  WHEN = ['2015', '2014', '2013', '2012', '2011', '2010']
+  WHEN = ['2016', '2015', '2014', '2013', '2012', '2011', '2010', '2009', '2008', '2007', '2006', '2005', '2004']
   WHEN_MONTH = ['January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'Octomber', 'November', 'December']
   DURATION_DAYS = ['Days', 'Weeks', 'Months']
 

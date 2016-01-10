@@ -1,0 +1,63 @@
+<div class='row'>
+  <div class='medium-12 columns company'>
+    <div class='company-bgimage'>
+      <% if @company.company_image_url %>
+        <%= image_tag @company.company_image_url %>
+      <% else %>
+      <% end %>
+    </div>
+    <div class='row'>
+      <div class='medium-12 columns company-logo'>
+        <% if @company.logo_url %>
+          <%= image_tag @company.logo_url %>
+        <% else %>
+        <% end %>
+        <span><%= @company.name %></span>
+      </div>
+      <div class='medium-12 columns company-info'>
+        <div class='row'>
+          <div class='large-8 medium-12 small-12 columns'>
+            <table>
+              <thead>
+                <tr>
+                  <th><%= link_to @company.name, company_path(@company) %></th>
+                  <% if @reviews.blank? %>
+                  <% else %>
+                    <th class= "hide-for-small-only">
+                      <div class='review-star'>
+                        <div class="star-rating" data-score= <%= @avg_rating %> ></div> 
+                      </div>
+                    </th> 
+                  <% end %>        
+                  <th>
+                    <div class='review-rating text-center'>
+                      <%= "#{@reviews.length} " %><br><%= link_to "Reviews", company_review_path(@company)%>
+                    </div>
+                  </th> 
+                  <th>
+                    <div class='interview-rating text-center'>
+                       <%= "#{@interviews.length} " %><br><%= link_to "Interviews", company_interview_path(@company) %>
+                    </div>
+                  </th>
+                  <th>
+                    <div class='interview-rating text-center'>
+                      <%= "All" %><br><%= link_to "Jobs", company_job_path(@company) %>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+            </table> 
+          </div><br>
+          <div class='large-4 medium-12 small-12 company-button-header columns'>
+            <% if current_employer || current_candidate %>
+              <span class=" small success button fa fa-plus"><%= link_to "  Add Review", company_addreview_path(@company) %></span>&nbsp;&nbsp;
+              <span class=" small warning button fa fa-briefcase"><%= link_to "  Add Interview", company_addinterview_path(@company) %></span>&nbsp;&nbsp;
+            <% else %>
+              <%= link_to 'Signin to Add-Review', signin_path, class: 'small success button right' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

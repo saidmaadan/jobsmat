@@ -1,0 +1,35 @@
+<div class='company-main-tab'>
+  <ul class="tabs" data-tab role="tablist">
+    <li class="tab-title active" role="presentation"><a href="#about" role="tab" tabindex="0" aria-selected="true" aria-controls="about">About <%= @company.name %></a></li>
+    <li class="tab-title" role="presentation"><a href="#review" role="tab" tabindex="0" aria-selected="false" aria-controls="review">Reviews</a></li>
+    <li class="tab-title" role="presentation"><a href="#interview" role="tab" tabindex="0" aria-selected="false" aria-controls="interview">Interview</a></li>
+    <li class="tab-title" role="presentation"><a href="#add-review" role="tab" tabindex="0" aria-selected="false" aria-controls="add-review">Add Review</a></li>
+    <li class="tab-title" role="presentation"><a href="#add-interview" role="tab" tabindex="0" aria-selected="false" aria-controls="add-interview">Add Interview</a></li>
+  </ul>
+  <div class="tabs-content ">
+    <section role="tabpanel" aria-hidden="false" class="content active" id="about">
+     <p><%= @company.about %></p>
+    </section>
+    <section role="tabpanel" aria-hidden="true" class="content" id="review">
+      <% if @reviews.blank? %>
+      <% else %>
+        <h3><%= @company.name %> Reviews</h3><hr>
+          <div class="star-rating" data-score= <%= @avg_rating %> ></div>
+            <p><%= "#{@reviews.length} reviews" %></p>
+      <% end %>
+    </section>
+    <section role="tabpanel" aria-hidden="true" class="content" id="interview">
+      <h2>Third panel content goes here...</h2>
+    </section>
+    <section role="tabpanel" aria-hidden="true" class="content" id="add-review">
+      <div class='small-12 columns review-form'>
+        <%= render partial: 'reviews/form' %> 
+      </div>
+    </section>
+    <section role="tabpanel" aria-hidden="true" class="content" id="add-interview">
+      <div class='small-12 columns interview-form'>
+        <%= render partial: 'interviews/form' %>
+      </div>
+    </section>
+  </div>
+</div>

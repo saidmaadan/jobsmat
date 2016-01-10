@@ -14,6 +14,9 @@ class Review < ActiveRecord::Base
     less_than_or_equal_to: 5,
     message: "Accept only a whole number between 1 and 5"
   }
+  EMPLOYEE_STATUS = ["Full-Time", "Part-Time", "Contract", "Intern", "Freelancer" ]
+  EMPLOYEE_TYPE = ["Current Employee", "Former Employee"]
+  
 
   def slug_reviews
     [

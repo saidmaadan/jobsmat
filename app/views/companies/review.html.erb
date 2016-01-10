@@ -1,0 +1,51 @@
+<div class='company-show'>
+  <%= render "companies/myshare/header" %>
+  <% if @reviews.blank? %>
+    <div class='medium-12 columns company-main'>
+      <div class='row'>
+        <div class='medium-12 columns company-main-top company'>
+          <h3>No reviews yet. Be the first to post your review for <%= link_to @company.name, company_addreview_path(@company) %></h3>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <div class='row'>
+      <div class='medium-8 columns'>
+        <div class='row'>
+          <div class='medium-12 columns company-main-top company'>
+            <h3><%= @company.name %> Reviews</h3><hr>
+            <% @reviews.each do |r| %>
+              <div class="row">
+                <div class='small-12 columns'>
+                  <%= r.created_at.strftime("%-m/%-d/%y") %><br>
+                  <div class='star-rating' data-score= <%= r.rating %> >
+                  </div>
+                </div>
+                <div class='small-12 columns'>
+                  <p><%= h(r.pros).gsub(/\n/, '<br/>').html_safe %></p>
+                  <% if current_employer %>
+                  <%# if (r.user == current_user) || (current_user.admin?)%>
+                    <%= link_to "Edit", edit_company_review_path(@company, r) %> | 
+                    <%= link_to "Delete", company_review_path(@company, r), method: :delete, data: { confirm: 'Are you sure?' }%>
+                  <% end %><br>
+                </div>
+              </div>
+                    <hr> 
+            <% end %>
+            
+            <%= will_paginate @reviews, renderer: BootstrapPagination::Rails, class: 'text-center' %>
+          </div>
+        </div>
+      </div>
+      
+      <div class='medium-4 columns company-aside'>
+        <%= render partial: "companies/myshare/aside" %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+             
+<%= render partial: "companies/myshare/script" %>
+
+

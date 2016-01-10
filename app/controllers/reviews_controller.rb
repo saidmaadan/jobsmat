@@ -53,7 +53,7 @@ class ReviewsController < ApplicationController
 
   private
     def set_review
-      @review = Review.friendly.find(params[:id])
+      @review = Review.find(params[:id])
     end
 
     def set_company
@@ -68,7 +68,7 @@ class ReviewsController < ApplicationController
 
 
     def review_params
-      params.require(:review).permit(:company_name, :title, :rating, :cons, :pros, :advice)
+      params.require(:review).permit(:company_name, :title, :rating, :cons, :pros, :advice, :employee_status, :employee_type)
     end
 end
 

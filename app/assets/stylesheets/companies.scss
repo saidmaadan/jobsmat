@@ -357,3 +357,48 @@
   }
 }
 
+//-----------------------Company Job--------------------------
+.company-job-main{
+  //border-top: 1px solid $lightgreen-color;
+  border-bottom: 1px solid $lightgreen-color;
+  padding: 20px 0;
+  img{
+    margin-top: 15px;
+  }
+}
+.company-job-main.last{
+  border-bottom: none;
+}
+
+.company-main-job{
+  padding: 20px 0;
+  .h{
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 18px;
+    vertical-align: middle;
+    word-spacing: 0px;
+  }
+  .sign{
+    color: $primary-color;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-left: 5px;
+  }
+  .company-show-job{
+    border-bottom: 1px solid $lightgreen-color;
+    padding: 10px 0;
+    img{
+      margin-top: 20px;
+    }
+  }
+}
+
+.company-button-header{
+  a{
+    color: #fff;
+  }
+  fa{
+    margin-right: 5px;
+  }
+}

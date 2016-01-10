@@ -1,0 +1,37 @@
+<div class='company-show'>
+  <%= render partial: "companies/myshare/header" %>
+ 
+  <div class='medium-12 columns company-main'>
+     <div class='row'>
+      <div class='medium-8 columns'>
+        <div class='row'>
+          <div class='medium-12 columns company-main-top company'>
+            <div class='small-11 small-centered columns review-form'><br>
+              <%= render partial: 'interviews/form' %> 
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class='medium-4 columns company-aside'>
+        <%= render partial: "companies/myshare/aside" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $('.star-rating').raty({
+    path: 'https://s3.amazonaws.com/foodplace/uploads/stars',
+    readOnly: true,
+    score: function(){
+      return $(this).attr('data-score');
+    }
+  });
+  $('.write-review').on('click', function(){
+    $('.review-form').toggle("slow");
+    });
+    
+</script>
+
+
