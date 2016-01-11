@@ -18,7 +18,7 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     #@review.candidate_id = current_candidate.id
-    @review.employer_id = current_employer.id
+    #@review.employer_id = current_employer.id
     @review.company_id = @company.id
     respond_to do |format|
       if @review.save
@@ -53,7 +53,7 @@ class ReviewsController < ApplicationController
 
   private
     def set_review
-      @review = Review.find(params[:id])
+      @review = Review.friendly.find(params[:id])
     end
 
     def set_company

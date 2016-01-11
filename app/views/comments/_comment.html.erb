@@ -1,11 +1,11 @@
 <div class='comment'>
   <%# if current_candidate %>
-    <%#= link_to @comment.candidate.name, @comment.candidate %>
+    <%#= link_to @comment.candidate.name, comment.candidate %>
   <%# elsif current_employer %>
-    <%#= link_to @comment.employer.name, @comment.employer %>
+    <%#= link_to @comment.employer.name, comment.employer %>
   <%# else %>
     <%#= comment.name %>
   <%# end %>
-  <span><%#= time_ago_in_words(comment.created_at)%> ago</span>
-  <p><%#= comment.body %></p>
+  <span><%= time_ago_in_words(comment.created_at)%> ago</span>
+  <p><%= comment.body %></p>
 </div>

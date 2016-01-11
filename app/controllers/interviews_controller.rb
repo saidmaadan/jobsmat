@@ -15,7 +15,7 @@ class InterviewsController < ApplicationController
   def create
     @interview = Interview.new(interview_params)
     #@interview.candidate_id = current_candidate.id
-    @interview.employer_id = current_employer.id
+    #@interview.employer_id = current_employer.id
     @interview.company_id = @company.id
     # respond_to do |format|
       if @interview.save
@@ -47,7 +47,7 @@ class InterviewsController < ApplicationController
 
   private
     def set_interview
-      @interview = Interview.find(params[:id])
+      @interview = Interview.friendly.find(params[:id])
     end
 
     def set_company

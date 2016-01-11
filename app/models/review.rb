@@ -4,8 +4,8 @@ class Review < ActiveRecord::Base
   belongs_to :employer
   self.per_page = 5
 
-  # extend FriendlyId
-  # friendly_id :slug_reviews, use: :slugged
+  extend FriendlyId
+  friendly_id :slug_reviews, use: :slugged
 
   validates :rating, :pros, :cons, :advice, presence: true
   validates :rating, numericality:{ 
@@ -18,11 +18,11 @@ class Review < ActiveRecord::Base
   EMPLOYEE_TYPE = ["Current Employee", "Former Employee"]
   
 
-  # def slug_reviews
-  #   [
-  #     :company_name,
-  #     [:company_name, :title],
-  #     [:company_name, :title, :rating]
-  #   ]
-  # end
+  def slug_reviews
+    [
+      :company_name,
+      [:company_name, :title],
+      [:company_name, :title, :rating]
+    ]
+  end
 end

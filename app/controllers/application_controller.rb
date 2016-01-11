@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   helper_method :require_signin_employer
 
   def require_signin
-    unless current_candidate || current_employer
+    unless (current_candidate || current_employer)
       session[:intended_url] = request.url
       redirect_to new_session_url, alert: "You need to sign in to have access"
     end

@@ -4,6 +4,7 @@ class Company < ActiveRecord::Base
   has_many :jobs
   has_many :reviews, dependent: :destroy
   belongs_to :employer
+  
   extend FriendlyId
   friendly_id :slug_companies, use: :slugged
   searchkick

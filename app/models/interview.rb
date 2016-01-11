@@ -4,8 +4,8 @@ class Interview < ActiveRecord::Base
   belongs_to :employer
   self.per_page = 5
 
-  # extend FriendlyId
-  # friendly_id :slug_interviews, use: :slugged
+  extend FriendlyId
+  friendly_id :slug_interviews, use: :slugged
 
   validates :job_title, :process, :questions, :when, :where, presence: true
   INTERVIEW_DIFFICULTY = ['Very Easy', 'Easy', 'Average', 'Very Difficult', "Difficult"]
@@ -15,13 +15,13 @@ class Interview < ActiveRecord::Base
   WHEN_MONTH = ['January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'Octomber', 'November', 'December']
   DURATION_DAYS = ['Days', 'Weeks', 'Months']
 
-  # def slug_interviews
-  #   [
-  #     :job_title,
-  #     [:job_title, :how_heard],
-  #     [:job_title, :how_heard, :interview_difficulty,],
-  #     [:job_title, :how_heard, :interview_difficulty, :hired,],
-  #     [:job_title, :how_heard, :interview_difficulty, :hired, :duration_days]
-  #   ]
-  # end
+  def slug_interviews
+    [
+      :job_title,
+      [:job_title, :how_heard],
+      [:job_title, :how_heard, :interview_difficulty,],
+      [:job_title, :how_heard, :interview_difficulty, :hired,],
+      [:job_title, :how_heard, :interview_difficulty, :hired, :duration_days]
+    ]
+  end
 end
