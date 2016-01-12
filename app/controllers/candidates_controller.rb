@@ -25,6 +25,7 @@ class CandidatesController < ApplicationController
     @education = Education.new
     @education.candidate_id = @education_id
     @educations = Education.where(candidate_id: @candidate.id).order("created_at DESC")
+    @followed_companies = @candidate.followed_companies
   end
 
   def new

@@ -16,11 +16,15 @@
       </div>
       <div class='medium-12 columns company-info'>
         <div class='row'>
-          <div class='large-8 medium-12 small-12 columns'>
+          <div class='large-7 medium-12 small-12 columns'>
             <table>
               <thead>
                 <tr>
-                  <th><%= link_to @company.name, company_path(@company) %></th>
+                  <th>
+                    <div class='interview-rating text-center'>
+                      <%= " " %><br><%= link_to @company.name, company_path(@company) %>
+                    </div>
+                    </th>
                   <% if @reviews.blank? %>
                   <% else %>
                     <th class= "hide-for-small-only">
@@ -29,6 +33,11 @@
                       </div>
                     </th> 
                   <% end %>        
+                  <th>
+                    <div class='interview-rating text-center'>
+                      <%= " " %><br><%= link_to "Jobs", company_job_path(@company) %>   
+                    </div>
+                  </th>
                   <th>
                     <div class='review-rating text-center'>
                       <%= "#{@reviewss.length} " %><br><%= link_to "Reviews", company_review_path(@company)%>
@@ -41,17 +50,23 @@
                   </th>
                   <th>
                     <div class='interview-rating text-center'>
-                      <%= "All" %><br><%= link_to "Jobs", company_job_path(@company) %>
+                      <%= "#{@followers.size}" %><br> Followers
+                      <%#= pluralize(@followers.size, "follower") %>
                     </div>
                   </th>
                 </tr>
               </thead>
             </table> 
-          </div><br>
-          <div class='large-4 medium-12 small-12 company-button-header columns'>
+          </div>
+          <div class='large-5 medium-12 small-12 company-button-header columns'>
             <% if current_employer || current_candidate %>
+              <% if @current_follow %>
+                <span class=" small secondary button"><%= link_to " Unfollow", company_follow_path(@company, @current_follow), method: :delete, style: "color:green;font-weight:bold;" %></span>&nbsp;&nbsp; 
+              <% else %>
+                <span class=" small secondary button"><%= link_to " Follow Us", company_follows_path(@company), style: "color:green;font-weight:bold;" %></span>&nbsp;&nbsp;
+              <% end %>
               <span class=" small success button fa fa-plus"><%= link_to "  Add Review", company_addreview_path(@company) %></span>&nbsp;&nbsp;
-              <span class=" small warning button fa fa-briefcase"><%= link_to "  Add Interview", company_addinterview_path(@company) %></span>&nbsp;&nbsp;
+              <span class=" small warning button fa fa-briefcase "><%= link_to "  Add Interview", company_addinterview_path(@company) %></span>&nbsp;&nbsp;
             <% else %>
               <%= link_to 'Signin to Add-Review', signin_path, class: 'small success button right' %>
             <% end %>

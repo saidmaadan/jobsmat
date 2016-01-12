@@ -17,6 +17,7 @@ class EmployersController < ApplicationController
 
   def show
     @employer = Employer.friendly.find(params[:id])
+    @followed_companies = @employer.followed_companies
     @jobs = @employer.jobs.order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
   end
 

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  
   get '/about' =>'pages#about'
 
   get '/terms' =>'pages#terms'
@@ -49,6 +50,7 @@ Rails.application.routes.draw do
     end
     resources :reviews, except: [:show, :index]
     resources :interviews, except: [:show, :index]
+    resources :follows
   end
 
   get "tips/add" => "tips#new", as: "tips/add"

@@ -20,8 +20,10 @@ class Candidate < ActiveRecord::Base
   has_many :works
   has_many :educations
   has_many :jobs
-  has_many :applies, dependent: :destroy
   has_many :comments
+  has_many :applies, dependent: :destroy
+  has_many :follows, dependent: :destroy
+  has_many :followed_companies, through: :follows, source: :company
 
 
   before_create {generate_token(:auth_token)}

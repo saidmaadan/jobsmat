@@ -1,10 +1,13 @@
 class Company < ActiveRecord::Base
   mount_uploader :company_image, CompanyImageUploader
   mount_uploader :logo, LogoUploader
+  belongs_to :employer
   has_many :jobs
   has_many :reviews, dependent: :destroy
-  belongs_to :employer
-  
+  has_many :follows, dependent: :destroy
+  has_many :followers, through: :follows, source: :candidate
+  has_many :followers, through: :follows, source: :employer
+
   extend FriendlyId
   friendly_id :slug_companies, use: :slugged
   searchkick
@@ -24,5 +27,8 @@ class Company < ActiveRecord::Base
       [:name, :industry, :founded, :size],
       [:name, :industry, :founded, :size, :location]
     ]
+  end
+  def company_job
+    (company.jobs).size
   end
 end

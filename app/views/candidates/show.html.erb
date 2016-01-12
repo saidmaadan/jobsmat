@@ -110,7 +110,7 @@
     </div>
   </div>
   
-  <div class='large-7 medium-8 small-12 columns show-content'>
+  <div class='large-6 medium-5 small-12 columns show-content'>
     <h2><%= @candidate.name %></h2>
     <h4><%= @candidate.email %></h4>
     Linkedin: <%= @candidate.linkedin_url %><br>
@@ -179,11 +179,28 @@
     <% end %>
   </div>
   
-  <div class='large-2 medium-12 small-12 columns show-aside'>
-    <h3>Job You Applied for</h3>
-    <p>Web developer @accenture</p>
-    <p>front-end developer @steadfast</p>
-    <p>Ruby on Rails developer @accenture</p>
+  <div class='large-3 medium-3 small-12 columns'>
+    <% if @followed_companies.any? %>
+      <div class='show-aside'>
+        <h2>Followed Companies</h2>
+        <% @followed_companies.each do |company| %>
+          <div class='row'>
+            <div class='large-4 medium-3 small-4 columns'>
+              <%# if company.logo_url %>
+                <%= link_to company.name, company %>
+              <%# end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  
+    <div class='show-aside'>
+      <h3>Job You Applied for</h3>
+      <p>Web developer @accenture</p>
+      <p>front-end developer @steadfast</p>
+      <p>Ruby on Rails developer @accenture</p>
+    </div>
   </div>
   
 </div>
