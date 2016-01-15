@@ -13,7 +13,7 @@ class AppliesController < ApplicationController
 
   def create
     @apply = Apply.new(apply_params)
-    @apply.candidate_id = current_candidate.id
+    #@apply.candidate_id = current_candidate.id
     @apply.job_id = @job.id
     respond_to do |format|
       if @apply.save
