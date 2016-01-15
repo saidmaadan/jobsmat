@@ -22,6 +22,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def require_signin_candidate
+    unless current_candidate
+      session[:intended_url] = request.url
+      redirect_to new_session_url, alert: "You need to sign in to have access"
+    end
+  end
+  helper_method :require_signin_candidate
+
   def current_employer
     #@current_employer ||= Employer.find_by_auth_token!(cookies[:auth_token]) if cookies[:auth_token]
     @current_employer ||= Employer.find(session[:employer_id]) if session[:employer_id]

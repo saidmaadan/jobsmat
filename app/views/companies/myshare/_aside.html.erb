@@ -1,22 +1,18 @@
-<% if @followers.any? %>
+<!-- <%# if @followers.any? %>
   <div class='company-social company'>
     <h3>Followers</h3>
-    <% @followers.each do |follower| %>
+    <%# @followers.each do |follower| %>
       <div class='row'>
         <div class='large-2 medium-3 small-2 columns'>
-          <% if follower.cand_image_url %>
-            <%= link_to image_tag follower.cand_image_url, candidate %>
-          <% else link_to "", candidate, class: "fa fa-user" %>
-          <% end %>
-          <% if follower.emp_image_url %>
-            <%= link_to image_tag follower.emp_image_url, employer %>
-          <% else link_to "", employer, class: "fa fa-user" %>
-          <% end %>
+          
+        
+            
+         
         </div>
       </div>
-    <% end %>
+    <%# end %>
   </div>
-<% end %>
+<%# end %> -->
 <div class='company-social company'>
   <% if @company.facebook? || @company.twitter? || @company.youtube? || @company.linkedin? || @company.instagram? %>
       <p>Connect with <%= @company.name %></p>

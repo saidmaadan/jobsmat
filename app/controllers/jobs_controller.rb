@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :require_signin_employer, except: [:search, :index, :show]
+  before_action :require_signin_employer, only: [:create, :edit, :update, :delete, :new]
 
   def search
     if params[:search].present?
@@ -10,6 +10,7 @@ class JobsController < ApplicationController
   end
 
   def index
+    #@jobs = Job.order("created_at DESC").page(params[:page]).per_page(8)
     @jobs = Job.order("created_at DESC").paginate(:page => params[:page], :per_page => 8)
     @companies = Company.all
   end

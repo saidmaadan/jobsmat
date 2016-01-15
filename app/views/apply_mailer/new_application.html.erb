@@ -4,8 +4,12 @@
   <title></title>
 </head>
 <body>
-  <p>Hi, <%= @job_employer.name %></p>
-  <p><%= @current_candidate.name %> has applied for the position of </p>
-  <p><%= @resume %></p>
+  <p>A new candidate has applied for the position as <%= link_to @job.title, @job %></p>
+  <p>Here are the details of the candidate</p>
+  <blockquote>
+    <em><%= @apply.name %></em>
+    <em><%= @apply.email %></em>
+    <em><%= @apply.resume %></em>
+  </blockquote>
 </body>
 </html>

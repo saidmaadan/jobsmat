@@ -114,7 +114,11 @@
               <%= f.text_field :email, value: "#{current_candidate.email}", class: "form-control"  %>
             </div>
             <div class="form-group">
-              <%= f.text_field :phone_number, class: "form-control", value: "#{current_candidate.phone_number}" %>
+              <% if current_candidate.phone_number %>
+                <%= f.text_field :phone_number, class: "form-control", value: "#{current_candidate.phone_number}" %>
+              <% else %>
+                <%= f.text_field :phone, class: "form-control", placeholder: "(123) 456-7890"  %>
+              <% end %>
             </div>
             <div class="form-group">
               <%#= f.label :message,  %>

@@ -90,8 +90,6 @@ class CompaniesController < ApplicationController
     @followers = @company.followers
     if current_candidate
       @current_follow = current_candidate.follows.find_by(company_id: @company.id)
-    else current_employer
-      @current_follow = current_employer.follows.find_by(company_id: @company.id)
     end
     @reviews = Review.where(company_id: @company.id).order("created_at DESC")
     @reviewss = Review.where(company_id: @company.id).order("created_at DESC")

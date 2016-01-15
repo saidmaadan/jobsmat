@@ -6,11 +6,12 @@
   <section class="right tab-bar-section">
     <h1 class="title hidden-for-small right">
       <% if current_candidate || current_employer %>
-        Howdy! <%#= @candidate.name %>
+        Howdy! <%#= @candidate.name %>&nbsp;&nbsp;
+      <%= link_to ' Logout', session_path, method: :delete, style: "color:white;font-weight:bold;"%>
       <% else %>
-        <ul class="button-group radius" style="margin-top: -15px;">
-          <li><%=  link_to "POST A JOB", jobs_add_path, class: " warning button" %></li>
-          <li><%= link_to 'UPLOAD RESUME', signin_path, class: " alert button" %></li>
+        <ul class="button-group radius right" style="margin-top: -15px;">
+          <li><%=  link_to "POST A JOB", jobs_add_path, class: " success button" %></li>
+          <li><%= link_to 'UPLOAD RESUME', signin_path, class: " success button" %></li>
           
         </ul>
       <% end %>
