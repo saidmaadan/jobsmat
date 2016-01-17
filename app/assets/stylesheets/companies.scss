@@ -429,3 +429,26 @@
     margin-right: 5px;
   }
 }
+
+//----------------------Search-Main----------------------------
+
+.search-main{
+  background: #fff;
+  margin: 30px auto;
+  padding: 25px 20px;
+  h2 a{
+    font-size: 22px;
+    font-weight: 500;
+    color: $green-color;
+  }
+  h4{
+    font-size: 17px;
+    font-weight: 400;
+    color: $body-color;
+  }
+   p{
+    font-size: 15px;
+    font-weight: 300;
+    color: $body-color;
+  }
+}
