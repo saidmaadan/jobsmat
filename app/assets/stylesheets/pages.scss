@@ -146,18 +146,21 @@
 //--------------------------Home-Main------------------------
 
 .home-main{
-  width: 108%;
+  width: 104%;
+  height: 100%;
   margin-top: 20px;
-  .jobsmatron{
-    height: 100%;
-    width: 108%;
-    border-top: 2px solid #ddd;
-    background: $white-color;
-    background-size: cover;
-    text-align: center;
-    right: 0;
-    left: 0;
-    padding: 30px;
+  margin-left: -10px;
+  margin-right: -7px;
+  border-top: 2px solid #ddd;
+  background: $white-color;
+  background-size: cover;
+  text-align: center;
+  right: 0;
+  left: 0;
+  padding: 30px;
+  .home-responsive{
+    width: 80%;
+    margin: auto;
     img{
       max-width: 100px;
       min-width: 100px;

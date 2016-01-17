@@ -86,21 +86,16 @@
     </div>
   </div>
 
-  <div class='home-main'>
-    <div class='jobsmatron'>
-      <div class='row'>
+  <div class='home-main'>      
+    <div class='home-responsive'>
+      <h2 class='text-center'>Companies on JobsMat</h2>
+      <div class="responsive">
         
-        <div class='medium-12 columns'>
-          <h2 class='text-center'>Companies on JobsMat</h2>
-          <div class="small-12 small-centered columns responsive">
-            
-            <% @companies.order("created_at ASC").each do |company| %>  
-              <div>
-                <%= link_to (image_tag company.logo), company, alt: company.name %>
-              </div>
-            <% end %>
+        <% @companies.order("created_at ASC").each do |company| %>  
+          <div>
+            <%= link_to (image_tag company.logo), company, alt: company.name %>
           </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>  
