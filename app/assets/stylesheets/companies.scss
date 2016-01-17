@@ -433,9 +433,15 @@
 //----------------------Search-Main----------------------------
 
 .search-main{
+  width: 100%;
+  height: 100%;
   background: #fff;
   margin: 30px auto;
   padding: 25px 20px;
+  img{
+    width: 100%;
+    height: 200px;
+  }
   h2 a{
     font-size: 22px;
     font-weight: 500;
