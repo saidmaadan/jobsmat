@@ -47,11 +47,11 @@
 
   <div class='home-top'>
     <div class='row'>
-       <h2 class='text-center'>Appy for the job that's right for you.</h2>
+       <h2 class='text-center'>Appy for the job that's right for you.</h2><br>
       <div class='large-4 medium-6 columns'>
         <div class='row'>
           <div class='large-3 medium-3 small-3 columns'>
-            <img src="https://s3.amazonaws.com/inventivelabs/jobinbox/imgs/profile.png"> 
+            <img src="https://s3.amazonaws.com/inventivelabs/jobinbox/imgs/profile1.png"> 
           </div>
           <div class='large-9 medium-9 small-9 columns'>
             <h3 class='text-left'>Create eye catching Profile</h3>
@@ -63,7 +63,7 @@
       <div class='large-4 medium-6 columns'>
         <div class='row'>
           <div class='large-3 medium-3 small-3 columns'>
-            <img src="https://s3.amazonaws.com/inventivelabs/jobinbox/imgs/search.png"> 
+            <img src="https://s3.amazonaws.com/inventivelabs/jobsmat/imgs/icon1.png"> 
           </div>
           <div class='large-9 medium-9 small-9 columns'>
             <h3 class='text-left'>Search and find your dream Job</h3>
@@ -75,7 +75,7 @@
       <div class='large-4 medium-12 columns'>
         <div class='row'>
           <div class='large-3 medium-2 small-3 columns'>
-            <img src="https://s3.amazonaws.com/inventivelabs/jobinbox/imgs/profile1.png"> 
+            <img src="https://s3.amazonaws.com/inventivelabs/jobsmat/imgs/icon.png"> 
           </div>
           <div class='large-9 medium-10 small-9 columns'>
             <h3 class='text-left'>Read Reviews from Employees</h3>
@@ -92,7 +92,7 @@
         
         <div class='medium-12 columns'>
           <h2 class='text-center'>Companies on JobsMat</h2>
-          <div class="small-11 small-centered columns responsive">
+          <div class="small-12 small-centered columns responsive">
             
             <% @companies.order("created_at ASC").each do |company| %>  
               <div>
@@ -108,24 +108,24 @@
   
   <aside class='home-background'>
     <div class='row'>
-      <div class='medium-6 columns'>
-        <h2>Applicants</h2>
-        <i class='fa fa-user fa-4x'></i><br><br>
-        <% if current_candidate %>
-          <%= link_to " Upload Resume", profile_info_path(current_candidate), class: 'alert button' %>
-        <% else %>
-          <%= link_to "Upload Resume", signin_path, class: 'alert button' %>
-        <% end %>
-      </div>
-      <div class='medium-6 columns'>
-        <h2>Employers</h2>
-        <i class='fa fa-users fa-4x'></i><br><br>
-        <% if current_employer %>
-          <%= link_to "Post a Job", jobs_add_path, class: 'warning button' %>
-        <% else %>
-          <%= link_to "Post a Job", signin_path, class: 'warning button' %>
-        <% end %>
-      </div>
+      <% if current_candidate %>
+        <div class='large-9 medium-8 columns'>
+          <h2>Update your profile</h2>
+          <p>Employers will find and contact you for a job opportunity without even applying.</p>        
+        </div>
+        <div class='large-3 medium-4 columns left'>
+          <%= link_to "#{current_candidate.name}! Update Your Profile", profile_info_path(current_candidate), class: 'success button' %>  
+        </div>
+        
+      <% else %>
+        <div class='large-9 medium-8 columns'>
+          <h2>Register and add your profile</h2>
+          <p>Employers will find and contact you for a job that matches your profile without even applying. </p>  
+        </div>
+        <div class='large-3 medium-4 columns left'>
+          <%= link_to "Upload Your Resume", signin_path, class: 'warning button' %>
+        </div>
+      <% end %>
     </div>
   </aside>
 
@@ -230,12 +230,12 @@
               slidesToScroll: 2
             }
           }
-          // You can unslick at a given breakpoint now by adding:
-          // settings: "unslick"
-          // instead of a settings object
         ]
       });
     });
   
   </script>
- 
+  <!-- https://s3.amazonaws.com/inventivelabs/jobinbox/imgs/profile.png
+  https://s3.amazonaws.com/inventivelabs/jobinbox/imgs/search.png
+  https://s3.amazonaws.com/inventivelabs/jobinbox/imgs/profile1.png
+  -->

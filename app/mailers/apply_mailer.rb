@@ -8,7 +8,7 @@ class ApplyMailer < ApplicationMailer
 
     mail(to: @job.email,
       from: "hr@jobsmat.com",
-      subject: "Application Submitted",
+      subject: "Application for #{@job.title}",
     )
   end
   # def new_application(current_candidate, job_employer, name, email, phone, message, job, resume)

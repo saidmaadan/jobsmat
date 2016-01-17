@@ -1,6 +1,7 @@
 <html>
   <body>
-    <%= yield %>
-    <p>Thanks!</p>
+    <%= render 'layouts/top_navigation' %><br><br>
+    <%= yield %><br><br>
+    <p><%= render "layouts/footer" %></p>
   </body>
 </html>

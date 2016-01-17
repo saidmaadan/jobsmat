@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
   def create
-    @tip = Tip.find(params[:tip_id])
+    @tip = Tip.friendly.find(params[:tip_id])
     @comment = @tip.comments.new(comment_params)
     @comment.candidate = current_candidate
     @comment.employer = current_employer
@@ -16,6 +16,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(comment).permit(:name, :email, :body, :tip_id, :candidate_id, :employer_id)
+    params.require(:comment).permit(:name, :email, :body, :tip_id, :candidate_id, :employer_id)
   end
 end

@@ -11,14 +11,13 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require ckeditor-jquery
 //= require jquery.raty
-//= require comments
 //= require foundation
 //= require_tree .
 
 $(function() {
   $(document).foundation();
 });
-

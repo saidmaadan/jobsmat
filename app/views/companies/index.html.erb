@@ -1,85 +1,42 @@
 <div class='company-head'>
-  <div class="fade">
-    <% @companies.each do |company| %>  
-      <div>
-        <span>
-          <%# if company.company_image_url %>
-            <%= image_tag company.company_image_url alt: company.name %>
-          <%# end %>
-          <span class='large-8 large-offset-2 medium-10 medium-offset-1 columns contents'>
-            <p>
-              <h1 class="hide-for-small-only">Search for Companies by Name</h1>
-              <div class="medium-10 medium-offset-1 small-12 columns">
-                <%= form_tag search_companies_path, method: :get do %> 
-                  <div class="row collapse"> 
-                    <div class="small-9 columns">
-                      <%= text_field_tag :search, params[:search], placeholder: "Search for company by name..." %>
-                    </div>
-                    <div class="small-3 columns">
-                      <%= submit_tag 'Company', name: nil, class: "warning button postfix " %>
-                    </div>   
-                  </div>
-                <% end %>
-              </div>
-            </p>
-          </span>
-          <span class='content show-for-large-only'>
-            <%# if company.logo_url %>
-              <%= image_tag company.logo_url, alt: company.name %>
-            <%# end %>
-            <span> 
-              <h4><%= link_to company.name, company %></h4>
-              <p><%= company.industry %></p>
-            </span>
-          </span>
-          <span class='content-medium show-for-medium-only'>
-            <%= image_tag company.logo_url, alt: company.name %>
-            <span> 
-              <h4><%= link_to company.name, company %></h4>
-            </span>
-             
-          </span> 
-        </span> 
-      </div>
-    <% end %>
-  </div> 
+  <%= render partial: "companies/myshare/main" %>
 </div>
 
 <div class='companies-top'>
   <div class='jumbotron'>
     <div class='row'>
       <div class='text-left'>
-        <h2 class='text-center'>Companies Reviews and Interview tips</h2>
+        <h2 class='text-center'>Companies Reviews and Interview Tips</h2><br>
         <div class='medium-4 columns'>
           <div class='row'>
-            <div class='small-2 columns'>
-              <i class='fa fa-users fa-2x'style='color:#fd7700;'></i>
+            <div class='medium-3 small-2 columns'>
+              <img src="https://s3.amazonaws.com/inventivelabs/jobsmat/imgs/icon3.png"> 
             </div>
-            <div class='small-10 columns'>
-              <h4>Read from the horses</h4>
-              <p>Read what past and present employees has to say about any company</p>
+            <div class='medium-9 small-10 columns'>
+              <h4>Search for your favorite company</h4>
+              <p>Search and find for any company. Get to know about the culture and work ethics. </p>
             </div>
           </div>
         </div>
         <div class='medium-4 columns'>
           <div class='row'>
-            <div class='small-2 columns'>
-              <i class='fa fa-briefcase fa-2x', style='color:gray;'></i>
+            <div class='medium-3 small-2 columns'>
+              <img src="https://s3.amazonaws.com/inventivelabs/jobsmat/imgs/icon4.png"> 
             </div>
-            <div class='small-10 columns'>
-              <h4>Read Reviews from Employees</h4>
-              <p>See what real employees have to say about any company</p>
+            <div class='medium-9 small-10 columns'>
+              <h4>Read Company Reviews</h4>
+              <p>Read what real employees have to say about any company.</p>
             </div>
           </div>
         </div>
         <div class='medium-4 columns'>
           <div class='row'>
-            <div class='small-2 columns'>
-              <i class='fa fa-briefcase fa-2x ', style='color:#5cb85c;'></i>
+            <div class='medium-3 small-2 columns'>
+              <img src="https://s3.amazonaws.com/inventivelabs/jobsmat/imgs/icon5.png"> 
             </div>
-            <div class='small-10 columns'>
-              <h4>Read Reviews from Employees</h4>
-              <p>See what real employees have to say about any company</p>
+            <div class='medium-9 small-10 columns'>
+              <h4>Company Interview Process</h4>
+              <p>Check out interview process written by past and present employees at your favorite companies. </p>
             </div>
           </div>
         </div>
@@ -90,15 +47,48 @@
 
 <div class='companies-middle'>
   <div class='jumbotron'>
-    <div class='jobsmatr'>
-    <div class='row jobsmat'>
-      <div class='medium-1 columns'></div>
-      <div class='medium-10 columns'>
-        <h2 class='text-center'>Featured Companies</h2>
-        <%# @companies.in_groups_of(3) do |group| %>
-          <div class='row'>
-            <% @companies.each do |company| %>
-                <div class='medium-4 small-12 columns'>
+    <div class='jobsmatt'>
+      <div class='row '>
+        <div class='small-12 small-centered columns'>
+          <h2 class='text-center'>Featured Companies</h2>
+          <%# @companies.in_groups_of(3) do |group| %>
+            <div class='row'>
+              <% @companies.limit(9).each do |company| %>
+                <div class='large-8 large-centered columns'>
+                  <div class='show-for-large-only large-4 columns'>
+                    <div class='row'>
+                      <div class='medium-5 small-5 columns company-feature'><br>
+                        <%= image_tag company.logo_url if company.logo_url %>
+                      </div>
+                      <div class='medium-7 small-7 columns company-name'>
+                        <h4><%= link_to company.name, company %></h4>
+                        <div class='review-rating'>
+                          <%= "#{company.reviews.length} Reviews" %> 
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+              <% @companies.limit(6).each do |company| %>
+                <div class='medium-10 medium-centered columns'>
+                  <div class='show-for-medium-only medium-4 columns'>
+                    <div class='row'>
+                      <div class='medium-5 small-5 columns company-feature'><br>
+                        <%= image_tag company.logo_url if company.logo_url %>
+                      </div>
+                      <div class='medium-7 small-7 columns company-name'>
+                        <h4><%= link_to company.name, company %></h4>
+                        <div class='review-rating'>
+                          <%= "#{company.reviews.length} Reviews" %> 
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+              <% @companies.limit(3).each do |company| %>
+                <div class='show-for-small-only columns'>
                   <div class='row'>
                     <div class='medium-5 small-5 columns company-feature'><br>
                       <%= image_tag company.logo_url if company.logo_url %>
@@ -113,39 +103,13 @@
                 </div>
               <% end %>
             </div>
-        <%# end %>
-        <%#= will_paginate @companies, renderer: BootstrapPagination::Rails %>
-          
+          <%# end %>
+          <%#= will_paginate @companies, renderer: BootstrapPagination::Rails %>
+            
+        </div>
       </div>
-      <div class='hidden-for-small-only medium-1 columns'></div>
     </div>
-  </div>
   </div>
 </div>
 
-
-<script type="text/javascript">
-    $(document).ready(function(){
-      $('.fade').slick({
-        dots: true,
-        infinite: true,
-        speed: 1000,
-        fade: true,
-        swipe: true,
-        autoplay: true,
-        autoplaySpeed: 5000,
-        cssEase: 'linear'
-        
-      });
-    });
-  
-  </script>
-<script>
-  $('.star-rating').raty({
-    path: 'https://s3.amazonaws.com/foodplace/uploads/stars',
-    readOnly: true,
-    score: function(){
-      return $(this).attr('data-score');
-    }
-  });
-</script>
+<%= render partial: "companies/myshare/script" %>

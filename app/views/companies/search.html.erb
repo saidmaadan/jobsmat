@@ -1,0 +1,26 @@
+<div class='company-head'>
+  <%= render partial: "companies/myshare/main" %>
+</div>
+
+<div class='companies-top'>
+  <div class='jumbotron'>
+    <% @companies.each do |company| %>      
+      <div class='row'>
+        <div class='medium-4 small-12'>
+          <%= image_tag company.image_url if company.image_url %>
+        </div><br>
+        <div class='medium-8 small-12'>
+          <h2><%= link_to company.name, company %></h2>
+          <h4><%= "Founded: #{company.founded}" %></h4>
+          <h4><%= "Located: #{company.location}" %></h4>
+          <p><%= truncate(company.about, length: 500, seperate: "") %></p>
+        </div>
+      </div>
+      <div class='text-center'>
+        <%= will_paginate @companies, renderer: BootstrapPagination::Rails %>
+      </div>
+  </div>
+</div>
+
+
+<%= render partial: "companies/myshare/script" %>

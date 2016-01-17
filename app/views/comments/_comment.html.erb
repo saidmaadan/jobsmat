@@ -6,6 +6,8 @@
   <%# else %>
     <%#= comment.name %>
   <%# end %>
+  <%= link_to comment.current_candidate.name, comment.current_candidate if current_candidate %>
+  <%= link_to comment.current_employer.name, comment.current_employer if current_employer %>
   <span><%= time_ago_in_words(comment.created_at)%> ago</span>
   <p><%= comment.body %></p>
 </div>

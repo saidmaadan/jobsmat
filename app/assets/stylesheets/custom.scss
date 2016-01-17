@@ -1,6 +1,4 @@
 @import "foundation";
-// @import "slick";
-// @import "slick-theme";
 
 $primary-color: #f08a24;
 $green-color: #43ac6a;
@@ -10,6 +8,7 @@ $lightgray-color: #f7f8fa;
 $lightgreen-color: #eaf4ee;
 $body-color: #666;
 $head-color: #333;
+$footer-color: #062F33;
 
 
 html, body {
@@ -23,6 +22,7 @@ html, body {
   font-size: 14px;
   line-height: 19.6px;
   color: $body-color; 
+  background: $lightgray-color url('https://s3.amazonaws.com/inventivelabs/jobsmat/imgs/bg-bottom.jpg') repeat center bottom;
 
 }
 
@@ -104,7 +104,8 @@ carosel{
   height: 65px;
   padding-top: 15px;
   padding-bottom: 15px;
-  background: $lightgreen-color;
+  //background: $footer-color;
+  background: $lightgray-color url('https://www.inventivelabs.co/assets/images/bg-bottom.jpg') repeat center bottom;
   .top-body{
     width: 95%;
     margin: auto;
@@ -225,76 +226,106 @@ main{
   height: auto !important;
   height: 100%;
   padding-bottom: 30px;
-  background: $lightgray-color;
+  background: $lightgray-color url('https://s3.amazonaws.com/inventivelabs/jobsmat/imgs/bg-bottom.jpg') repeat center bottom;
+  
 }
 
-
-.footer{
-  top: 0;
-  background: $lightgreen-color;
-  width: 100%;
-  height: 100%;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  margin-bottom: 0;
-  border-top: 2px solid #ddd;
-  clear: both;
-  bottom: 0;
-  left: 0;
-  .fa{
-    margin-right: 10px;
-  }
-  p {
-    a{
-      margin-bottom: -10px;
-      font-size: 14px;
-    }
-  }
-  .careers-footer{
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid $lightgray-color;
-  }
-  .accordion .accordion-navigation > a, .accordion dd > a {
-    background: #e2f0e7;
-    color: #222222;
-    border-bottom: 1px solid $lightgray-color; 
-    display: block;
-    font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
-    font-size: 1rem;
-    padding: .8rem;
-    .fa{
-      float: right;
-      color: $green-color;
-      border: 1px solid $lightgray-color;
-      border-radius: 50%;
-      padding: 6px;
-      font-size: .8rem;
-    }
-  }
-  .accordion .accordion-navigation > a:hover {
-    background: $lightgreen-color;
-    color: $green-color;
-  }
-  .accordion .accordion-navigation > .content.active, .accordion dd > .content.active {
-    background: $lightgreen-color;
-    display: block;
-  }
-}
-.bottom{
-  color: #ddd;
-  bottom: 0;
-  padding: 10px;
-  background-color: $green-color;
-  a{
-    color: #ddd;
-  }
-  p{
-    margin-bottom: -1px;
-  }
-}
 footer{
-  background: url('https://www.inventivelabs.co/assets/images/bg-earth.png')no-repeat center -50px;
   height: 100%;
   width: 100%;
+  text-align: center;
+  right: 0;
+  left: 0;
+  background: url('https://www.inventivelabs.co/assets/images/bg-earth.png')no-repeat center -50px; 
+  background-size: cover; 
+ 
+  .footer{
+    top: 0;
+    background: $footer-color;
+    width: 100%;
+    height: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 0;
+    border-top: 4px solid #ddd;
+    clear: both;
+    bottom: 0;
+    left: 0;
+    color: $lightgreen-color;
+    text-align: left;
+    h4{
+      color: $body-color;
+    }
+    .fa{
+      margin-right: 10px;
+    }
+      a{
+        margin-bottom: -10px;
+        font-size: 14px;
+        color: $lightgreen-color;
+      }
+      a:hover{
+       color: $green-color; 
+      }
+    .careers-footer{
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #637876;
+    }
+    .accordion .accordion-navigation > a, .accordion dd > a {
+      background: $footer-color;
+      color: $green-color;;
+      border-bottom: 1px solid $lightgreen-color; 
+      display: block;
+      font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+      font-size: 1rem;
+      padding: .8rem;
+      .fa{
+        float: right;
+        color: $primary-color;
+        border: 1px solid $lightgray-color;
+        border-radius: 50%;
+        padding: 6px;
+        font-size: .8rem;
+      }
+    }
+    .accordion .accordion-navigation a{
+      color: $green-color;
+    }
+    .accordion .accordion-navigation a:hover{
+        color: $primary-color;
+      }
+    .accordion .accordion-navigation > a {
+      background: $lightgray-color url('https://www.inventivelabs.co/assets/images/bg-bottom.jpg') repeat center bottom;
+      color: $primary-color;
+    }
+    .accordion .accordion-navigation > a:hover {
+      color: $green-color;
+    }
+    .accordion .accordion-navigation > .content.active, .accordion dd > .content.active {
+      display: block;
+      color: $green-color;
+    }
+  }
+  .bottom{
+    color: $body-color;
+    bottom: 0;
+    padding: 10px;
+    
+    a{
+      color: $body-color;
+    }
+    a:hover{
+      color: $primary-color;
+    }
+    p{
+      margin-bottom: -1px;
+    }
+    .fa{
+      color: $primary-color;
+    }
+    .fa:hover{
+      color: $green-color;
+    }
+  }
 }
