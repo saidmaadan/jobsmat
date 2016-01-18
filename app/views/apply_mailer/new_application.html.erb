@@ -4,7 +4,7 @@
   <title></title>
 </head>
 <body>
-  <p>A new candidate has applied for the position as <%= link_to @job.title, @job %></p>
+  <p>A new candidate has applied for the position as <%= link_to @job.title, @job %> through our platform http://jobsmat.com</p> 
   <p>Here are the details of the candidate</p>
   <blockquote>
     <em><b>Name:<b> <%= @apply.name %></em><br>
@@ -15,7 +15,7 @@
     <% if @apply.message %>
       <em><b>Message:<b> <%= @apply.message %></em><br>
     <% end %>
-    <em><b>Resume:<b> <%= link_to "View or download applicant resume", @apply.resume %></em>
+    <em><b>Resume:<b> <%= link_to @apply.resume, @apply.resume %></em>
   </blockquote>
 </body>
 </html>

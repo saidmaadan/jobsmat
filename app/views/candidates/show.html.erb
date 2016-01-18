@@ -1,5 +1,5 @@
 <div class='row edit-candidates'>
-  <div class='large-3 medium-4 columns hidden-for-small-only'>
+  <div class='large-2 medium-3 columns hidden-for-small-only'>
     <br><br>
     <div class='cand-profile-image clearing-thumbs'>
       <% if @candidate.cand_image_url %>
@@ -11,10 +11,10 @@
     <%#= @candidate.image_url %>
     <%#= @candidate.headline %>
     <div class='edit-table'>
-      <table style="width:160px;">
+      <table style="width:120px;">
         <thead>
           <tr>
-            <th style= "width=100%">
+            <th>
               </i><% if  @candidate.resume_url %>
               <i class='fa fa-briefcase'></i>
               <%= link_to "Résumé", @candidate.resume_url, :target => "_blank" if @candidate.resume_url  %>
@@ -111,103 +111,110 @@
     </div>
   </div>
   
-  <div class='large-6 medium-5 small-12 columns show-content'>
-    <h2><%= @candidate.name %></h2>
-    <h4><%= @candidate.email %></h4>
+  <div class='large-10 medium-9 small-12 columns show-content'>
+    <div class='row'>
+      <div class='medium-8 small-12 columns'>
+        <h2><%= @candidate.name %></h2>
+        <h4><%= @candidate.email %></h4>
 
-    <% if @candidate.linkedin_url %>
-      Linkedin: <%= @candidate.linkedin_url %><br>
-    <% end %>
+        <% if @candidate.linkedin_url %>
+          Linkedin: <%= @candidate.linkedin_url %><br>
+        <% end %>
 
-    <% if @candidate.twitter_url %>
-      Twitter: <%= @candidate.twitter_url %>
-    <% end %>
+        <% if @candidate.twitter_url %>
+          Twitter: <%= @candidate.twitter_url %>
+        <% end %>
 
-    <% if @candidate.city %>
-      <h4>Based in <%= @candidate.city %></h4>
-    <% end %>
+        <% if @candidate.city %>
+          <h4>Based in <%= @candidate.city %></h4>
+        <% end %>
 
-    <% if @works.any? %> 
-    <hr>
-      <h1>Work Experience</h1> 
-      <% @works.each do |w| %>
-        <div class='row cand-works-exp'>
-          <div class='small-12 columns'>
-            <h4><i class=" fa fa-briefcase " ></i><%= w.company %></h4>
-          </div>
-          <!-- <div class='row'> -->
-            <div class='medium-9 small-8 columns'>
-              <%= w.position %>
-            </div>
-            <%if current_candidate?(@candidate) %>
-              <div class='medium-3 small-4 columns'>
-                <%= link_to "Edit", edit_candidate_work_path(@candidate, w) %> 
-                <%= link_to 'Delete', candidate_work_path(@candidate, w), method: :delete, data: {confirm: "Are You Sure?"} %>
+        <% if @works.any? %> 
+        <hr>
+          <h1>Work Experience</h1> 
+          <% @works.each do |w| %>
+            <div class='row cand-works-exp'>
+              <div class='small-12 columns'>
+                <h4><i class=" fa fa-briefcase " ></i><%= w.company %></h4>
               </div>
-            <% end %>
-          <!-- </div> -->
-          <div class='small-12 columns'>
-            <%= w.start_month %> <%= w.start_year %> — 
-            <% if w.status == "CURRENT" %> 
-              <%= "present" %>
-            <% else %>
-              <%= w.end_month %> <%= w.end_year %>
-            <% end %>
-          </div>
-          
-          <div class='medium-12 small-12 columns'>
-            <%= w.description %>
-          </div>
-        </div>
-      <% end %>
-    <% end %>   
-    
-    <% if @educations.any? %>  
-      <hr>
-      <h1>Education</h1>
-      <% @educations.each do |e| %>
-        <div class='row'>
-          <div class='medium-9 small-8 columns'>
-            <h5><%= e.school %></h5>
-          </div>
-          <div class='medium-3 small-4 columns'>
-            <%if current_candidate?(@candidate) %>
-              <%= link_to "Edit", edit_candidate_education_path(@candidate, e) %> 
-              <%= link_to 'Delete', candidate_education_path(@candidate, e), method: :delete, data: {confirm: "Are You Sure?"} %>
-            <% end %>
-          </div>
-          <div class='medium-9 small-8 columns'>
-            <h5><%= e.degree %></h5>
-          </div>
-          <div class='medium-3 small-4 columns'>
-            <h5><%= e.year %> 
-          </div>
-        </div><br>  
-      <% end %>
-    <% end %>
-  </div>
-  
-  <div class='large-3 medium-3 small-12 columns'>
-    <% if @followed_companies.any? %>
-      <div class='show-aside'>
-        <h2>Followed Companies</h2>
-        <% @followed_companies.each do |company| %>
-          <div class='row'>
-            <div class='large-4 medium-3 small-4 columns'>
-              <%# if company.logo_url %>
-                <%= link_to company.name, company %>
-              <%# end %>
+              <!-- <div class='row'> -->
+                <div class='medium-9 small-8 columns'>
+                  <%= w.position %>
+                </div>
+                <%if current_candidate?(@candidate) %>
+                  <div class='medium-3 small-4 columns'>
+                    <%= link_to "Edit", edit_candidate_work_path(@candidate, w) %> 
+                    <%= link_to 'Delete', candidate_work_path(@candidate, w), method: :delete, data: {confirm: "Are You Sure?"} %>
+                  </div>
+                <% end %>
+              <!-- </div> -->
+              <div class='small-12 columns'>
+                <%= w.start_month %> <%= w.start_year %> — 
+                <% if w.status == "CURRENT" %> 
+                  <%= "present" %>
+                <% else %>
+                  <%= w.end_month %> <%= w.end_year %>
+                <% end %>
+              </div>
+              
+              <div class='medium-12 small-12 columns'>
+                <%= w.description %>
+              </div>
             </div>
-          </div>
+          <% end %>
+        <% end %>   
+        
+        <% if @educations.any? %>  
+          <hr>
+          <h1>Education</h1>
+          <% @educations.each do |e| %>
+            <div class='row'>
+              <div class='medium-9 small-8 columns'>
+                <h5><%= e.school %></h5>
+              </div>
+              <div class='medium-3 small-4 columns'>
+                <%if current_candidate?(@candidate) %>
+                  <%= link_to "Edit", edit_candidate_education_path(@candidate, e) %> 
+                  <%= link_to 'Delete', candidate_education_path(@candidate, e), method: :delete, data: {confirm: "Are You Sure?"} %>
+                <% end %>
+              </div>
+              <div class='medium-9 small-8 columns'>
+                <h5><%= e.degree %></h5>
+              </div>
+              <div class='medium-3 small-4 columns'>
+                <h5><%= e.year %> 
+              </div>
+            </div><br>  
+          <% end %>
         <% end %>
       </div>
-    <% end %>
-  
-    <div class='show-aside'>
-      <h3>Job You Applied for</h3>
-      <p>Web developer @accenture</p>
-      <p>front-end developer @steadfast</p>
-      <p>Ruby on Rails developer @accenture</p>
+      <div class='medium-4 small-12 columns'>
+        <% if @followed_companies.any? %>
+          <div class='show-aside'>
+            <h2>Followed Companies</h2>
+            
+            <div class='row'>
+              <% @followed_companies.each do |company| %>
+                <div class='large-3 medium-6 small-3 columns'>
+                  <%= image_tag company.logo_url %>
+                  <%# if company.logo_url %>
+                    <%#= link_to company.name, company 
+                     
+                  <%# end %>
+                </div>
+              <% end %>
+            </div>
+            
+          </div>
+        <% end %>
+      
+        <div class='show-aside'>
+          <h3>Job You Applied for</h3>
+          <p>Web developer @accenture</p>
+          <p>front-end developer @steadfast</p>
+          <p>Ruby on Rails developer @accenture</p>
+        </div>
+      </div>
     </div>
   </div>
   
