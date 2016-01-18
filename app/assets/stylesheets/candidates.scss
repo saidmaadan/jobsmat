@@ -136,13 +136,16 @@ ul.off-canvas-list li label {
   width: 100%;
 }
 .show-aside{
-  margin-top: 20px;
-  border: solid 1px $lightgreen-color;
-  border-radius: 10px;
   background: $white-color;
+  border-radius: 1px;
+  border-top: 1px solid $lightgreen-color;
+  border-left: 1px solid $lightgreen-color;
+  border-bottom: 2px solid #ddd;
+  border-right: 2px solid $lightgreen-color;
+  margin-top: 20px;
   padding: 20px 20px;
   h3{
-    color: $green-color;
+    color: $body-color;
     border-bottom: 1px solid $lightgreen-color;
   }
 }

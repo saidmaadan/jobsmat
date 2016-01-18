@@ -7,11 +7,15 @@
   <p>A new candidate has applied for the position as <%= link_to @job.title, @job %></p>
   <p>Here are the details of the candidate</p>
   <blockquote>
-    <em><%= @apply.name %></em>
-    <em><%= @apply.email %></em>
-    <em><%= @apply.phone %></em>
-    <em><%= @apply.message %></em>
-    <em><%= @apply.resume %></em>
+    <em><b>Name:<b> <%= @apply.name %></em><br>
+    <em><b>Email:<b> <%= @apply.email %></em><br>
+    <% if @apply.phone %>
+      <em><b>Phone:<b> <%= @apply.phone %></em><br>
+    <% end %>
+    <% if @apply.message %>
+      <em><b>Message:<b> <%= @apply.message %></em><br>
+    <% end %>
+    <em><b>Resume:<b> <%= link_to "View or download applicant resume", @apply.resume %></em>
   </blockquote>
 </body>
 </html>
