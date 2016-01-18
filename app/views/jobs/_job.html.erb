@@ -15,8 +15,8 @@
             </div>
           </div>
           <div class='large-5 medium-8 small-12 columns'>
-            <h4><%= job.company_name %></h4>
-            <h5><%= link_to job.title, job %></h5>
+            <h4><%= link_to job.title, job %></h4>
+            <h5><%= job.company_name %></h5>
             <%= truncate job.description, length: 100, separator: ' ' %><br>
             <%#= link_to "View full job details", job %>
           </div>
@@ -30,7 +30,7 @@
                <%= job.city %>, <%= job.state %> <br> <%= job.zip_code %> <%= job.country %>
               </div>
               <div class='job-button'>
-                <%= link_to "Apply for this Job", job, class: 'small warning button' %>
+                <%= link_to "Apply for this Job", job, class: 'small success button' %>
               </div>
             </div>
           </div>

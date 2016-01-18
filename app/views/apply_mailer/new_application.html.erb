@@ -15,7 +15,7 @@
     <% if @apply.message %>
       <em><b>Message:<b> <%= @apply.message %></em><br>
     <% end %>
-    <em><b>Resume:<b> <%= link_to @apply.resume, @apply.resume %></em>
+    <em><b>Resume:<b><a href="<%= @apply.resume_url %>">View resume.pdf</a></em>
   </blockquote>
 </body>
 </html>

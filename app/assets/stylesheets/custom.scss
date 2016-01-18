@@ -164,6 +164,8 @@ ul.off-canvas-list li a {
     transition: background 300ms ease;
     background: #fff;
     color: #000;
+    text-align: left;
+    padding-left: 20px;
 }
 ul.off-canvas-list li a:hover{
   background: #43ac6a;
