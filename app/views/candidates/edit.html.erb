@@ -11,10 +11,10 @@
     <%#= @candidate.image_url %>
     <%#= @candidate.headline %>
     <div class='edit-table'>
-      <table>
+      <table style="width:160px;">
         <thead>
           <tr>
-            <th style= "width=100%">
+            <th>
               </i><% if  @candidate.resume_url %>
               <i class='fa fa-briefcase'></i>
               <%= link_to "Résumé", @candidate.resume_url, :target => "_blank" if @candidate.resume_url  %>
@@ -68,10 +68,10 @@
   </div>
   <div class='small-12 columns hidden-for-medium-up'>
     <div class='edit-table'>
-      <table>
+      <table style= "width=160px;">
         <thead>
           <tr>
-            <th style= "width=100%">
+            <th>
             <% if  @candidate.resume_url %>
               <%= link_to "Résumé", @candidate.resume_url, :target => "_blank" if @candidate.resume_url  %>
             <% else %>

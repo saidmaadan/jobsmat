@@ -10,8 +10,8 @@
       <%= link_to ' Logout', session_path, method: :delete, style: "color:white;font-weight:bold;"%>
       <% else %>
         <ul class="button-group radius right" style="margin-top: -15px;">
-          <li><%=  link_to "POST A JOB", jobs_add_path, class: " success button" %></li>
-          <li><%= link_to 'UPLOAD RESUME', signin_path, class: " success button" %></li>
+          <li><%=  link_to "Post a Job", jobs_add_path, class: " warning button" %></li>
+          <li><%= link_to 'Sign In', signin_path, class: " success button" %></li>
           
         </ul>
       <% end %>
