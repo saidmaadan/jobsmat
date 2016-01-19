@@ -35,7 +35,9 @@
                   <% end %>        
                   <th>
                     <div class='interview-rating text-center'>
-                      <%= " " %><br><%= link_to "Jobs", company_job_path(@company) %>   
+                      <% if @job.company_name == @company.name %>
+                      <%= "#{@jobs.length} " %><br><%= link_to "Jobs", company_job_path(@company) %> 
+                      <% end %>   
                     </div>
                   </th>
                   <th>
@@ -71,18 +73,22 @@
             </table> 
           </div>
           <div class='large-5 medium-12 small-12 company-button-header columns'>
-            <% if current_candidate %>
+            <% if current_candidate || current_employer %>
               <% if @current_follow %>
                 <span class=" small secondary button"><%= link_to " Unfollow", company_follow_path(@company, @current_follow), method: :delete, style: "color:green;font-weight:bold;" %></span>&nbsp;&nbsp; 
               <% else %>
                 <span class=" small secondary button"><%= link_to " Follow Us", company_follows_path(@company), style: "color:green;font-weight:bold;" %></span>&nbsp;&nbsp;
               <% end %>
             <% end %>
+
             <% if current_employer || current_candidate %>
-              <span class=" small success button fa fa-plus"><%= link_to "  Add Review", company_addreview_path(@company) %></span>&nbsp;&nbsp;
-              <span class=" small warning button fa fa-briefcase "><%= link_to "  Add Interview", company_addinterview_path(@company) %></span>&nbsp;&nbsp;
+              <div class="button-group" data-grouptype="OR">
+                <span class=" small button success radius fa fa-plus"><%= link_to "  Add Review", company_addreview_path(@company) %></span>
+                <span class=" small button warning radius fa fa-briefcase "><%= link_to "  Add Interview", company_addinterview_path(@company) %>
+                </span>
+              </div>
             <% else %>
-              <%= link_to 'Signin to Add-Review', signin_path, class: 'small success button right' %>
+              <%= link_to 'Signin to Add-Review', signin_path, class: 'small button success radius right' %>
             <% end %>
           </div>
         </div>

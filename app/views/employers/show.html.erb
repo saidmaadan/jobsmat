@@ -5,6 +5,18 @@
         <div class='hidden-for-small-only employer-background'>
           <%= image_tag @employer.emp_image_url %>
         </div>
+      <% else %>
+        <div class='hidden-for-small-only employer-non-background'>
+          <% if current_employer %>
+            <div class='center'>
+              <%= form_for(@employer) do |f| %>
+                <%= f.file_field :emp_image, class: "center" %>
+                <%= f.submit "Upload", class: 'success button' %>
+              <% end %>
+              <h3>Upload your background image</h3>
+            </div>
+          <% end %>
+        </div>
       <% end %>
       <div class='row'>
         <div class='medium-3 small-12 columns'>
@@ -12,15 +24,24 @@
             <div class='hidden-for-small-only employer-logo'>
               <%= image_tag @employer.logo_url  %>
             </div>
+          <% else %>
+            <div class='hidden-for-small-only employer-non-logo'>
+              <% if current_employer %>
+                <%= form_for @employer, :html => { :multipart => true } do |f| %>
+                  <%= f.file_field :logo %>
+                  <%= f.submit "Upload" %>
+                <% end %>
+              <% end %>
+            </div>
           <% end %>
 
           <div class=' employer-nav'>
             <div class='hidden-for-small-only edit-table'> 
-              <table>
+              <table style= "width:100%;">
                 <thead>
                   <% if @employer.website_url %>
                   <tr>
-                    <th style= "width=100%">
+                    <th >
                       <i class='fa fa-briefcase'></i>
                       <%= link_to "Company URL", @employer.website_url, target: "_blank" %>
                     
@@ -55,10 +76,10 @@
           </div>
           <div class='small-12 columns hidden-for-medium-up employer-nav'>
             <div class='edit-table'>
-              <table>
-                <thead>
+              <table style= "width:100%;">
+                <thead style= "width:100%;">
                   <tr>
-                    <th style= "width=100%">
+                    <th>
                     <% if @employer.website_url %>
                       <%= link_to "Company Website", @employer.website_url, target: "_blank" %>
                     <% end %>
@@ -84,22 +105,53 @@
               </table>
             </div>
           </div>
+
+          <% if @followed_companies.any? %>
+            <div class='employer-followed'>
+              <div class='employer-follow'>
+              <h2>Followed Companies</h2>           
+                <div class='row'>
+                  <% @followed_companies.each do |company| %>
+                    <div class='large-4 medium-6 small-2 columns'>
+                      <%= image_tag company.logo_url %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div> 
+          <% end %>
+
         </div>
         <div class='medium-9 small-12 columns'>
           <div class='employer-content'>
             <h1><%= @employer.company_name if @employer.company_name%></h1>
             <h2><%= @employer.headlines if @employer.headlines%></h2>
             <div class='row'>
-              <p class='large-5 medium-12 small-12 columns'>
-                <i class='fa fa-map-marker'></i><%= @employer.location if @employer.location %><br>
-                <i class='fa fa-phone'></i><%= @employer.phone_number if @employer.phone_number %><br>
-                <i class='fa fa-link'></i><%= link_to @employer.website_url, @employer.website_url, target: "_blank" if @employer.website_url  %>
+              <p class='large-5 medium-12 small-12 columns'><br>
+                <% if @employer.location %>
+                  <i class='fa fa-map-marker'></i><%= @employer.location %><br>
+                <% end %>
+                <% if @employer.phone_number %>
+                  <i class='fa fa-phone'></i><%= @employer.phone_number  %><br>
+                <% end %>
+                <% if @employer.website_url %>
+                  <i class='fa fa-link'></i><%= link_to @employer.website_url, @employer.website_url, target: "_blank" %>
+                <% end %>
               </p>
 
               <p class='large-7 medium-12 small-12 columns company-info'>
-                Industry:<span><%= @employer.industry if @employer.industry%></span><br>Company Size:<span><%= @employer.company_size if @employer.company_size%></span><br>
-                Employer/Recruiter Name:<span><%= @employer.name %></span><br>
-                Skype Username:<span><%= @employer.skype_id %></span>
+                <% if @employer.industry %>
+                  Industry:<span><%= @employer.industry %></span><br>
+                <% end %>
+                <% if @employer.company_size %>
+                  Company Size:<span><%= @employer.company_size %></span><br>
+                <% end %>
+                <% if @employer.name %>
+                  Employer/Recruiter Name:<span><%= @employer.name %></span><br>
+                <% end %>
+                <% if @employer.skype_id %>
+                  Skype Username:<span><%= @employer.skype_id %></span>
+                <% end %>
               </p>
             </div>
           </div>
@@ -111,9 +163,9 @@
                 <% if job %>
                   <div class='row'>
                     <div class='medium-12 employer-jobs'>
-                       <h2><%= link_to job.title, job %></h2>
-                       <p><%= job.city if job.city %> &nbsp; <%= job.state if job.state %> &nbsp; <%= job.zip_code if job.zip_code  %></p>
-                       <p><%= truncate(job.description, length: 180, separator: ' ') %></p>
+                       <h3><%= link_to job.title, job %></h3>
+                       <span><%= job.city if job.city %>, &nbsp; <%= job.state if job.state %> &nbsp; <%= job.zip_code if job.zip_code  %></span><br>
+                       <span><%= truncate(job.description, length: 180, separator: ' ') %></span>
                     </div>
                   </div>
                 <% end %>
@@ -132,15 +184,17 @@
         </div>
       <% end %>
 
-
-      <% Job.all.order('created_at DESC').limit(7).each do |job| %>
-        <% if job %>
-          <div class='employers-latest-job'>
-            <h2>Latest Jobs</h2><hr>
-            <h3><%= link_to job.title, job %></h3><br>
-            <p><%= job.city if job.city %> &nbsp; <%= job.state if job.state %> &nbsp; <%= job.zip_code if job.zip_code  %></p>
-          </div>
-        <% end %>
+      <% if @jobss %>
+        <div class='employers-latest-job'>
+          <h2>Latest Jobs</h2>
+          <% @jobss.limit(5).each do |job| %>
+            <div id='employer-all-job'>
+              <h3><%= link_to job.title, job %></h3>
+              <span><%= job.company_name %></span><br>
+              <span><%= job.city if job.city %>, &nbsp; <%= job.state if job.state %> &nbsp; <%= job.zip_code if job.zip_code  %></span>
+            </div> 
+          <% end %>
+        </div>     
       <% end %>   
     </div>
   </div>

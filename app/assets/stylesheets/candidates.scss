@@ -35,6 +35,7 @@
     border: solid 0px #DDDDDD;
     margin-bottom: 1.25rem;
     table-layout: auto;
+    width: 100%;
     .fa{
       margin-right: 10px;
     }
@@ -153,6 +154,32 @@ ul.off-canvas-list li label {
   .fa{
     margin-right: 10px;
     color: $green-color;
+  }
+}
+
+#candidate-all-job{
+  margin-top: 10px;
+  border-top: 1px solid $lightgreen-color;
+  //border-bottom: 1px solid $lightgray-color;
+  padding: 10px 7px;
+  h3{
+    font-size: 1.2rem;
+    border-bottom: 0px;
+  }
+}
+.candidate-aside{
+  h2{
+    font-size: 1.3rem;
+  }
+}
+.candidate-followed{
+  h2{
+    border-bottom: 1px solid $lightgreen-color;
+    margin-bottom: 10px;
+    padding-bottom: 8px; 
+  }
+  img{
+    margin-top: 7px;
   }
 }
 

@@ -23,7 +23,8 @@ class CompaniesController < ApplicationController
       @avg_rating = @reviews.average(:rating).round(2)
     end
     @companies = Company.all.order("created_at DESC").limit(6)
-    @jobs = Job.all.paginate(:page => params[:page], :per_page => 3)
+    @jobs = Job.all.order("created_at DESC")
+    #@jobs = @company.jobs.all
     @companies = Company.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 6)
   end
 
@@ -47,7 +48,12 @@ class CompaniesController < ApplicationController
   end
 
   def job
-    @jobs = Job.order("created_at DESC").paginate(:page => params[:page], :per_page => 8)
+    @job = Job.new
+    @job.company_id = @company_id
+    #@jobs = Job.all.order("created_at DESC")
+    #@jobs = @company.jobs.order("created_at DESC")
+    @jobs = Job.where(company_id: @company.id).order("created_at DESC").paginate(:page => params[:page], :per_page => 7)
+    #@jobs = @company.jobs.order("created_at DESC")
   end
 
   def addinterview  
@@ -82,20 +88,26 @@ class CompaniesController < ApplicationController
   def set_company_info
     @review = Review.new
     @review.company_id = @company_id
+    @job = Job.new
+    @job.company_id = @company_id
     if @reviews.blank?
       @avg_rating = 0
     else
       @avg_rating = @reviews.average(:rating).round(2)
     end
     @followers = @company.followers
-    if current_candidate
-      @current_follow = current_candidate.follows.find_by(company_id: @company.id)
+    if current_employer || current_candidate
+      @current_follow = (current_employer || current_candidate).follows.find_by(company_id: @company.id)
+    # else current_candidate
+    #   @current_follow = current_candidate.follows.find_by(company_id: @company.id)
     end
     @reviews = Review.where(company_id: @company.id).order("created_at DESC")
     @reviewss = Review.where(company_id: @company.id).order("created_at DESC")
     @companies = Company.all.order("created_at DESC").limit(8)
-    @jobs = Job.all.order("created_at DESC")
-    # @jobbs = @company.jobs.all
+    #@jobs = Job.all.order("created_at DESC")
+    #@jobbs = @company.jobs.order("created_at DESC")
+    #@jobs = @company.jobs.order("created_at DESC")
+    @jobs = Job.where(company_id: @company.id).order("created_at DESC")
     @interview = Interview.new
     @interview.company_id = @company_id
     @interviewss = Interview.where(company_id: @company.id).order("created_at DESC")

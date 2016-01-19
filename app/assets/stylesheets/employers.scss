@@ -42,22 +42,36 @@
     height: 300px;
   }
 }
+.employer-non-background{
+  width: 100%;
+  height: 300px;
+  border: 1px solid $lightgreen-color;
+  padding: 7% 25%;
+  background: $lightgray-color;
+}
 .employer-logo{
   img{
     width: 100px;
     height: 100px;
     margin-top: -40px;
+    text-align: center;
   }
+}
+.employer-non-logo{
+  width: 100px;
+  height: 100px;
+  margin-top: -40px;
+  padding: 7px;
 }
 .employer-content{
   background: $white-color;
   border-radius: 5px;
   border: 1px solid $lightgreen-color;
   padding: 15px;
+  color: $body-color;
   h1{
     font-size: 1.3rem;
     text-align: center;
-    font-weight: 900;
   }
   h2{
     font-size: 1.1rem;
@@ -71,10 +85,7 @@
     color: #666;
   }
   .company-info{
-    font-weight: 900;
     span{
-      font-weight: bold;
-      //color: $green-color;
       padding-left: 10px;
     }
   }
@@ -86,11 +97,14 @@
   border: 1px solid $lightgreen-color;
   padding: 15px;
   h2{
-    font-size: 1.2rem;
-    font-weight: bold;
+    font-size: 1.3rem;
+    border-bottom: 1px solid $lightgreen-color;
   }
 }
 .employer-nav .edit-table{
+  table{
+    margin-bottom: 30px;
+  }
   .fa{
     color: $gray-color;
   }
@@ -103,8 +117,21 @@
   border: 1px solid $lightgreen-color;
   padding: 15px;
   h3{
-    font-size: 1.2rem;
-    color: $green-color;
+    font-size: 1.3rem;
+    color: $body-color;
+  }
+  .employer-jobs{
+    padding: 15px 20px;
+    border-bottom: 1px solid $lightgreen-color;
+  }
+}
+.employer-follow{
+  margin-top: 15px;
+  background: $white-color;
+  border: 1px solid $lightgreen-color;
+  padding: 15px;
+  h2{
+    font-size: 1rem;
   }
 }
 .employers-latest-job{
@@ -114,15 +141,19 @@
   border: 1px solid $lightgreen-color;
   padding: 15px;
   h2{
-    font-size: 1.2rem;
-    color: $green-color;
+    font-size: 1.3rem;
+    color: $body-color;
+    border-bottom: 1px solid $lightgreen-color;
   }
   h3{
-    font-size: 1rem;
-    color: $primary-color;
+    font-size: 1.2rem;
   }
 }
-
+#employer-all-job{
+  margin-top: 10px;
+  border: 1px solid $lightgreen-color;
+  padding: 10px 7px;
+}
 //--------------------------Edit------------------------
 
 .employer-setting{

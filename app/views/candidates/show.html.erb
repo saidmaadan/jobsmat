@@ -11,7 +11,7 @@
     <%#= @candidate.image_url %>
     <%#= @candidate.headline %>
     <div class='edit-table'>
-      <table style="width:120px;">
+      <table style="width:100%;">
         <thead>
           <tr>
             <th>
@@ -19,7 +19,6 @@
               <i class='fa fa-briefcase'></i>
               <%= link_to "Résumé", @candidate.resume_url, :target => "_blank" if @candidate.resume_url  %>
             <% else %>
-              <i class='fa fa-briefcase fa-1x'></i>
               </i><%= link_to "Upload Résumé", profile_info_path+"#resume" if current_candidate?(@candidate)  %>
             <% end %>
             </th>
@@ -69,10 +68,10 @@
   </div>
   <div class='small-12 columns hidden-for-medium-up'>
     <div class='edit-table'>
-      <table>
+      <table style= "width:100%;">
         <thead>
           <tr>
-            <th style= "width=100%">
+            <th>
             <% if  @candidate.resume_url %>
               <%= link_to "Résumé", @candidate.resume_url, :target => "_blank" if @candidate.resume_url  %>
             <% else %>
@@ -188,9 +187,9 @@
           <% end %>
         <% end %>
       </div>
-      <div class='medium-4 small-12 columns'>
+      <div class='medium-4 small-12 columns candidate-aside'>
         <% if @followed_companies.any? %>
-          <div class='show-aside'>
+          <div class='show-aside candidate-followed'>
             <h2>Followed Companies</h2>
             
             <div class='row'>
@@ -207,13 +206,19 @@
             
           </div>
         <% end %>
-      
-        <div class='show-aside'>
-          <h3>Job You Applied for</h3>
-          <p>Web developer @accenture</p>
-          <p>front-end developer @steadfast</p>
-          <p>Ruby on Rails developer @accenture</p>
-        </div>
+        
+        <% if @jobs %>
+          <div class='show-aside'>
+            <h2>Latest Jobs</h2>
+            <% @jobs.limit(5).each do |job| %>
+              <div id='candidate-all-job'>
+                <h3><%= link_to job.title, job %></h3>
+                <span><%= job.company_name %></span><br>
+                <span><%= job.city if job.city %>, &nbsp; <%= job.state if job.state %> &nbsp; <%= job.zip_code if job.zip_code  %></span>
+              </div> 
+            <% end %> 
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

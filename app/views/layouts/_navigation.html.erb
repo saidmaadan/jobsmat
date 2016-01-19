@@ -60,7 +60,7 @@
       <li><%=  link_to "Jobs", jobs_path %></li>
       <li><%= link_to 'Companies', companies_path %></li>
       <li><%= link_to 'Tips & Insights', tips_path %></li>
-      <% if current_employer_admin? || curent_employer_author? %>
+      <% if current_employer_admin? || current_employer_author? %>
         <li><%= link_to 'Post a Tip', tips_add_path %></li>
       <% end %>
       <% if current_employer_admin? %>

@@ -111,7 +111,10 @@
         <div class='large-3 medium-4 columns left'>
           <%= link_to "#{current_candidate.name}! Update Your Profile", profile_info_path(current_candidate), class: 'success button' %>  
         </div>
-        
+      <% elsif current_employer %>
+        <div class='center'>
+          <%= link_to "Post a Job", jobs_add_path, class: 'alert button radius' %>
+        </div>
       <% else %>
         <div class='large-9 medium-8 columns'>
           <h2>Register and add your resume</h2>
