@@ -1,4 +1,15 @@
 <div class='row jobsmat'>
+  <div class='tips-ad'>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Ms-Jobs1 -->
+    <ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-1207389406711656"
+     data-ad-slot="3136327086"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
   <div class='medium-8 small-12 columns'>
     <div class="tip-details">
       <% if @tip.logo_url %>
@@ -6,9 +17,11 @@
       <% else %>
         <%= image_tag "https://s3.amazonaws.com/inventivelabs/jobsmat/imgs/jobsmat2.jpg" %>
       <% end %>
-      <h2><%= link_to @tip.title %></h2>
+      <h2><%= @tip.title %></h2>
       <p><%=  @tip.content %></p>
-      <p><%= link_to @tip.source_url, @tip.source_url %></p> 
+      <% if @tip.source_url %>
+        <p>Source: <%= link_to @tip.source_url, @tip.source_url %></p>
+      <% end %> 
     </div>
     <% if current_employer_admin? %>
       <ul class="button-group radius">
@@ -16,15 +29,19 @@
         <li><%= link_to "Delete", tip_path(@tip), method: :delete, data: {confirm: 'Are you sure?' }, class: 'alert button' %></li>
       </ul>
     <% end %>
-    <span class="secondary button fa fa-comments fa-3x center"><%= link_to " Comments", "#", id:"comments-link" %></span>
+    <% if current_employer || current_candidate %>
+      <span class="secondary button "><%= link_to pluralize(@comments.length, "Comment"), "#", id:"comments-link" %><i class=' fa fa-comments' style="color:green;padding-left:10px;"></i></span>
+    <% else %>
+      <span class="secondary button"><%= link_to "Log in to post comment", signin_path %></span>
+    <% end %>
     <section id="comments-section">
       <div id="comments">
         <%= render @comments %>
       </div>
       <%= form_for [@tip, @tip.comments.new], remote: true do |f| %>
         <fieldset>
-          <%= f.text_field :name, placehoder: "Enter Your name" %>
-          <%= f.text_field :email, placehoder: "name@company.com" %>
+          <%#= f.text_field :name, placehoder: "Enter Your name" %>
+          <%#= f.text_field :email %>
           <%= f.text_area :body, rows: 2, cols: 60, placehoder: "Write a comment..." %>
           <%= f.submit 'Post Comment', class: 'success button' %>
         </fieldset>
@@ -45,14 +62,32 @@
       
     </div> -->
     <div class='tip-details-side-border'>
-      <p>I really knew I was rich when I had $10,000. I knew a long time ago that I was going to be doing something I loved doing with people that I loved doing it with. In 1958, I had my dad take me out of the will, as I knew I would be rich anyway. I let my two sisters have all the estate.
-      I bet we all in this room live about the same. We eat about the same and sleep about the same. We pretty much drive a car for 10 years. All this stuff doesn't make it any different. I will watch the Super Bowl on a big screen television just like you. We are living the same life. I have two luxuries: I get to do what I want to do every day and I get to travel a lot faster than you.
-      </p>
+      <!-- <div class='jobsmat'> -->
+      <div class='row company-on-tips'>
+        <h2>Recently Added Company</h2>
+        <% @companies.limit(6).each do |company| %>
+         <% if company.logo_url %>
+            <div class='large-4 medium-6 columns'>
+              <%= link_to(image_tag(company.logo_url), company) %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    <!-- </div><br> -->
     </div>
-    <div class='tip-details-side-border'>
-      <p>I really knew I was rich when I had $10,000. I knew a long time ago that I was going to be doing something I loved doing with people that I loved doing it with. In 1958, I had my dad take me out of the will, as I knew I would be rich anyway. I let my two sisters have all the estate.
-      </p>
+    
+      <div class="hidden-for-small-only job-ads">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- MasmaSpace News -->
+      <ins class="adsbygoogle"
+         style="display:inline-block;width:300px;height:600px"
+         data-ad-client="ca-pub-1207389406711656"
+         data-ad-slot="8952579198"></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
     </div>
+    
   </div>
 </div>
 

@@ -2,8 +2,9 @@ class TipsController < ApplicationController
   before_action :require_author, except: [:index, :show]
   
   def index
-    @tips = Tip.all
+    @tips = Tip.order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
     @jobs = Job.order("created_at DESC").limit(4)
+    @companies = Company.order("created_at DESC")
   end
 
   def new
@@ -23,6 +24,7 @@ class TipsController < ApplicationController
     @tip = Tip.friendly.find(params[:id])
     @jobs = Job.order("created_at DESC").limit(4)
     @comments = Comment.where(tip_id: @tip.id).order("created_at DESC")
+    @companies = Company.order("created_at DESC")
   end
 
   def edit

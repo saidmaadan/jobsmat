@@ -12,7 +12,7 @@ class JobsController < ApplicationController
   def index
     #@jobs = Job.order("created_at DESC").page(params[:page]).per_page(8)
     @jobs = Job.order("created_at DESC").paginate(:page => params[:page], :per_page => 8)
-    @companies = Company.all
+    @companies = Company.all.order("created_at DESC")
   end
 
   def show

@@ -1,6 +1,7 @@
 class CandidatesController < ApplicationController
 
   before_action :require_signin, except: [:new, :create]
+  before_action :require_pro, only: [:index]
   before_action :correct_candidate, only: [:edit, :update, :delete]
   before_action :require_admin, only: [:delete]
 
@@ -37,7 +38,7 @@ class CandidatesController < ApplicationController
     @candidate = Candidate.new(candidate_params)
     if @candidate.save 
       session[:candidate_id] = @candidate.id
-      redirect_to @candidate, notice: "Thanks for signing up as candidate"
+      redirect_to @candidate, notice: "Thanks for signing up as job applicant"
     else
       render :new
     end

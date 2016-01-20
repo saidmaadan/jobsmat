@@ -2,6 +2,7 @@ class Company < ActiveRecord::Base
   mount_uploader :company_image, CompanyImageUploader
   mount_uploader :logo, LogoUploader
   belongs_to :employer
+  belongs_to :candidate
   has_many :jobs
   has_many :reviews, dependent: :destroy
   has_many :follows, dependent: :destroy

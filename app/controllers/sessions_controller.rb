@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
       redirect_to (session[:intended_url] || candidate)
       session[:intended_url] = nil
     else
-      flash.now[:alert] = "Invalid email/password combination!"
+      flash.now[:warning] = "Kindly login with your email/username and password!"
       render :new
     end 
   end

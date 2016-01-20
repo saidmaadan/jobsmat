@@ -14,9 +14,8 @@ class CompaniesController < ApplicationController
 
   def index
     @review = Review.new
-    @job = Job.new
     @review.company_id = @company_id
-    @job.company_id = @company_id
+    #@job.company_id = @company_id
     if @reviews.blank?
       @avg_rating = 0
     else
@@ -42,18 +41,11 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    @followers = @company.followers
     # @jobs = @jobs.where(title: params["title"]) if params["title"].present?
     # @jobs = @jobs.where(city: params["city"]) if params["city"].present?
   end
 
   def job
-    @job = Job.new
-    @job.company_id = @company_id
-    #@jobs = Job.all.order("created_at DESC")
-    #@jobs = @company.jobs.order("created_at DESC")
-    @jobs = Job.where(company_id: @company.id).order("created_at DESC").paginate(:page => params[:page], :per_page => 7)
-    #@jobs = @company.jobs.order("created_at DESC")
   end
 
   def addinterview  
@@ -88,36 +80,34 @@ class CompaniesController < ApplicationController
   def set_company_info
     @review = Review.new
     @review.company_id = @company_id
-    @job = Job.new
-    @job.company_id = @company_id
     if @reviews.blank?
       @avg_rating = 0
     else
       @avg_rating = @reviews.average(:rating).round(2)
     end
+
+    @company.job_id = @job_id
+    @jobs = Job.all.order("created_at DESC")
     @followers = @company.followers
-    if current_employer || current_candidate
-      @current_follow = (current_employer || current_candidate).follows.find_by(company_id: @company.id)
-    # else current_candidate
-    #   @current_follow = current_candidate.follows.find_by(company_id: @company.id)
+    if current_candidate || current_employer
+      @current_follow = (current_candidate || current_employer).follows.find_by(company_id: @company.id)
     end
     @reviews = Review.where(company_id: @company.id).order("created_at DESC")
     @reviewss = Review.where(company_id: @company.id).order("created_at DESC")
     @companies = Company.all.order("created_at DESC").limit(8)
-    #@jobs = Job.all.order("created_at DESC")
-    #@jobbs = @company.jobs.order("created_at DESC")
-    #@jobs = @company.jobs.order("created_at DESC")
-    @jobs = Job.where(company_id: @company.id).order("created_at DESC")
+    
+    # @jobs = @company.jobs.order("created_at DESC")
+    #@jobs = Job.where(company_id: @company.id).order("created_at DESC")
     @interview = Interview.new
     @interview.company_id = @company_id
     @interviewss = Interview.where(company_id: @company.id).order("created_at DESC")
-    @interviews = Interview.where(company_id: @company.id).order("created_at DESC").paginate(:page => params[:page], :per_page => 2)
-    
+    @interviews = Interview.where(company_id: @company.id).order("created_at DESC").paginate(:page => params[:page], :per_page => 2) 
   end
+
   def set_company
     @company = Company.friendly.find(params[:id])
   end
   def company_params
-    params.require(:company).permit(:name,:about, :founded, :size,:industry,:location,:website,:subsidiaries, :facebook, :twitter, :linkedin, :youtube, :video, :instagram, :googleplus, :pinterest, :github, :slug, :employer_id,:logo, :company_image, :twitter_username, :twitter_widget_id, :facebook_username, :twitter_widget)
+    params.require(:company).permit(:name,:about, :founded, :size,:industry,:location,:website,:subsidiaries, :facebook, :twitter, :linkedin, :youtube, :video, :instagram, :googleplus, :pinterest, :github, :slug, :employer_id,:logo, :company_image, :twitter_username, :twitter_widget_id, :facebook_username, :twitter_widget, :candidate_id, :job_id)
   end
 end

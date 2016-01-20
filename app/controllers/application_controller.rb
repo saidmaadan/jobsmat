@@ -109,6 +109,18 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_employer_author?
 
+  def require_pro
+    unless current_employer_pro?
+      redirect_to root_url, alert: "Unauthorized access!"
+    end
+  end
+
+  def current_employer_pro?
+    current_employer && current_employer.pro?
+  end
+
+  helper_method :current_employer_pro?
+
 
   def expire_hsts
     response.headers["Strict-Transport-Security"] = 'max-age=0'

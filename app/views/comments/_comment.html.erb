@@ -1,13 +1,31 @@
 <div class='comment'>
-  <%# if current_candidate %>
-    <%#= link_to @comment.candidate.name, comment.candidate %>
-  <%# elsif current_employer %>
-    <%#= link_to @comment.employer.name, comment.employer %>
-  <%# else %>
-    <%#= comment.name %>
-  <%# end %>
-  <%= link_to comment.current_candidate.name, comment.current_candidate if current_candidate %>
-  <%= link_to comment.current_employer.name, comment.current_employer if current_employer %>
-  <span><%= time_ago_in_words(comment.created_at)%> ago</span>
-  <p><%= comment.body %></p>
-</div>
+  <div class='row'>
+    <div class='large-2 medium-3 small-5 columns'>
+      <% if current_candidate %>
+        <%= image_tag comment.candidate.cand_image_url if comment.candidate.cand_image_url %>
+      <% elsif current_employer %>
+        <%= image_tag comment.employer.emp_image_url if comment.employer.emp_image_url %>
+      <% else %>
+          <i class='fa fa-user fa-4x'></i>
+      <% end %>
+         
+    </div>
+    <div class='large-10 medium-9 small-7 columns'>
+      <div class='row'>
+        <div class='small-12 columns'>
+          <% if current_employer %>
+            <%= link_to comment.employer.name, comment.employer %>
+          <% else current_candidate %>
+            <%= link_to comment.candidate.name, comment.candidate %>
+          <% end %>
+        </div>
+        <div class='small-12 columns'>
+          <span><%= time_ago_in_words(comment.created_at)%> ago</span>
+        </div>
+      </div>
+    </div>
+    <div class='large-12 medium-12 small-12 columns'><br>
+      <p><%= comment.body %></p>
+    </div>
+  </div>  
+</div><hr>

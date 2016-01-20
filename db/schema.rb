@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160111154100) do
+ActiveRecord::Schema.define(version: 20160120140000) do
 
   create_table "applies", force: :cascade do |t|
     t.string   "name"
@@ -115,6 +115,8 @@ ActiveRecord::Schema.define(version: 20160111154100) do
     t.string   "twitter_username"
     t.string   "twitter_widget_id"
     t.string   "facebook_username"
+    t.integer  "candidate_id"
+    t.integer  "job_id"
   end
 
   add_index "companies", ["slug"], name: "index_companies_on_slug", unique: true
@@ -170,6 +172,7 @@ ActiveRecord::Schema.define(version: 20160111154100) do
     t.boolean  "author",              default: false
     t.text     "headline"
     t.string   "emp_image"
+    t.boolean  "pro",                 default: false
   end
 
   add_index "employers", ["slug"], name: "index_employers_on_slug", unique: true

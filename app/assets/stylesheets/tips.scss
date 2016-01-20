@@ -3,6 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "custom";
 
+.tips-ad{
+  margin: 20px auto;
+}
 .row .tips{
   margin-top: 20px;
 }
@@ -19,8 +22,8 @@
 
 .tips-listing-side{
   h2{
-    font-size: 1.4rem;
-    color: $primary-color;
+    font-size: 1.3rem;
+    color: $body-color;
     font-weight: 400;
     border-bottom: 1px solid $lightgray-color;
   }
@@ -42,8 +45,9 @@
     height: 350px;
   }
   h2{
-    font-size: 1.5rem;
-    font-weight: 900;
+    font-size: 2.0rem;
+    font-weight: 500;
+    margin-top: 15px;
   }
   p{
     font-size: 1rem;
@@ -53,7 +57,7 @@
 .tip-details-side{
   h2{
     font-size: 1.4rem;
-    color: $primary-color;
+    color: $body-color;
     font-weight: 400;
     border-bottom: 1px solid $lightgray-color;
   }
@@ -73,6 +77,20 @@
   border-bottom: 2px solid $lightgray-color;
   padding: 15px 10px; 
   margin-bottom: 10px
+}
+
+.company-on-tips{
+  h2{
+    font-size: 1.3rem;
+    padding-left: 12px;
+  }
+  a img {
+    border: none;
+    width: 95%;
+    height: 70px;
+    margin: auto;
+    margin-top: 10px;
+  }
 }
 
 //---------------------------Comments---------------------

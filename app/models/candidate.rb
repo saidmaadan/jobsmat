@@ -21,6 +21,7 @@ class Candidate < ActiveRecord::Base
   has_many :educations
   has_many :jobs
   has_many :comments
+  has_many :companies
   has_many :applies, dependent: :destroy
   has_many :follows, dependent: :destroy
   has_many :followed_companies, through: :follows, source: :company

@@ -35,9 +35,9 @@
                   <% end %>        
                   <th>
                     <div class='interview-rating text-center'>
-                      <% if @job.company_name == @company.name %>
-                      <%= "#{@jobs.length} " %><br><%= link_to "Jobs", company_job_path(@company) %> 
-                      <% end %>   
+                      <%# if job.company_name == @company.name %>
+                      <%= "" %><br><%= link_to "Jobs", company_job_path(@company) %> 
+                      <%# end %> 
                     </div>
                   </th>
                   <th>
@@ -73,7 +73,7 @@
             </table> 
           </div>
           <div class='large-5 medium-12 small-12 company-button-header columns'>
-            <% if current_candidate || current_employer %>
+            <% if current_employer || current_candidate %>
               <% if @current_follow %>
                 <span class=" small secondary button"><%= link_to " Unfollow", company_follow_path(@company, @current_follow), method: :delete, style: "color:green;font-weight:bold;" %></span>&nbsp;&nbsp; 
               <% else %>
