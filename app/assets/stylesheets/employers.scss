@@ -36,6 +36,11 @@
 }
 
 //---------------------------show--------------------------
+.employer-nav{
+  .fa{
+    margin-right: 10px;
+  }
+}
 .employer-background{
   img{
     width: 100%;
@@ -116,6 +121,9 @@
   border-radius: 5px;
   border: 1px solid $lightgreen-color;
   padding: 15px;
+  max-height: 750px;
+  float: right;
+  overflow: auto;
   h3{
     font-size: 1.3rem;
     color: $body-color;
@@ -184,7 +192,9 @@
 }
 
 //--------------------------Profile---------------------
-
+.employer-main{
+  color: $body-color;
+}
 .employer-profile-background{
   margin-top: 30px;
   width: 100%;
@@ -201,7 +211,6 @@
   padding: 15px;
   h3{
     font-size: 1.1rem;
-    color: $green-color;
   }
 }
 .employer-profile-img{
@@ -211,14 +220,8 @@
   border-radius: 5px;
   border: 1px solid $lightgreen-color;
   padding: 15px;
-}
-.employer-profile-h{
-  margin-top: 15px;
-  margin-bottom: 10px;
-  background: $white-color;
-  border-radius: 5px;
-  border: 1px solid $lightgreen-color;
-  padding: 15px;
-  color: $green-color;
-  font-size: 1.2rem;
+  h1{
+    font-size: 1.3rem;
+    color: $head-color;
+  }
 }

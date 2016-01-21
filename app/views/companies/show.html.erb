@@ -59,11 +59,15 @@
           <div class='medium-12 columns company-main-nav company'>
             <%= render partial: "companies/myshare/company_about" %>
           </div>
-          <% if @company.jobs %>
-            <div class='medium-12 columns company-main-job company'>
+          
+            <div>
               <%= render partial: "companies/myshare/company_jobs" %>
             </div>
-          <% end %>
+
+            <div>
+              <%= render partial: "companies/myshare/showReview" %>
+            </div>
+            
         </div>
       </div>
       

@@ -1,17 +1,15 @@
 <div class='row edit-candidates'>
-  <div class='large-3 medium-4 columns hidden-for-small-only'>
+  <div class='large-2 medium-3 columns hidden-for-small-only'>
   <br>
-    <div class='cand-profile-image clearing-thumbs'>
+    <div class='cand-profile-image'>
       <% if @candidate.cand_image_url %>
         <%= image_tag @candidate.cand_image_url %>
       <% else %>
         <%= profile_image_for@candidate %></p>
       <% end %>
     </div>
-    <%#= @candidate.image_url %>
-    <%#= @candidate.headline %>
     <div class='edit-table'>
-      <table style="width:160px;">
+      <table>
         <thead>
           <tr>
             <th>
@@ -66,9 +64,10 @@
       </table>
     </div>
   </div>
+
   <div class='small-12 columns hidden-for-medium-up'>
     <div class='edit-table'>
-      <table style= "width=160px;">
+      <table>
         <thead>
           <tr>
             <th>
@@ -110,7 +109,7 @@
     </div>
   </div>
   
-  <div class='large-9 medium-8 small-12 columns edit-works'>
+  <div class='large-10 medium-9 small-12 columns edit-works'>
 
     <div class='edit-form'>
         <h2 class='text-center'>Update Your Account</h2><br>

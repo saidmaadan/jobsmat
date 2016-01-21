@@ -1,7 +1,7 @@
 <div class='row edit-candidates'>
   <div class='large-2 medium-3 columns hidden-for-small-only'>
     <br><br>
-    <div class='cand-profile-image clearing-thumbs'>
+    <div class='cand-profile-image'>
       <% if @candidate.cand_image_url %>
         <%= image_tag @candidate.cand_image_url %>
       <% else %>
@@ -11,7 +11,7 @@
     <%#= @candidate.image_url %>
     <%#= @candidate.headline %>
     <div class='edit-table'>
-      <table style="width:100%;">
+      <table>
         <thead>
           <tr>
             <th>

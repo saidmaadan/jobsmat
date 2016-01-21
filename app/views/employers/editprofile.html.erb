@@ -1,7 +1,15 @@
 <div class='employers-main'>
   <div class='row'>
+    <h1 class='employer-profile-img text-center'>Update Your Profile</h1>
+    <div class='hide-for-small-only medium-4 columns'>
+      <% if @employer.emp_image_url %>
+        <div class='hidden-for-small employer-profile-background'>
+          <%= image_tag @employer.emp_image_url %>
+        </div>
+      <% end %>  
+    </div>
+
     <div class='medium-8 small-12 columns' >
-      <h1 class='employer-profile-h text-center'>Update Your Profile</h1>
       <%= form_for(@employer) do |f| %>
         <div class="employer-profile-img">
           <div class="form-group">
@@ -11,7 +19,7 @@
                 <%= f.file_field :logo %>
               </div>
               <div class='medium-5 small-12 columns'><br>
-                <%= f.label :emp_image, "Profile Picture", class: 'control-label' %>
+                <%= f.label :emp_image, "Background Image", class: 'control-label' %>
                 <%= f.file_field :emp_image %>
               </div>
             </div>
@@ -31,146 +39,131 @@
             </div>
           </div>
         </div>
-        <div class="form-group">
-          <%= f.label :company_name, "Company Name or Organization" %>
-          <%= f.text_field :company_name, size: 50, placeholder: "Company Name or Organization", class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :headines %>
-          <%= f.text_field :headlines, size: 50, placeholder: "Catching Headline", class: "form-control" %>
-        </div>
 
-        <div class="form-group">
-          <%= f.text_area :company_description, cols: 40, rows: 7, class: "form-control" %>
-        </div>
+        <div class="employer-profile-img">
+          <div class="form-group">
+            <%= f.label :company_name, "Company Name or Organization" %>
+            <%= f.text_field :company_name, size: 50, placeholder: "Company Name or Organization", class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :headines %>
+            <%= f.text_field :headlines, size: 50, placeholder: "Catching Headline", class: "form-control" %>
+          </div>
 
-
-        <div class="form-group">
-          <div class='row'>
-            <div class='medium-3 columns' >
-              <%= f.label :location %>
-            </div>
-            <div class='medium-9 columns' >
-              <%= f.text_field :location, size: 50, autofocus: true, placeholder: "Your Full Name", class: "form-control" %>
-            </div>
+          <div class="form-group">
+            <%= f.label :company_description, "About Company" %>
+            <%= f.text_area :company_description, cols: 40, rows: 7, class: "form-control" %>
           </div>
         </div>
 
-        <div class="form-group">
-          <div class='row'>
-            <div class='medium-3 columns' >
-              <%= f.label :zip_code %>
-            </div>
-            <div class='medium-9 columns' >
-              <%= f.text_field :zip_code, size: 50,
-                      placeholder: "78753", class: "form-control" %>
-            </div>
-          </div>
-        </div>
-
-         <div class="form-group">
-          <div class='row'>
-            <div class='medium-3 columns' >
-              <%= f.label :linkedin %>
-            </div>
-            <div class='medium-9 columns' >
-              <%= f.text_field :linkedin, size: 50, placeholder: "@username", class: "form-control" %>
-            </div>
-          </div>
-        </div>
-
-         <div class="form-group">
-          <div class='row'>
-            <div class='medium-3 columns' >
-              <%= f.label :facebook %>
-            </div>
-            <div class='medium-9 columns' >
-              <%= f.text_field :facebook, size: 50, placeholder: "@username", class: "form-control" %>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="form-group">
-          <div class='row'>
-            <div class='medium-3 columns' >
-              <%= f.label :twitter %>
-            </div>
-            <div class='medium-9 columns' >
-              <%= f.text_field :twitter, size: 50, placeholder: "@username", class: "form-control" %>
-            </div>
-          </div>
-        </div>
-
-         <div class="form-group">
-          <div class='row'>
-            <div class='medium-3 columns' >
-              <%= f.label :instagram %>
-            </div>
-            <div class='medium-9 columns' >
-              <%= f.text_field :instagram, size: 50, placeholder: "@username", class: "form-control" %>
-            </div>
-          </div>
-        </div>
-
-         <div class="form-group">
-          <div class='row'>
-            <div class='medium-3 columns' >
-              <%= f.label :skype_id %>
-            </div>
-            <div class='medium-9 columns' >
-              <%= f.text_field :skype_id, size: 50, placeholder: "@username", class: "form-control" %>
-            </div>
-          </div>
-        </div>
-
-         <div class="form-group">
-          <div class='row'>
-            <div class='medium-3 columns' >
-              <%= f.label :phone_number %>
-            </div>
-            <div class='medium-9 columns' >
-              <%= f.text_field :phone_number, size: 50, placeholder: "+1 123 456 7890", class: "form-control" %>
-            </div>
-          </div>
-        </div>
-
-         <div class="form-group">
-          <div class='row'>
-            <div class='medium-3 columns' >
-              <%= f.label :website_url %>
-            </div>
-            <div class='medium-9 columns' >
-              <%= f.text_field :website_url, size: 50, placeholder: "http://yourcompanyname.com", class: "form-control" %>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-group text-center">
-          <%= f.submit "Update Profile", class: "success button" %>
-        </div>
-      <% end %>  
-    </div>
-    <div class='medium-4 columns'>
-        <% if @employer.emp_image_url %>
-          <div class='hidden-for-small employer-profile-background'>
-            <%= image_tag @employer.emp_image_url %>
-          </div>
-        <% end %>
-      
-      <% Job.all.order('created_at DESC').limit(5).each do |job| %>
-         <% if job %>
-          <div class='hidden-for-small employer-profile-latest-job'>
-            <h3>Latest Jobs</h3><hr>
+        <div class="employer-profile-img">
+          <div class="form-group">
             <div class='row'>
-              <div class='medium-12 columns '>
-                <h2><%= link_to job.title, job %></h2>
+              <div class='medium-3 columns' >
+                <%= f.label :location %>
+              </div>
+              <div class='medium-9 columns' >
+                <%= f.text_field :location, size: 50, autofocus: true, placeholder: "Your Full Name", class: "form-control" %>
               </div>
             </div>
           </div>
-        <% end %>
-      <% end %>     
+
+          <div class="form-group">
+            <div class='row'>
+              <div class='medium-3 columns' >
+                <%= f.label :zip_code %>
+              </div>
+              <div class='medium-9 columns' >
+                <%= f.text_field :zip_code, size: 50,
+                        placeholder: "78753", class: "form-control" %>
+              </div>
+            </div>
+          </div>
+
+           <div class="form-group">
+            <div class='row'>
+              <div class='medium-3 columns' >
+                <%= f.label :linkedin %>
+              </div>
+              <div class='medium-9 columns' >
+                <%= f.text_field :linkedin, size: 50, placeholder: "@username", class: "form-control" %>
+              </div>
+            </div>
+          </div>
+
+           <div class="form-group">
+            <div class='row'>
+              <div class='medium-3 columns' >
+                <%= f.label :facebook %>
+              </div>
+              <div class='medium-9 columns' >
+                <%= f.text_field :facebook, size: 50, placeholder: "@username", class: "form-control" %>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <div class='row'>
+              <div class='medium-3 columns' >
+                <%= f.label :twitter %>
+              </div>
+              <div class='medium-9 columns' >
+                <%= f.text_field :twitter, size: 50, placeholder: "@username", class: "form-control" %>
+              </div>
+            </div>
+          </div>
+
+           <div class="form-group">
+            <div class='row'>
+              <div class='medium-3 columns' >
+                <%= f.label :instagram %>
+              </div>
+              <div class='medium-9 columns' >
+                <%= f.text_field :instagram, size: 50, placeholder: "@username", class: "form-control" %>
+              </div>
+            </div>
+          </div>
+
+           <div class="form-group">
+            <div class='row'>
+              <div class='medium-3 columns' >
+                <%= f.label :skype_id %>
+              </div>
+              <div class='medium-9 columns' >
+                <%= f.text_field :skype_id, size: 50, placeholder: "@username", class: "form-control" %>
+              </div>
+            </div>
+          </div>
+
+           <div class="form-group">
+            <div class='row'>
+              <div class='medium-3 columns' >
+                <%= f.label :phone_number %>
+              </div>
+              <div class='medium-9 columns' >
+                <%= f.text_field :phone_number, size: 50, placeholder: "+1 123 456 7890", class: "form-control" %>
+              </div>
+            </div>
+          </div>
+
+           <div class="form-group">
+            <div class='row'>
+              <div class='medium-3 columns' >
+                <%= f.label :website_url %>
+              </div>
+              <div class='medium-9 columns' >
+                <%= f.text_field :website_url, size: 50, placeholder: "http://yourcompanyname.com", class: "form-control" %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="employer-profile-img">
+          <div class="form-group text-center">
+            <%= f.submit "Update Profile", class: "success button" %>
+          </div>
+        </div>
+      <% end %>  
     </div>
-    
   </div>
 </div>

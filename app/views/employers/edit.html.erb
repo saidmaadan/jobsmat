@@ -1,29 +1,15 @@
 <div class='employers-edit'>
   <div class='row'>
-    <div class='medium-3 columns'>
+    <div class='medium-4 columns'>
       <% if @employer.emp_image_url %>
         <div class='hidden-for-small employer-profile-background'>
           <%= image_tag @employer.emp_image_url %>
         </div> 
       <% end %> 
     </div>
-  <div class='medium-6 columns employer-setting'>
+  <div class='medium-8 columns employer-setting'>
     <h2 class='text-center'>Account Setting</h2>
     <%= render 'form' %>
   </div>
-  <div class='medium-3 columns'>
-    <% Job.all.order('created_at DESC').limit(5).each do |job| %>
-       <% if job %>
-          <div class='row hidden-for-small'>
-            <div class='medium-12 columns employers-edit-jobs'>
-              <h2>Latest Jobs</h2><hr>
-              <h3><%= link_to job.title, job %></h3>
-            </div>
-          </div>
-          <% end %>
-      <% end %>
-        
-  </div>
-
   </div>
 </div>

@@ -1,25 +1,26 @@
 
-  <span class='h'>Carear At <%= @company.name %></span>
-    <span class='more right'>
-      <%= link_to "More Jobs", company_job_path(@company) %> 
-      <span class='sign'>></span>
-    </span>
-    <% @jobs.limit(5).each do |job| %>
-      <% if job.company_name == @company.name %>  
-        <% if job %>
-          <div class='row company-show-job'>
-            <div class='medium-2 small-3 columns'>
-              <%= image_tag @company.company_image_url, style: "width:50px;height:50px;" if @company.company_image_url %>
-            </div>
-            <div class='medium-10 small-9 columns'>
-              <h2><%= link_to job.title, job %></h2>
-              <%= truncate(job.description, length: 200, seperator: "") %>
+    <% @jobs.limit(4).each do |job| %>
+      <% if job.company_name == @company.name %>
+        <div class='medium-12 columns company-main-nav company'> 
+          <div class='medium-12 columns company-main-nav company'>
+            <span class='h'>Carear At <%= @company.name %></span>
+              <span class='more right'>
+                <%= link_to "More Jobs", company_job_path(@company) %> 
+              <span class='sign'>></span>
+            </span>
+            <div class='medium-12 columns company-show-job'>
+              <div class='medium-2 small-3 columns'>
+                <%= image_tag @company.company_image_url, style: "width:50px;height:50px;" if @company.company_image_url %>
+              </div>
+              <div class='medium-10 small-9 columns'>
+                <h2><%= link_to job.title, job %></h2>
+                <%= truncate(job.description, length: 200, seperator: "") %>
+              </div>
             </div>
           </div>
-        <% end %>
+        </div>
       <% end %>
     <% end %>
-
           
 
   

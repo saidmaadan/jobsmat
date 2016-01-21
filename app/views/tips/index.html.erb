@@ -1,8 +1,39 @@
 <div class='row tips'>
+  <div class='tips-ad'>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Ms-Jobs1 -->
+    <ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-1207389406711656"
+     data-ad-slot="3136327086"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
   <div class='medium-8 columns tips-listing'>
     <div class='medium-12 columns tip-listing'>
-      <div id="tips">
-        <%= render @tips %>
+       <% @tips.each do |tip| %>
+        <% if @tips %>
+          <div class="jobsmat">
+            <div class='row'>
+              <div class='medium-4 small-12 columns'>
+                <% if tip.logo_url %>
+                  <%= image_tag tip.logo_url %>
+                <% else %>
+                <%= image_tag "https://s3.amazonaws.com/inventivelabs/jobsmat/imgs/jobsmat2.jpg" %>
+                <% end %>
+              </div>
+              <div class='medium-8 small-12 columns'>
+                <h2 class='tip-content'><%= link_to tip.title, tip %></h2>
+                <p><%= truncate(tip.content, length: 250, seperate: "") %></p>
+                <p><%#= link_to tip.source_url, tip.source_url %></p>
+               </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+      <div class="jobsmat text-center">
+        <%= will_paginate @tips, renderer: BootstrapPagination::Rails, class: 'text-center' %> 
       </div>
     </div>  
   </div>

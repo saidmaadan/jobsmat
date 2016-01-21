@@ -4,6 +4,16 @@
 
 @import "custom";
 
+.contact-main-top{
+  color: $body-color;
+}
+.contact-headline{
+  h4{
+    font-size: 1.2rem;
+    padding: 0 15px;
+    font-weight: 400;
+  }
+}
 .contact-map{
   width: 100%;
   #map iframe { 
@@ -14,8 +24,23 @@
   }
 }
 .contact-contact{
-  h2{
-    color: $primary-color;
+  .panel {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #d8d8d8;
+    margin-bottom: 1.25rem;
+    padding: 1.25rem;
+    background: $lightgreen-color;
+    color: #333333;
+    .fa{
+      color: $green-color;
+    }
+  }
+  span.prefix, label.prefix {
+    background: $lightgreen-color;
+    border-right: none;
+    color: #333333;
+    border-color: $green-color;
   }
   .panel-title{
     font-size: 1.3rem;
@@ -23,9 +48,36 @@
 }
 .address-contact{
   h3{
-    color: #43ac6a;
+    font-size: 1.2rem;
   }
-  h2{
-    color: $primary-color;
+  .social-link .fa{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    color: #fff;
+    text-align: center;
+    padding-top: 7px;
   }
+  .fa-facebook{
+    background: #435f9d;
+  }
+  .fa-twitter{
+    background: #2bb6e9;
+  }
+  .fa-linkedin{
+    background: #0079b6;
+  }
+  .fa-facebook:hover{
+    color: #435f9d;
+    background: #ddd;
+  }
+  .fa-twitter:hover{
+    color: #2bb6e9;
+    background: #ddd;
+  }
+  .fa-linkedin:hover{
+    color: #0079b6;
+    background: #ddd;
+  }
+  
 }

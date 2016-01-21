@@ -127,3 +127,9 @@
     border-radius: 5px
   }
 }
+.job-searh-form{
+  margin: 30px auto 2px;
+  input[type="text"], .postfix.button{
+        height: 3.8rem;
+  }
+}

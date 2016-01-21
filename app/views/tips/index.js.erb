@@ -1,7 +1,0 @@
-$('#tips').append('<%= j render(@tips) %>');
-<% if @tips.next_page %>
-  $('.pagination').replaceWith('<%= j will_paginate(@tips) %>')
-<% else %>
-  $('.pagination').remove;
-<% end %>
-<% sleep 1 %>

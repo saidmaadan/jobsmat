@@ -37,6 +37,7 @@ class JobsController < ApplicationController
 
   def new
     @job = Job.new
+    @jobs = Job.order("created_at DESC").limit(8)
   end
 
   def create

@@ -6,6 +6,13 @@
     </div>  
   </div>
   <div class='hide-for-small-only medium-3 columns job-new-aside'>
-    <h1>Jobs Latest</h1>
+    <h2>New trends</h2>
+    <% @jobs.each do |job| %>
+      <div id='candidate-all-job'>
+        <h3><%= link_to job.title, job %></h3>
+        <span><%= job.company_name %></span><br>
+        <span><%= job.city if job.city %>, &nbsp; <%= job.state if job.state %> &nbsp; <%= job.zip_code if job.zip_code  %></span>
+      </div> 
+    <% end %> 
   </div>
 </div>
