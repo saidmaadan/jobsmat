@@ -6,7 +6,7 @@ class TipsController < ApplicationController
     @jobs = Job.order("created_at DESC").limit(4)
     @companies = Company.order("created_at DESC")
   end
-
+#@post = Post.order("rand()").limit(1)
   def new
     @tip = Tip.new
   end

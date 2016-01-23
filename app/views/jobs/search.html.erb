@@ -32,8 +32,8 @@
             <% end %>
           </div>
           <div class='medium-6 small-8 columns'>
-            <h4><%= job.company_name %></h4>
-            <h5><%= link_to job.title, job %></h5>
+            <h4><%= link_to job.title, job %></h4>
+            <h5><%= job.company_name %></h5>
             <%= truncate job.description, length: 100, separator: ' ' %><br>
             <%= link_to "View full job description", job %>
           </div>

@@ -10,7 +10,7 @@
   </ul>
   <div class="tabs-content ">
     <section role="tabpanel" aria-hidden="false" class="content active" id="about">
-     <p><%= @company.about %></p>
+     <p><%= @company.about.html_safe %></p>
     </section>
     <section role="tabpanel" aria-hidden="true" class="content" id="review">
       <% if @reviews.blank? %>

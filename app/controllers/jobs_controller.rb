@@ -14,7 +14,7 @@ class JobsController < ApplicationController
     @jobs = Job.order("created_at DESC").paginate(:page => params[:page], :per_page => 8)
     @companies = Company.all.order("created_at DESC")
   end
-
+#@post = Post.order("rand()").limit(1)
   def show
     @apply = Apply.new
     @apply.job_id = @job_id

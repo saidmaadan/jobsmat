@@ -4,11 +4,11 @@
           <div class='row'>
             <div class='small-6 columns'>
               <%= f.label :logo, "Company Logo", class: 'control-label' %>
-              <%= f.file_field :logo %>
+              <%= f.file_field :logo, :class => 'ckeditor' %>
             </div>
             <div class='small-6 columns'>
               <%= f.label :company_image, "Company Background Image", class: 'control-label' %>
-              <%= f.file_field :company_image %>
+              <%= f.file_field :company_image, :class => 'ckeditor' %>
             </div>
           </div>
         </div>

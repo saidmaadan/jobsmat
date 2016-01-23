@@ -2,14 +2,14 @@
   <div class='medium-12 columns company'>
     <div class='company-bgimage'>
       <% if @company.company_image_url %>
-        <%= image_tag @company.company_image_url %>
+        <%= image_tag @company.company_image_url.html_safe %>
       <% else %>
       <% end %>
     </div>
     <div class='row'>
       <div class='medium-12 columns company-logo'>
         <% if @company.logo_url %>
-          <%= image_tag @company.logo_url %>
+          <%= image_tag @company.logo_url.html_safe %>
         <% else %>
         <% end %>
         <span><%= @company.name %></span>
