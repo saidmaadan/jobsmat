@@ -54,16 +54,16 @@
       <h5>Salary: Not Specified</h5>
       <% end %>
 
-      <%= @job.description %>
+      <%= @job.description.html_safe %>
 
       <% if @job.responsibility %>
         <h3>Responsibilities</h3>
-        <%= @job.responsibility %>
+        <%= @job.responsibility.html_safe %>
       <% end %>
 
       <% if @job.skills %>
         <h3>Job Requirements/Skills</h3>
-        <%= @job.skills %>
+        <%= @job.skills.html_safe %>
       <% end %>
 
       <% if (@job.position_type || @job.industry || @job.experience || @job.travel_required) %>
@@ -88,7 +88,7 @@
     <div class="job-company-details">
       <h2>About <%= @job.company_name %></h2>
       <span><%= link_to @job.website_url, @job.website_url, :target => "_blank" %></span><br>
-      <p><%= @job.company_description %></p>
+      <p><%= @job.company_description.html_safe %></p>
     </div>
   
     <% if current_employer_admin? %>

@@ -35,8 +35,8 @@
                   <% end %>        
                   <th>
                     <div class='interview-rating text-center'>
-                      <%# if job.company_name == @company.name %>
-                      <%= "" %><br><%= link_to "Jobs", company_job_path(@company) %> 
+                      <%# @jobs.select do |job| job.company_name == @company.name %>
+                      <%= " " %><br><%= link_to "Jobs", company_job_path(@company) %> 
                       <%# end %> 
                     </div>
                   </th>

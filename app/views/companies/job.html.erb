@@ -7,11 +7,12 @@
         <div class='row'>
           <div class='medium-12 columns company-main-top company'>
             <% @jobs.each do |job| %>
+
               <% if job.company_name == @company.name %>
                 <div class='medium-12 columns company-job-main'>
                   <div class='row'>
                     <div class='medium-2 small-3 columns'>
-                      <%= image_tag @company.company_image_url, style: "width:60px;height:60px;" if @company.company_image_url %>
+                      <%= image_tag @company.logo_url, style: "width:60px;height:60px;" if @company.logo_url %>
                     </div>
                     <div class='medium-10 small-9 columns'>
                       <h2><%= link_to job.title, job %></h2>
