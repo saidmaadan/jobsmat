@@ -35,10 +35,6 @@ class Company < ActiveRecord::Base
   end
 
   def company_jobs
-    @jobs.each do |job|
-      if job.company_name == company.name
-        puts job
-      end 
-    end
+    jobs.select { |job| job.size if job.company_name == company.name}.size
   end
 end

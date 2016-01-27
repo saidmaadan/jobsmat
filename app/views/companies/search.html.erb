@@ -14,7 +14,7 @@
             <h2><%= link_to company.name, company %></h2>
             <h4><%= "Founded: #{company.founded}" %></h4>
             <h4><%= "Located: #{company.location}" %></h4>
-            <p><%= truncate(company.about, length: 500, seperate: "") %></p>
+            <p><%= truncate(company.about.html_safe, length: 500, seperate: "") %></p>
           </div>
         </div>
       <% end %>
