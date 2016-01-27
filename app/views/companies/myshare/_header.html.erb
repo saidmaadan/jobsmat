@@ -75,7 +75,7 @@
           <div class='large-5 medium-12 small-12 company-button-header columns'>
             <% if current_employer || current_candidate %>
               <% if @current_follow %>
-                <span class=" small secondary button"><%= link_to " Unfollow", company_follow_path(@company, @current_follow), method: :delete, style: "color:green;font-weight:bold;" %></span>&nbsp;&nbsp; 
+                <span class=" small secondary button fa fa-check-square-o"><%= link_to " Following", company_follow_path(@company, @current_follow), method: :delete, style: "color:green;font-weight:bold;" %></span>&nbsp;&nbsp; 
               <% else %>
                 <span class=" small secondary button"><%= link_to " Follow Us", company_follows_path(@company), style: "color:green;font-weight:bold;" %></span>&nbsp;&nbsp;
               <% end %>
