@@ -17,38 +17,46 @@
                 </div>
               </div> 
               <div class='row'> 
-                <div class='medium-4 small-6 columns'>
-                  <span>Size</span>
-                </div>
-                <div class='medium-8 small-6 columns'>
-                  <%= @company.size %>
-                </div>
+                <% if @company.size %>
+                  <div class='medium-4 small-6 columns'>
+                    <span>Size</span>
+                  </div>
+                  <div class='medium-8 small-6 columns'>
+                    <%= @company.size %>
+                  </div>
+                <% end %>
               </div>
             </div>
             <div class='medium-6 columns'>
                <div class='row'>
-                <div class='medium-4 small-6 columns'>
-                  <span>Industry</span>
-                </div>
-                <div class='medium-8 small-6 columns'>
-                  <%= @company.industry%>
-                </div>
+                <% if @company.industry %>
+                  <div class='medium-4 small-6 columns'>
+                    <span>Industry</span>
+                  </div>
+                  <div class='medium-8 small-6 columns'>
+                    <%= @company.industry%>
+                  </div>
+                <% end %>
               </div>
                <div class='row'>
-                <div class='medium-4 small-6 columns'>
-                  <span>Founded</span>
-                </div>
-                <div class='medium-8 small-6 columns'>
-                  <%= @company.founded %>
-                </div>
+                <% if @company.founded %>
+                  <div class='medium-4 small-6 columns'>
+                    <span>Founded</span>
+                  </div>
+                  <div class='medium-8 small-6 columns'>
+                    <%= @company.founded %>
+                  </div>
+                <% end %>
               </div>
               <div class='row'>
-                <div class='medium-4 small-6 columns'>
-                  <span>Headquarters</span>
-                </div>
-                <div class='medium-8 small-6 columns'>
-                  <%= @company.location %>
-                </div>
+                <% if @company.location %>
+                  <div class='medium-4 small-6 columns'>
+                    <span>Headquarters</span>
+                  </div>
+                  <div class='medium-8 small-6 columns'>
+                    <%= @company.location %>
+                  </div>
+                <% end %>
               </div>
             </div>
             <!-- <div class="company-about"><br>
