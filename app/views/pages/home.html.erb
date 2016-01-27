@@ -112,7 +112,11 @@
           <%= link_to "#{current_candidate.name}! Update Your Profile", profile_info_path(current_candidate), class: 'success button' %>  
         </div>
       <% elsif current_employer %>
-        <div class='center'>
+        <div class='large-9 medium-8 columns'>
+          <h2>Hire your next great job-seeker</h2>
+          <p>Connect and post your job in less than 5 minutes for free.</p>
+        </div>
+        <div class='large-3 medium-4 columns left'>
           <%= link_to "Post a Job", jobs_add_path, class: 'alert button radius' %>
         </div>
       <% else %>
