@@ -22,11 +22,11 @@ class Job < ActiveRecord::Base
   :state, :country,  presence: true
   validates :description, length: { minimum: 25 }
 
-  INDUSTRY = ['Accounting', 'Airlines/Aviation', "Alternative Disputs Resolution", "Alternative Medicine", "Animation", "Apparel & Fashion", 
-    "Architecture & Planning", "Arts & Crafts", "Automotive", "Banking", "Biotechnology", "Broadcast Media", "Building Materials", "Capital Markets", "Commercial Real Estate",
-   "Computer Software", "Computer hardware & Network Security", "Construction", 'Consumer Electronics', 'Consumer Services', "Dairy", "Education Management", "E-Learning", "Entertainment", "Information Technology and Services",
-   "Hospital & Health Care", "Import and Export", "Internet", "Government", "Legal", "Management Consulting", "Marketing and Advertising", "Military", "Nonprofit Organization Management",
-   "Oil & Energy","Professional Training & Coaching", "Property Management", "Real Estate","Restaurants", "Research", "Security and Investigations", "Sports", "Staffing and Recruiting", "Transportation", "Venture Capital & Private Equity", "Other"]
+  INDUSTRY = ['Accounting/Audit Tax', 'Administration/Office Support', 'Agriculture/Farming', 'Airlines/Aviation', 'Alcoholic Beverage', "Alternative Disputes Resolution", "Alternative Medicine", "Animation", "Apparel & Fashion", 
+    "Architecture & Planning", "Arts & Crafts", "Automotive", "Banking/Finance/Insurance", "Biotechnology", "Broadcast Media", "Building Design/Materials", "Business Management Consulting", "Capital Markets", "Commercial Real Estate",
+   "Computer Software", "Computer hardware & Network Security",'Communication', 'Community Services', "Constomer Services",  "Construction", 'Consumer Electronics', 'Consumer Services', "Creative Art Design", "Dairy", "Education Management", "E-Learning", 'Engineering', "Entertainment", "Information Technology and Services",
+    "Hospital & Health Care", "Import and Export", "Internet", "Government", "Legal", 'Logistics/Transportation', 'Manufacturing/Production', "Marketing and Advertising", "Military", "Nonprofit Organization Management",
+   "Oil & Energy", "Online Platform", "Professional Training & Coaching", 'Project/Programme Management', "Property Management", "Real Estate","Restaurants", "Research", "Sales Development", "Security and Investigations", "Sports", "Staffing and Recruiting", "Supply Chain/Procurement", "Telecommunication", "Venture Capital & Private Equity", "Vocational Trades & Services", 'Wine and Spirits',"Other"]
 
   EXPERIENCE = ['Internship', 'Entry-level', 'Mid-level', 'Senior-level', "Associate", "Executive", "Director", "CEO", "Not Applicable"]
   POSITION_TYPE = ['Full Time', 'Part Time', 'Contract', 'Contract', "Contract to Hire", "Temporary", "Other"]

@@ -13,11 +13,12 @@ class Company < ActiveRecord::Base
   friendly_id :slug_companies, use: :slugged
   searchkick
   
-  INDUSTRY = ['Accounting', 'Airlines/Aviation', 'Alcoholic beverage', "Alternative Disputs Resolution", "Alternative Medicine", "Animation", "Apparel & Fashion", 
-    "Architecture & Planning", "Arts & Crafts", "Automotive", "Banking", "Biotechnology", "Broadcast Media", "Building Materials", "Capital Markets", "Commercial Real Estate",
-   "Computer Software", "Computer hardware & Network Security", "Construction", 'Consumer Electronics', 'Consumer Services', "Dairy", "Education Management", "E-Learning", "Entertainment", "Financial Services", "Information Technology and Services",
-   "Hospital & Health Care", "Import and Export", "Internet", "Government", "Legal", "Management Consulting", "Marketing and Advertising", "Military", "Nonprofit Organization Management",
-   "Oil & Energy","Professional Training & Coaching", "Property Management", "Real Estate", "Restaurants", "Research", "Security and Investigations", "Sports", "Staffing and Recruiting", "Transportation", "Venture Capital & Private Equity", 'Wine and Spirits', "Other"]
+ INDUSTRY = ['Accounting/Audit Tax', 'Administration/Office Support', 'Agriculture/Farming', 'Airlines/Aviation', 'Alcoholic Beverage', "Alternative Disputes Resolution", "Alternative Medicine", "Animation", "Apparel & Fashion", 
+    "Architecture & Planning", "Arts & Crafts", "Automotive", "Banking/Finance/Insurance", "Biotechnology", "Broadcast Media", "Building Design/Materials", "Business Management Consulting", "Capital Markets", "Commercial Real Estate",
+   "Computer Software", "Computer hardware & Network Security",'Communication', 'Community Services', "Constomer Services",  "Construction", 'Consumer Electronics', 'Consumer Services', "Creative Art Design", "Dairy", "Education Management", "E-Learning", 'Engineering', "Entertainment", "Information Technology and Services",
+    "Hospital & Health Care", "Import and Export", "Internet", "Government", "Legal", 'Logistics/Transportation', 'Manufacturing/Production', "Marketing and Advertising", "Military", "Nonprofit Organization Management",
+   "Oil & Energy", "Online Platform", "Professional Training & Coaching", 'Project/Programme Management', "Property Management", "Real Estate","Restaurants", "Research", "Sales Development", "Security and Investigations", "Sports", "Staffing and Recruiting", "Supply Chain/Procurement", "Telecommunication", "Venture Capital & Private Equity", "Vocational Trades & Services", 'Wine and Spirits',"Other"]
+
   SIZE = ["1 - 10 Employees", "11 - 50 Employees", "51 - 100 Employees", "101 - 200 Employees", "201 - 500 Employees", "501 - 1000 Employees", "1001 - 5000 Employees", "5001 - 10000 Employees", "10001 - 20000 Employees", "20001 - 50000 Employees", "50001 - 100000 Employees", "100001 - 200000 Employees", "200000+ Employees"]
   
   def slug_companies
