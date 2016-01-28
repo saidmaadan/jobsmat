@@ -35,9 +35,11 @@
                   <% end %>        
                   <th>
                     <div class='interview-rating text-center'>
-                      <%# @jobs.select do |job| job.company_name == @company.name %>
-                      <%= @company_jobs %><br><%= link_to "Jobs", company_job_path(@company) %> 
-                      <%# end %> 
+                      <% if @jobbs.length == 1 %>
+                        <%= "#{@jobbs.length} " %><br><%= link_to "Job", company_job_path(@company) %>
+                      <% else %>
+                        <%= "#{@jobbs.length} " %><br><%= link_to "Jobs", company_job_path(@company) %>
+                      <% end %>
                     </div>
                   </th>
                   <th>

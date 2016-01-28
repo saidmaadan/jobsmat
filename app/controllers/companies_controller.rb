@@ -85,7 +85,9 @@ class CompaniesController < ApplicationController
     else
       @avg_rating = @reviews.average(:rating).round(2)
     end
-
+    @jobbs = Job.order("created_at DESC").select do |job| job.company_name == @company.name
+    end
+   
     @company.job_id = @job_id
     @jobs = Job.all.order("created_at DESC")
     @followers = @company.followers
