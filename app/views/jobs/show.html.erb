@@ -54,7 +54,7 @@
       <h5>Salary: Not Specified</h5>
       <% end %>
 
-      <%= @job.description %>
+      <%= @job.description.html_safe %>
 
       <% if @job.responsibility %>
         <h3>Responsibilities</h3>

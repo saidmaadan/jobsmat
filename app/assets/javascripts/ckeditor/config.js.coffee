@@ -1,4 +1,4 @@
 CKEDITOR.editorConfig = (config) ->
   config.language = "en"
-  config.uiColor = "#AADC6E"
+  config.uiColor = "#43ac6a"
   true

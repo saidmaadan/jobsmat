@@ -42,22 +42,22 @@
    
     <div class='form-group'>
       <div class='row'>
-         <div class='medium-6 columns'>
+         <div class='medium-12 columns'>
             <%= f.label :company_description, class: 'control-label' %>
             <%= f.text_area :company_description, cols: 40, rows: 7, placeholder: "Brief description about your company, what you are up to, service and product" %>
           </div>
-          <div class='medium-6 columns'>
+          <div class='medium-12 columns'>
             <%= f.label :description, class: 'control-label' %>
-            <%= f.text_area :description, cols: 40, rows: 7, placeholder: "Job description" %>
+            <%= f.text_area :description, cols: 40, rows: 7, placeholder: "Job description", :class => 'ckeditor' %>
           </div>
         </div>
-      </div>
+      </div><br>
      
     
     <div class='form-group'>
       <%= f.label :skills, class: 'control-label' %>
       <%= f.text_area :skills, cols: 40, rows: 7, :class => 'ckeditor' %>
-    </div>
+    </div><br>
     
     <div class='form-group'>
       <%= f.label :responsibility, class: 'control-label' %>
