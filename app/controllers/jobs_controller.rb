@@ -5,7 +5,7 @@ class JobsController < ApplicationController
     if params[:search].present?
       @jobs = Job.search(params[:search])
     else
-      @jobs = Job.all.page params[:page]
+      @jobs = Job.order("created_at DESC").limit(10)
     end
   end
 

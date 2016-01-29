@@ -19,7 +19,7 @@
     <% @jobs.each do |job| %>
       <div class='small-12 columns job-listing'>
         <div class='row'>
-          <div class='medium-2 small-4 columns '>
+          <div class='medium-2 small-4 columns job-logo '>
 
             <% if job.logo_url %>
               <%= image_tag job.logo_url %>
@@ -34,8 +34,8 @@
           <div class='medium-6 small-8 columns'><br>
             <h4><%= link_to job.title, job %></h4>
             <h5><%= job.company_name %></h5>
-            <%#= truncate job.description, length: 100, separator: ' ' %>
-            <%= link_to "View full job description", job %>
+            <%= truncate job.description, length: 100, separator: ' ' %>
+            <%#= link_to "View full job description", job %>
           </div>
           <div class='medium-2 small-5 columns'>
             <%= job.position_type %><br>
