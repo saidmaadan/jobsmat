@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get '/terms' =>'pages#terms'
 
-  get '/faq' =>'pages#faq'
+  get '/privacy' =>'pages#faq'
 
   get "signin" => "sessions#new"
   get '/auth/:provider/callback' => 'sessions#create'

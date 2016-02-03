@@ -47,14 +47,16 @@
  
     <div class="job-body">
       <h3>Job Description</h3>
-      <h5>Job Type: <%= @job.position_type %> </h5>
-      <% if @job.salary %>
-      <h5>Salary: <%= number_to_currency(@job.salary) %>&nbsp; <%= @job.pay_rate %></h5>
-      <% else %>
-      <h5>Salary: Not Specified</h5>
+      <% if @job.position_type %>
+        <h5>Job Type: <%= @job.position_type %> </h5>
       <% end %>
+      <%# if @job.salary %>
+     <!--  <h5>Salary: <%#= number_to_currency(@job.salary) %>&nbsp; <%#= @job.pay_rate %></h5> -->
+      <%# else %>
+      <!-- <h5>Salary: Not Specified</h5> -->
+      <%# end %>
 
-      <%= @job.description.html_safe %>
+      <%= @job.description.html_safe %><br>
 
       <% if @job.responsibility %>
         <h3>Responsibilities</h3>
@@ -88,7 +90,7 @@
     <div class="job-company-details">
       <h2>About <%= @job.company_name %></h2>
       <span><%= link_to @job.website_url, @job.website_url, :target => "_blank" %></span><br>
-      <p><%= @job.company_description %></p>
+        <p><%= @job.company_description %></p>
     </div>
   
     <% if current_employer_admin? %>
