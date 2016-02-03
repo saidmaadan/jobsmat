@@ -2,7 +2,7 @@ class TipsController < ApplicationController
   before_action :require_author, except: [:index, :show]
   
   def index
-    @tips = Tip.order("created_at DESC").paginate(:page => params[:page], :per_page => 6)
+    @tips = Tip.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
     @jobs = Job.order("created_at DESC").limit(4)
     @companies = Company.order("created_at DESC")
   end
