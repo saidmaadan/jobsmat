@@ -18,7 +18,7 @@
         <%= image_tag "https://s3.amazonaws.com/inventivelabs/jobsmat/imgs/jobsmat2.jpg" %>
       <% end %>
       <h2><%= @tip.title %></h2>
-      <p><%=  @tip.content %></p>
+      <p><%=  @tip.content.html_safe %></p>
       <% if @tip.source_url %>
         <p>Source: <%= link_to @tip.source_url, @tip.source_url %></p>
       <% end %> 

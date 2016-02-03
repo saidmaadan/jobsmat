@@ -179,7 +179,15 @@
         <h2 class='text-center'>New trends nationwide</h2>
         <% @jobs.limit(12).each do |job| %>
           <% if job %>
-            <div class='hide-for-small large-3 medium-4 columns'>
+            <div class='hide-for-small hide-for-medium large-3 columns home-job-large'>
+              <h3><%= link_to job.title, job %></h3>
+                <p><span><%= job.company_name %><br></span><%= job.city if job.city %>,&nbsp;<%= job.state if job.state %></p>
+            </div>
+          <% end %>
+        <% end %>
+        <% @jobs.limit(9).each do |job| %>
+          <% if job %>
+            <div class='hide-for-large-up hide-for-small medium-4 columns home-job'>
               <h3><%= link_to job.title, job %></h3>
                 <p><span><%= job.company_name %><br></span><%= job.city if job.city %>,&nbsp;<%= job.state if job.state %></p>
             </div>
@@ -187,7 +195,7 @@
         <% end %>
         <% @jobs.limit(4).each do |job| %>
           <% if job %>
-            <div class='hide-for-medium-up small-6 columns'>
+            <div class='hide-for-medium-up small-6 columns home-job'>
               <h3><%= link_to job.title, job %></h3>
                 <p><span><%= job.company_name %><br></span><%= job.city if job.city %>,&nbsp;<%= job.state if job.state %></p>
             </div>
