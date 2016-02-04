@@ -16,7 +16,7 @@
                     </div>
                     <div class='medium-10 small-9 columns'>
                       <h2><%= link_to job.title, job %></h2>
-                      <%= truncate(job.description, length: 200, seperator: "") %>
+                      <%= truncate(job.description.gsub(/(<[^>]+>)/, ''), length: 200) %>
                     </div>
                   </div>
                 </div>
