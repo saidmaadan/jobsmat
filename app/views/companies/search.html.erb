@@ -14,10 +14,10 @@
             <h2><%= link_to company.name, company %></h2>
             <h4><%= "Founded: #{company.founded}" %></h4>
             <h4><%= "Located: #{company.location}" %></h4>
-            <p><%= truncate(company.about, length: 500, seperate: "").html_safe %></p>
+            <p><%= truncate(company.about.gsub(/(<[^>]+>)/, ''), length: 500) %></p>
           </div>
         </div>
-      <% end %>
+      <% end %><br>
       <div class='text-center'>
         <%= will_paginate @companies, renderer: BootstrapPagination::Rails %>
       </div>
