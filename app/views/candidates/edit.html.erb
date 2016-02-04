@@ -127,11 +127,14 @@
         </div>
 
         <div class="row">
-          <div class='medium-9 small-8 columns'>
+          <div class='medium-8 small-6 columns'>
             <%= f.email_field :email, size: 50, placeholder: "Email Address" %>
           </div>
           <div class='medium-3 small-4 columns'>
-            <%= f.select :email_status, Candidate::PROFILE_STATUS, prompt: "STATUS", class: "form-control" %>
+            <%= f.select :email_status, Candidate::PROFILE_STATUS, prompt: "Email Status", class: "form-control" %>
+          </div>
+          <div class='medium-1 small-2 columns'>
+            <span data-tooltip aria-haspopup="true" class="has-tip" title="Select for email status either to be displayed Public or Private (Hide from public)"><i class='fa fa-info'></i></span>
           </div>
         </div>
 

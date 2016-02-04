@@ -213,6 +213,18 @@ ul.off-canvas-list li label {
     float: right;
   }
 }
+.has-tip{
+  .fa{
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    background: $green-color;
+    color: #fff;
+    padding-left: 10px;
+    padding-top: 3px;
+    font-size: 1.5rem;
+  }
+}
 
 // .edit-table table{
 //   width: 160px;
