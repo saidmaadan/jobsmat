@@ -1,25 +1,32 @@
 <div class='row'><br>
 
   <% if @candidates.any? %>
-    <% @candidates.in_groups_of(4) do |group| %>
-      <div class='row'>
-        <% group.each do |candidate| %>
+    <%# @candidates.in_groups_of(3) do |group| %>
+      <div class='row candidate-home'>
+        <% @candidates.each do |candidate| %>
           <% if candidate %>
-            <div class='large-3 medium-4 small-6 columns'>
-            <div class='row'>
-            <div class='medium-4 small-5 columns'>
-                
-            </div>
-            <div class='medium-8 small-7 colums'>
-                <h4><%= link_to candidate.name, candidate %></h4>
-                <h5><%= candidate.email %></h5>
-                <h5><%= candidate.city %></h5>
-              </div>
-            </div><br>
+            <div class='large-4 medium-6 small-12 columns'>
+              <div class='row'>
+                <% if candidate.profile_status == "PUBLIC" || candidate.profile_status == "" %>
+                  <div class='medium-4 small-5 columns'>
+                    <% if candidate.cand_image_url %>
+                      <%= image_tag candidate.cand_image_url %>
+                    <% else %>
+                      <i class='fa fa-user fa-4x'></i>
+                    <% end %>
+                  </div>
+                  <div class='medium-8 small-7 colums cand-content'>
+                    <h4><%= link_to candidate.name, candidate %></h4>
+                    <h5><%= candidate.email if candidate.email_status == "PUBLIC" || candidate.email_status == "" %></h5>
+                    <h5><%= candidate.city %></h5>
+                    <h5><%= candidate.phone_number if candidate.phone_status == "PUBLIC" || candidate.phone_status == "" %></h5>
+                  </div>
+                </div><br>
+              <% end %>
             </div>
           <% end %>
         <% end %>
       </div>
-    <% end %>
+    <%# end %>
   <% end %>
 </div>

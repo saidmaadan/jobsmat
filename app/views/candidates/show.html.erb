@@ -10,105 +10,110 @@
     </div>
     <%#= @candidate.image_url %>
     <%#= @candidate.headline %>
-    <div class='edit-table'>
-      <table>
-        <thead>
-          <tr>
-            <th>
-              </i><% if  @candidate.resume_url %>
-              <i class='fa fa-briefcase'></i>
-              <%= link_to "Résumé", @candidate.resume_url, :target => "_blank" if @candidate.resume_url  %>
-            <% else %>
-              </i><%= link_to "Upload Résumé", profile_info_path+"#resume" if current_candidate?(@candidate)  %>
-            <% end %>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><%= link_to "Update Profile", profile_info_path(current_candidate) %></td>
-          </tr>
-          <tr>
-            <td><%= link_to "Settings", edit_candidate_path(current_candidate) %></td>
-          </tr>
-          <% if @candidate.portfolio_url %> 
+    <% if current_candidate?(@candidate) %>
+      <div class='edit-table'>
+        <table>
+          <thead>
             <tr>
-              <td><%= link_to "Personal Website", @candidate.portfolio_url, target: "_blank" %></td>
+              <th>
+                </i><% if  @candidate.resume_url %>
+                <i class='fa fa-briefcase'></i>
+                <%= link_to "Résumé", @candidate.resume_url, :target => "_blank" if @candidate.resume_url  %>
+              <% else %>
+                </i><%= link_to "Upload Résumé", profile_info_path+"#resume" if current_candidate?(@candidate)  %>
+              <% end %>
+              </th>
             </tr>
-          <% end %>
-          <% if @candidate.projects_link %>
+          </thead>
+          <tbody>
             <tr>
-              <td><%= link_to "Blog/PortFolio", @candidate.projects_link, target: "_blank" %></td>
+              <td><%= link_to "Update Profile", profile_info_path(current_candidate) if current_candidate %></td>
             </tr>
-          <% end %>
-          <% if @candidate.linkedin_url %>
             <tr>
-              <td><%= link_to "Linkedin", "http://linkedin.com/in/" + @candidate.linkedin_url, target: "_blank"  %></td>
+              <td><%= link_to "Settings", edit_candidate_path(current_candidate) if current_candidate %></td>
             </tr>
-          <% end %>
-          <% if @candidate.twitter_url %>
-            <tr>
-              <td><%= link_to "Twitter", "http://twitter.com/" + @candidate.twitter_url, target: "_blank"  %></td>
-            </tr>
-          <% end %>
-          <% if @candidate.github_url %>
-            <tr>
-              <td><%= link_to "Github", "http://github.com/" + @candidate.github_url, target: "_blank" %></td>
-            </tr>
-          <% end %>
-          <% if @candidate.facebook_url %>
-            <tr>
-              <td><%= link_to "Facebook", "http://facebook.com/" + @candidate.facebook_url, target: "_blank"  %></td>
-            </tr>
-          <% end %>
-          
-        </tbody>
-      </table>
-    </div>
-  </div>
-  <div class='small-12 columns hidden-for-medium-up'>
-    <div class='edit-table'>
-      <table style= "width:100%;">
-        <thead>
-          <tr>
-            <th>
-            <% if  @candidate.resume_url %>
-              <%= link_to "Résumé", @candidate.resume_url, :target => "_blank" if @candidate.resume_url  %>
-            <% else %>
-              <%= link_to "Upload Résumé", profile_info_path+"#resume" if current_candidate?(@candidate)  %>
-            <% end %>
-            </th>         
             <% if @candidate.portfolio_url %> 
-              <th><%= link_to "Personal Website", @candidate.portfolio_url, target: "_blank" %>
-              </th> 
+              <tr>
+                <td><%= link_to "Personal Website", @candidate.portfolio_url, target: "_blank" %></td>
+              </tr>
             <% end %>
-            <% if @candidate.projects_link %> 
-              <th><%= link_to "Blog/PortFolio", @candidate.projects_link, target: "_blank" %>
-              </th>
+            <% if @candidate.projects_link %>
+              <tr>
+                <td><%= link_to "Blog/PortFolio", @candidate.projects_link, target: "_blank" %></td>
+              </tr>
             <% end %>
-            <% if @candidate.linkedin_url %> 
-              <th><%= link_to "Linkedin", "http://linkedin.com/in/" + @candidate.linkedin_url, target: "_blank"  %>
-              </th>  
+            <% if @candidate.linkedin_url %>
+              <tr>
+                <td><%= link_to "Linkedin", "http://linkedin.com/in/" + @candidate.linkedin_url, target: "_blank"  %></td>
+              </tr>
             <% end %>
-            <% if @candidate.twitter_url %> 
-              <th><%= link_to "Twitter", "http://twitter.com/" + @candidate.twitter_url, target: "_blank"  %>
-              </th> 
+            <% if @candidate.twitter_url %>
+              <tr>
+                <td><%= link_to "Twitter", "http://twitter.com/" + @candidate.twitter_url, target: "_blank"  %></td>
+              </tr>
             <% end %>
-            <% if @candidate.github_url %> 
-              <th><%= link_to "Github", "http://github.com/" + @candidate.github_url, target: "_blank" %>
-              </th>  
+            <% if @candidate.github_url %>
+              <tr>
+                <td><%= link_to "Github", "http://github.com/" + @candidate.github_url, target: "_blank" %></td>
+              </tr>
             <% end %>
-            <% if @candidate.facebook_url %> 
-              <th><%= link_to "Facebook", "http://facebook.com/" + @candidate.facebook_url, target: "_blank"  %>
-              </th>
+            <% if @candidate.facebook_url %>
+              <tr>
+                <td><%= link_to "Facebook", "http://facebook.com/" + @candidate.facebook_url, target: "_blank"  %></td>
+              </tr>
             <% end %>
-            <th><%= link_to "Update Profile", profile_info_path(current_candidate) %></th>
-            <th><%= link_to "Settings", edit_candidate_path(current_candidate) %></th>
-          </tr>
-        </thead>
-      </table>
-    </div>
+            
+          </tbody>
+        </table>
+      </div>
+    <% end %>
   </div>
+
+  <% if current_candidate?(@candidate) %>
+    <div class='small-12 columns hidden-for-medium-up'>
+      <div class='edit-table'>
+        <table style= "width:100%;">
+          <thead>
+            <tr>
+              <th>
+              <% if  @candidate.resume_url %>
+                <%= link_to "Résumé", @candidate.resume_url, :target => "_blank" if @candidate.resume_url  %>
+              <% else %>
+                <%= link_to "Upload Résumé", profile_info_path+"#resume" if current_candidate?(@candidate)  %>
+              <% end %>
+              </th>         
+              <% if @candidate.portfolio_url %> 
+                <th><%= link_to "Personal Website", @candidate.portfolio_url, target: "_blank" %>
+                </th> 
+              <% end %>
+              <% if @candidate.projects_link %> 
+                <th><%= link_to "Blog/PortFolio", @candidate.projects_link, target: "_blank" %>
+                </th>
+              <% end %>
+              <% if @candidate.linkedin_url %> 
+                <th><%= link_to "Linkedin", "http://linkedin.com/in/" + @candidate.linkedin_url, target: "_blank"  %>
+                </th>  
+              <% end %>
+              <% if @candidate.twitter_url %> 
+                <th><%= link_to "Twitter", "http://twitter.com/" + @candidate.twitter_url, target: "_blank"  %>
+                </th> 
+              <% end %>
+              <% if @candidate.github_url %> 
+                <th><%= link_to "Github", "http://github.com/" + @candidate.github_url, target: "_blank" %>
+                </th>  
+              <% end %>
+              <% if @candidate.facebook_url %> 
+                <th><%= link_to "Facebook", "http://facebook.com/" + @candidate.facebook_url, target: "_blank"  %>
+                </th>
+              <% end %>
+              <th><%= link_to "Update Profile", profile_info_path(current_candidate) %></th>
+              <th><%= link_to "Settings", edit_candidate_path(current_candidate) %></th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+  <% end %>
   
   <div class='large-10 medium-9 small-12 columns show-content'>
     <div class='row'>

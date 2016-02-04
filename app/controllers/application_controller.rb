@@ -47,13 +47,13 @@ class ApplicationController < ActionController::Base
   def current_candidate?(candidate)
     current_candidate == candidate
   end
-  helper_method :current_employer?
+  helper_method :current_candidate?
 
   def current_employer?(employer)
     current_employer == employer
   end
 
-  helper_method :current_candidate?
+  helper_method :current_employer?
 
   def correct_candidate
     @candidate = Candidate.friendly.find(params[:id])
@@ -111,7 +111,7 @@ class ApplicationController < ActionController::Base
 
   def require_pro
     unless current_employer_pro?
-      redirect_to root_url, alert: "Unauthorized access!"
+      redirect_to contact_path, alert: "Oops! The gate is locked...Use the contact form to request for key"
     end
   end
 

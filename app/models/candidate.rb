@@ -26,6 +26,10 @@ class Candidate < ActiveRecord::Base
   has_many :follows, dependent: :destroy
   has_many :followed_companies, through: :follows, source: :company
 
+  PROFILE_STATUS = ["PUBLIC", "PRIVATE"]
+  RESUME_STATUS = ["PUBLIC", "PRIVATE"]
+  PHONE_STATUS = ["PUBLIC", "PRIVATE"]
+  EMAIL_STATUS = ["PUBLIC", "PRIVATE"]
 
   before_create {generate_token(:auth_token)}
 
@@ -53,5 +57,9 @@ class Candidate < ActiveRecord::Base
 
   def should_generate_new_friendly_id?
       new_record?
+  end
+  
+  def p_status
+    candidate.profile_status == "PUBLIC"
   end
 end

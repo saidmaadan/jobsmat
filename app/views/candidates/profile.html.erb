@@ -84,8 +84,11 @@
               <div class='medium-3 small-12 columns'>
                 <%= f.label :phone_number, "Phone*" %>
               </div>
-              <div class='medium-9 small-12 columns'>
+              <div class='medium-6 small-8 columns'>
                 <%= f.text_field :phone_number, size: 50, class: "form-control" %>
+              </div>
+              <div class='medium-3 small-4 columns'>
+                <%= f.select :phone_status, Candidate::PHONE_STATUS, prompt: "STATUS", class: "form-control" %>
               </div>
             </div>
           </div>
@@ -111,8 +114,16 @@
               </div>
             </div>
           </div>
-
-
+          <div class="form-group">
+            <div class='row'>
+              <div class='medium-8 small-12 columns'>
+                <%= f.label :profile_status, "SELECT TO DISPLAY YOUR PROFILE EITHER PUBLIC OR PRIVATE(HIDE) " %>
+              </div>
+              <div class='medium-4 small-12 columns'>
+                <%= f.select :profile_status, Candidate::PROFILE_STATUS, prompt: "STATUS", class: "form-control" %>
+              </div>
+            </div>
+          </div>
           <div class="form-group">
             <div class='row'>
               <div class='medium-3 small-12 columns'>
@@ -174,14 +185,24 @@
           </div><br>
           <div class="form-group">
             <div class='row'>
-              <div class='small-4 columns'>
+              <div class='medium-3 small-4 columns'>
                 <%= f.label :resume, "Résumé" %>
               </div>
-              <div class='small-4 columns'>
+              <div class='medium-6 small-4 columns'>
                 <p><%= f.file_field :resume %></p>
               </div>
-              <div class='small-4 columns'>
+              <div class='medium-3 small-4 columns'>
                 <p><%= link_to "resume.pdf", @candidate.resume_url, :target => "_blank" if @candidate.resume_url %></p>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class='row'>
+              <div class='medium-3 small-4 columns'>
+                <%= f.label :resume_status, "Résumé Status" %>
+              </div>
+              <div class='medium-9 small-6 columns'>
+                <%= f.select :resume_status, Candidate::RESUME_STATUS, prompt: "STATUS", class: "form-control" %>
               </div>
             </div>
           </div>
@@ -480,6 +501,7 @@
   </div>
 </div>
    
+
 
  
     

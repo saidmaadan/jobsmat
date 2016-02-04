@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160120140000) do
+ActiveRecord::Schema.define(version: 20160204183056) do
 
   create_table "applies", force: :cascade do |t|
     t.string   "name"
@@ -68,6 +68,10 @@ ActiveRecord::Schema.define(version: 20160120140000) do
     t.boolean  "admin",             default: false
     t.text     "headline"
     t.string   "dribbble_url"
+    t.string   "profile_status"
+    t.string   "email_status"
+    t.string   "phone_status"
+    t.string   "resume_status"
   end
 
   add_index "candidates", ["slug"], name: "index_candidates_on_slug", unique: true

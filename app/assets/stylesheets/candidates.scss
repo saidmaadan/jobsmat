@@ -196,6 +196,24 @@ ul.off-canvas-list li label {
   }
 }
 
+//-----------------------Index----------------------------
+.candidate-home{
+  img{
+    float: left;
+    width: 100%;
+    height: 80px;
+  }
+  .fa{
+    float: left;
+    font-size: 6rem;
+    height: 80px;
+    color: $green-color;
+  }
+  .cand-content{
+    float: right;
+  }
+}
+
 // .edit-table table{
 //   width: 160px;
 // }
