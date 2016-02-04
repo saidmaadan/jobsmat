@@ -89,7 +89,7 @@ class CompaniesController < ApplicationController
     end
    
     @company.job_id = @job_id
-    @jobs = Job.all.order("created_at DESC")
+    @jobss = Job.all.order("created_at DESC")
     @followers = @company.followers
     if current_candidate || current_employer
       @current_follow = (current_candidate || current_employer).follows.find_by(company_id: @company.id)
