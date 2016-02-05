@@ -53,6 +53,7 @@ class EmployersController < ApplicationController
     @employer = Employer.new(employer_params)
     if @employer.save
       session[:employer_id] = @employer.id
+      EmployerNotifier.send_signup_email(@employer).deliver
       redirect_to @employer, notice: "Thanks for signing up as employer!"
     else
       render :new

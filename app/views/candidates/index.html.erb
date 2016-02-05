@@ -6,8 +6,8 @@
         <% @candidates.each do |candidate| %>
           <% if candidate %>
             <div class='large-4 medium-6 small-12 columns'>
-              <div class='row'>
-                <% if candidate.profile_status == "PUBLIC" || candidate.profile_status == "" %>
+              <% if candidate.profile_status == "PUBLIC" || candidate.profile_status == "" %>
+                <div class='row'>
                   <div class='medium-4 small-5 columns'>
                     <% if candidate.cand_image_url %>
                       <%= image_tag candidate.cand_image_url %>
