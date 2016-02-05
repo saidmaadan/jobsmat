@@ -6,10 +6,10 @@ xml.rss :version => "2.0" do
     xml.title "JobsMat"
     xml.author "Said Maadan"
     xml.description "Job Board and Company Reviews App"
-    # xml.link "https://www.jobsmat.com"
+    xml.link "http://www.jobsmat.com"
     xml.language "en"
-    xml.link job_url
-    xml.tag! 'atom:link', :rel => 'self', :type => 'application/rss+xml', :href => jobs_url
+    #xml.link job_url
+    #xml.tag! 'atom:link', :rel => 'self', :type => 'application/rss+xml', :href => jobs_url
  
 
     for job in @jobs
@@ -20,9 +20,10 @@ xml.rss :version => "2.0" do
           xml.title ""
         end
         xml.link job_url(job)
+        xml.company_name job.company_name
         xml.pubDate job.created_at.to_s(:rfc822)
         #xml.link "http://www.jobsmat.com/job/" + job.id.to_s + "-" + job.alias
-        xml.guid job.guid
+        xml.guid job.id
     
         # if job.logo_url.exists?
         #     image_url = job.logo_url.url(:large)
