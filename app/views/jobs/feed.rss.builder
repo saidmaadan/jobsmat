@@ -34,7 +34,7 @@ xml.rss :version => "2.0" do
         #       "
         #     text = text.sub('{logo_url}', image_tag)
         # end
-        xml.description "<p>" + job.description + "</p>"
+        xml.description "<p>" + job.description.gsub(/(<[^>]+>)/, '') + "</p>"
 
       end
     end
