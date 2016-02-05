@@ -18,14 +18,14 @@ class ApplicationController < ActionController::Base
   def require_signin
     unless (current_candidate || current_employer)
       session[:intended_url] = request.url
-      redirect_to new_session_url, alert: "You need to sign in to have access"
+      redirect_to new_session_url, alert: "Good Job! Now sign in with your valid username/email and password"
     end
   end
 
   def require_signin_candidate
     unless current_candidate
       session[:intended_url] = request.url
-      redirect_to new_session_url, alert: "You need to sign in to have access"
+      redirect_to new_session_url, alert: "Good Job! Now sign in with your valid username/email and password"
     end
   end
   helper_method :require_signin_candidate
