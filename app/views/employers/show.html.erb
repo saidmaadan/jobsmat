@@ -165,7 +165,7 @@
                     <div class='medium-12 employer-jobs'>
                        <h3><%= link_to job.title, job %></h3>
                        <span><%= job.city if job.city %>, &nbsp; <%= job.state if job.state %> &nbsp; <%= job.zip_code if job.zip_code  %></span><br>
-                       <span><%= truncate(job.description, length: 180, separator: ' ') %></span>
+                       <span><%= truncate(job.description.gsub(/(<[^>]+>)/, ''), length: 180) %></span>
                     </div>
                   </div>
                 <% end %>

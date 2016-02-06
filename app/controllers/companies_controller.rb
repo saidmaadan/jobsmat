@@ -46,6 +46,7 @@ class CompaniesController < ApplicationController
   end
 
   def job
+
   end
 
   def addinterview  
@@ -97,8 +98,7 @@ class CompaniesController < ApplicationController
     @reviews = Review.where(company_id: @company.id).order("created_at DESC")
     @reviewss = Review.where(company_id: @company.id).order("created_at DESC")
     @companies = Company.all.order("created_at DESC").limit(8)
-    
-    # @jobs = @company.jobs.order("created_at DESC")
+    #@jobs = @company.jobs.order("created_at DESC")
     #@jobs = Job.where(company_id: @company.id).order("created_at DESC")
     @interview = Interview.new
     @interview.company_id = @company_id

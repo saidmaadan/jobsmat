@@ -6,8 +6,8 @@
       <div class='medium-8 columns'>
         <div class='row'>
           <div class='medium-12 columns company-main-top company'>
+            
             <% @jobss.each do |job| %>
-
               <% if job.company_name == @company.name %>
                 <div class='medium-12 columns company-job-main'>
                   <div class='row'>
@@ -22,6 +22,7 @@
                 </div>
               <% end %>
             <% end %>
+          
                <%#= will_paginate @jobs, renderer: BootstrapPagination::Rails, class: 'text-center' %>     
           </div>
         </div>
