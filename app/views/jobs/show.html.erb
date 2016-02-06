@@ -102,79 +102,18 @@
   </div>
 
 
-  <div class="medium-4 small-12 columns">
-    <% if @job.email? %>
-      <div class="job-apply">
-        
-        <% if current_candidate %>
-          <h2>Apply on JobsMat</h2><hr>
-          <%= form_for [@job, @apply] do |f| %>
-          
-            <div class="form-group">
-            <%= f.text_field :name, value: "#{current_candidate.name}", class: "form-control" 
-             %>
-            </div>
-            <div class="form-group">
-              <%= f.text_field :email, value: "#{current_candidate.email}", class: "form-control"  %>
-            </div>
-            <div class="form-group">
-              <% if current_candidate.phone_number %>
-                <%= f.text_field :phone, class: "form-control", value: "#{current_candidate.phone_number}" %>
-              <% else %>
-                <%= f.text_field :phone, class: "form-control", placeholder: "(123) 456-7890"  %>
-              <% end %>
-            </div>
-          
-            <div class="form-group">
-              <%#= f.label :message,  %>
-              <%= f.text_area :message, class: "form-control", value: "Dear Hiring Manager,  I feel that my skills and experience are a great fit for this position. Please feel free to contact me to arrange an interview. I look forward to learning more about this opportunity.", cols: 40, rows: 5 %>
-            </div>
-            <div class="form-group">
-              <% if current_candidate.resume_url %>
-                <%= link_to "resume.pdf", current_candidate.resume_url, :target => "_blank" %>
-                <%= f.label :resume, "Upload New Resume" %>
-                <%= f.file_field :resume, class: "form-control" %>
-              <% else %>
-                <%= f.label :resume, "Upload Resume" %>
-                <%= f.file_field :resume, class: "form-control" %>
-              <% end %>
-            </div>
-            <div class="form-group">
-              <%= f.submit "Submit Application", class: 'success button' %>
-            </div>
-          <% end %>
-        <% else %>
-          <%= form_for [@job, @apply] do |f| %>
-          
-            <div class="form-group">
-            <%= f.text_field :name, class: "form-control", placeholder: "Your name"  %>
-            </div>
-            <div class="form-group">
-              <%= f.text_field :email, class: "form-control", placeholder: "name@company.com"  %>
-            </div>
-            <div class="form-group">
-              <%= f.text_field :phone, class: "form-control", placeholder: "(123) 456-7890"  %>
-            </div>
-            <div class="form-group">
-              <%#= f.label :message,  %>
-              <%= f.text_area :message, class: "form-control", value: "Dear Hiring Manager,  I feel that my skills and experience are a great fit for this position. Please feel free to contact me to arrange an interview. I look forward to learning more about this opportunity.", cols: 40, rows: 5 %>
-            </div>
-            <div class="form-group">
-              <%= f.label :resume, "Upload Resume" %>
-              <%= f.file_field :resume, class: "form-control"  %>
-            </div>
-            <div class="form-group text-center">
-              <%= f.submit "Apply", class: ' success hollow button' %>
-            </div>
-          <% end %>
-        <% end %>
-      
-
-          <!-- <div class="text-center">
-              
-            </div> -->
+  
+  <div class="medium-4 small-12 columns job-application">
+    <div class='jobsmat '>
+      <h4> Apply Now <span>»»»</span></h4>
+      <p>Please review all application instructions before applying to <%= @job.company_name %>.</p>
+      <div><%= render 'application' %>
       </div>
-    <% end %> 
+      
+    </div>
+
+    <%#= render 'apply' %>
+
     <div class="hidden-for-small-only job-ads">
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- MasmaSpace News -->
@@ -185,7 +124,9 @@
       <script>
       (adsbygoogle = window.adsbygoogle || []).push({});
       </script>
-    </div>
+
+    </div><br><br>
+     
     
   </div>
 </div>
