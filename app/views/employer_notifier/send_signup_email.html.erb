@@ -2,9 +2,71 @@
 <html>
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style type="text/css">
+      body{
+        font-size: 13px;
+        a{
+          color: #43ac6a;
+        }
+      }
+      header{
+        img{
+          width: 100%; height: 110px;
+        }
+      }
+      .main{
+        width: 95%;
+        border: 1px solid #ddd;
+        margin-top: 12px;
+        padding: 10px;
+      }
+      .update{
+        color: #43ac6a;
+        font-weight: 600;
+      }
+      h4{
+        font-size: 14px;
+        margin-top: 10px;
+      }
+      .title{
+        font-weight: 600;
+
+      }
+      footer{
+        background-color: #43ac6a;
+        color: #fff;
+        padding: 15px;
+        text-align: center;
+      }
+      
+    </style>
   </head>
   <body>
-    <h1>Thanks for signing up, <%= @employer.name %>!</h1>
-    <p>Thanks for joining and have a great day! Now sign in, create your employer profile, start posting jobs for free and get access to thousands of qualify candidates!</p>
+    <header>
+      <img src="https://s3.amazonaws.com/inventivelabs/jobsmat/imgs/jobsmat-email-logo.png" style="width: 100%; height: 110px;">
+    </header>
+    <div class='main'>
+      <h4>
+        Hello <%= @employer.name %>,
+      </h4>
+
+      <div class='title'>Thanks for signing up with Jobsmat</div>
+      <p>Thanks for joining and have a great day! Now sign in, create your employer profile, start <a href="http://www.jobsmat.com/jobs/add">posting jobs for free and get access to thousands of qualify candidates!</p>
+      
+      <span class='update'>Contact JobsMat</span>
+      <p>
+        If you have any questions please use our <a href="http://www.jobsmat.com/contact">contact form</a> to get in touch. We will get back to you as soon as possible.
+      </p>
+      
+      <b>The JobsMat Team</b><br>
+      <a href="mailto:support@jobsmat.com">support@jobsmat.com</a><br>
+      <a href="http://www.jobsmat.com">www.jobsmat.com</a>
+    </div>
+    <footer>
+      <span>     
+        © 2016 <a href="http://www.jobsMat.com">Jobsmat.com</a>
+      </span>
+    </footer>
   </body>
 </html>
+

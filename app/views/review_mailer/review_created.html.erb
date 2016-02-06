@@ -4,10 +4,81 @@
   <title></title>
 </head>
 <body>
-  <p>Hi, <%= @current_employer.name %></p>
-  <p><%= @current_employer.name || @current_candidate.name %> has written a review about your company</p>
-  <p>Pros: <%= @pros %></p>
-  <p>Cons: <%= @cons %></p>
-  <p>Advise: <%= @advise %></p>
+  <p></p>
+  
 </body>
 </html>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style type="text/css">
+      body{
+        font-size: 14px;
+        a{
+          color: #43ac6a;
+        }
+      }
+      header{
+        img{
+          width: 100%; height: 110px;
+        }
+      }
+      .main{
+        width: 95%;
+        border: 1px solid #ddd;
+        margin-top: 12px;
+        padding: 10px;
+      }
+      .update{
+        color: #43ac6a;
+        font-weight: 600;
+      }
+      h4{
+        font-size: 14px;
+        margin-top: 10px;
+      }
+      .title{
+        font-weight: 600;
+
+      }
+      footer{
+        background-color: #43ac6a;
+        color: #fff;
+        padding: 15px;
+        text-align: center;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="https://s3.amazonaws.com/inventivelabs/jobsmat/imgs/jobsmat-email-logo.png" style="width: 100%; height: 110px;">
+    </header>
+    <div class='main'>
+      <h4>Hi, <%= @current_employer.name %></h4>
+      
+      <p><%= @current_employer.name || @current_candidate.name %> has written a review about your company</p>
+      <p>Pros: <%= @pros %></p>
+      <p>Cons: <%= @cons %></p>
+      <p>Advise: <%= @advise %></p>
+      
+      <span class='update'>Contact JobsMat</span>
+      <p>
+        If you have any questions please use our <a href="http://www.jobsmat.com/contact">contact form</a> to get in touch. We will get back to you as soon as possible.
+      </p>
+
+      <b>The JobsMat Team</b><br>
+      <a href="mailto:support@jobsmat.com">support@jobsmat.com</a><br>
+      <a href="http://www.jobsmat.com">www.jobsmat.com</a>
+    </div>
+    <footer>
+      <span>     
+        © 2016 <a href="http://www.jobsMat.com">Jobsmat.com</a>
+      </span>
+    </footer>
+  </body>
+</html>
+
+
