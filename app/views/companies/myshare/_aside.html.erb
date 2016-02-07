@@ -14,10 +14,10 @@
   </div>
 <%# end %> -->
 
-<div class='company-social company'>
-  <% if @company.facebook? || @company.twitter? || @company.youtube? || @company.linkedin? || @company.instagram? %>
+
+<% if @company.facebook? || @company.twitter? || @company.youtube? || @company.linkedin? || @company.instagram? %>
       <p>Connect with <%= @company.name %></p>
-  
+  <div class='company-social company'>
       <div class='social-link facebook'>
         <%= link_to "", @company.facebook, :target => "_blank", class: "fa fa-facebook fa-2x" if @company.facebook? %>
       </div>
@@ -45,13 +45,14 @@
         </div>
       <% end %>
    <% else %>
-  <% end %> 
-</div>
+  </div>
+<% end %> 
+
 <% if @company.facebook_username || @company.twitter_username %>
   <div class='hide-for-medium-down company-follow company'>
     <p>Follow <%= @company.name.capitalize %></p>
     <ul class="tabs" data-tab role="tablist">
-      <% if @company.facebook_username %>
+      <% if @company.facebook_username? %>
         <li class="tab-title " role="presentation"><a href="#facebook" role="tab" tabindex="0" aria-selected="true" aria-controls="facebook"><span class='facebook-so'><i class='fa fa-facebook'></i>Facebook</span></a></li>
       <% end %>
       <% if @company.twitter_username? && @company.twitter_widget_id? %>
