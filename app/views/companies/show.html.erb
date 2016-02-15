@@ -1,3 +1,6 @@
+<% title @company.name %>
+<% meta_description truncate(@company.about.gsub(/(<[^>]+>)/, ''), length: 350) %>
+
 <div class='company-show'>
   <%= render "companies/myshare/header" %>
   
