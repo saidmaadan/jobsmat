@@ -2,8 +2,18 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Jobsmat: Get Hired! Jobs and Company review site" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : " Employers and Job Seekers Meetup " %>">
+      <title> 
+      <% if yield(:title).present? %>
+          <%= yield(:title) %>
+      <% else %>
+          Jobsmat: Get Hired! Jobs and Company review site
+      <% end %>
+    </title>
+    <% if yield(:meta_description).present? %>
+      <meta name="description" content="<%= yield(:meta_description) %>" />
+    <% else %>
+      <meta name="description" content="Employers and Job Seekers Meetup" />
+    <% end %>
     <meta name="author" content="Said Maadan">
     <link href='https://fonts.googleapis.com/css?family=Enriqueta&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 

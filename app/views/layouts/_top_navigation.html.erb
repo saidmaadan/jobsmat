@@ -8,7 +8,7 @@
         <%= form_tag search_jobs_path, method: :get do %> 
           <div class="row collapse"> 
             <div class="large-10 small-8 columns">
-              <%= text_field_tag :search, params[:search], placeholder: "Search for your next career jobs..." %>
+              <%= text_field_tag :search, params[:search], placeholder: "Job title, skills keywords, company name..." %>
             </div>
             <div class="large-2 small-4 columns">
               <%= submit_tag 'Search', name: nil, class: "success button postfix" %>
