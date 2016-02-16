@@ -52,10 +52,11 @@
         </div>
         <div class='medium-3 columns small-6 columns'>
           <h4>Career Tips & News</h4>
-            <% Tip.all.order("created_at DESC").limit(3).each do |tip| %>
+            <% Tip.all.order("created_at DESC").limit(1).each do |tip| %>
               <div class='careers-footer'>
-                <%= link_to tip.title, tip %><br>
-                <span class='text-right'><%= time_ago_in_words(tip.created_at) %> ago</span>
+                <%= link_to tip.title, tip, style:"font-size:20px;" %><br>
+                <%= truncate(tip.content.gsub(/(<[^>]+>)/, ''), length: 250) %><%= link_to "read more", tip, style:"font-size:17px;color:#7d7700;" %>
+                <!-- <span class='text-right'><%#= time_ago_in_words(tip.created_at) %> ago</span> -->
               </div>
               
              <!-- <hr> -->

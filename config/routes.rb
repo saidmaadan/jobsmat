@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :candidates do
     resources :works
     resources :educations
+    resources :contact_candidates, except: [:show, :index]
   end
 
   get "register" => "employers#new", as: "register"

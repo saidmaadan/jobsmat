@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160204183056) do
+ActiveRecord::Schema.define(version: 20160216005021) do
 
   create_table "applies", force: :cascade do |t|
     t.string   "name"
@@ -124,6 +124,17 @@ ActiveRecord::Schema.define(version: 20160204183056) do
   end
 
   add_index "companies", ["slug"], name: "index_companies_on_slug", unique: true
+
+  create_table "contact_candidates", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "message"
+    t.integer  "candidate_id"
+    t.integer  "job_id"
+    t.integer  "employer_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"

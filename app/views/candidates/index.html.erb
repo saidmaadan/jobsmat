@@ -6,7 +6,7 @@
         <% @candidates.each do |candidate| %>
           <% if candidate %>
             <div class='large-4 medium-6 small-12 columns'>
-              <% if candidate.profile_status == "PUBLIC" || candidate.profile_status == "" %>
+              <% if candidate.profile_status == "PUBLIC" %>
                 <div class='row'>
                   <div class='medium-4 small-5 columns'>
                     <% if candidate.cand_image_url %>
@@ -17,9 +17,9 @@
                   </div>
                   <div class='medium-8 small-7 colums cand-content'>
                     <h4><%= link_to candidate.name, candidate %></h4>
-                    <h5><%= candidate.email if candidate.email_status == "PUBLIC" || candidate.email_status == "" %></h5>
+                    <h5><%= candidate.email if candidate.email_status == "PUBLIC" %></h5>
                     <h5><%= candidate.city %></h5>
-                    <h5><%= candidate.phone_number if candidate.phone_status == "PUBLIC" || candidate.phone_status == "" %></h5>
+                    <h5><%= candidate.phone_number if candidate.phone_status == "PUBLIC" %></h5>
                   </div>
                 </div><br>
               <% end %>
