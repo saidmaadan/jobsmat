@@ -88,16 +88,30 @@
     <div class='row'>
       <div class='medium-8 small-12 columns'>
         <h2><%= @candidate.name %></h2>
-        <h4><%= @candidate.email %></h4>
-
-        <% if @candidate.linkedin_url %>
-          Linkedin: <%= @candidate.linkedin_url %><br>
+        <% if @candidate.email_status == "PUBLIC" %>
+          <h4><%= @candidate.email %></h4>
         <% end %>
 
-        <% if @candidate.twitter_url %>
-          Twitter: <%= @candidate.twitter_url %>
+        <% if @candidate.facebook_url? || @candidate.twitter_url? || @candidate.github_url? || @candidate.linkedin_url? || @candidate.dribbble_url?%>
+      
+          <div class='company-social-candidate'>
+            <div class='social-link facebook'>
+              <%= link_to "", "https://www.facebook.com/#{@candidate.facebook_url}", :target => "_blank", class: "fa fa-facebook fa-2x" if @candidate.facebook_url? %>
+            </div>
+            <div class='social-link linkedin'>
+              <%= link_to "", "https://www.linkedin.com/in/#{@candidate.linkedin_url}", :target => "_blank", class: "fa fa-linkedin fa-2x" if @candidate.linkedin_url? %>
+            </div>
+            <div class='social-link twitter'>
+              <%= link_to "", "https://www.twitter.com/{@candidate.twitter_url}", :target => "_blank", class: "fa fa-twitter fa-2x" if @candidate.twitter_url? %>
+            </div>
+            <div class='social-link dribbble'>
+              <%= link_to "", "https://www.dribbble.com/#{@candidate.dribbble_url}", :target => "_blank", class: "fa fa-dribbble fa-2x" if @candidate.dribbble_url? %>
+            </div>
+            <div class='social-link github'>
+              <%= link_to "", "https://www.github.com/#{@candidate.github_url}", :target => "_blank", class: "fa fa-github-alt fa-2x" if @candidate.github_url? %>
+            </div>
+          </div>
         <% end %>
-
         <% if @candidate.city %>
           <h4>Based in <%= @candidate.city %></h4>
         <% end %>

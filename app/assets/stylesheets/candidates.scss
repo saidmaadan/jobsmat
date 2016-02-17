@@ -211,6 +211,54 @@ ul.off-canvas-list li label {
   }
 }
 
+.company-social-candidate{
+  margin-top: 20px;
+  // padding-left: 10px;
+  padding-bottom: 10px;
+  .social-link{
+    display: inline;
+    
+    .fa{
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      color: #fff;
+      padding-top: 5px;
+      padding-left: 10px;
+      margin-left: 10px;
+    }
+    
+    .fa-2x{
+      font-size: 2em;
+    }
+    .fa-twitter{
+      background: #2bb6e9;
+    }
+    .fa-youtube{
+      background: #d9292c;
+    }
+    .fa-linkedin{
+      background: #0079b6;
+    }
+     .fa-facebook{
+      background: #435f9d;
+      margin-left: -10px;
+    }
+    .fa-dribbble{
+      background: #c32361;
+    }
+    .fa-google-plus{
+      background: #d9292c;
+    }
+    .fa-pinterest-p{
+      background: #c72527;
+    }
+     .fa-github-alt{
+      background: #ddd;
+    }
+  }
+}
+
 //------------------------EDIT----------------------------
 .edit-candidates{
   margin-top: 60px;

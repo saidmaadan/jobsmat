@@ -1,5 +1,7 @@
 <a href="#" data-reveal-id="contact_candidate" class="radius success button" style="width:90%;margin-bottom: -1px;text-align: left;padding-left: 5%;">Send Me Message&hellip;</a>
-<a href="mailto:<%= @candidate.email %>"  class="radius success button" style="width:90%;margin-top:-5px;border-top: 1px solid #eaf4ee;text-align: left;padding-left: 5%;">Send E-Mail</a>
+<% if @candidate.email_status == "PUBLIC" %>
+  <a href="mailto:<%= @candidate.email %>"  class="radius success button" style="width:90%;margin-top:-5px;border-top: 1px solid #eaf4ee;text-align: left;padding-left: 5%;">Send E-Mail</a>
+<% end %>
 
 
 <!-- Reveal Modals begin -->

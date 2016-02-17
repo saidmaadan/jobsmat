@@ -48,6 +48,8 @@ class CandidatesController < ApplicationController
   end
 
   def edit
+    @contact_candidate = ContactCandidate.new
+    @contact_candidate.candidate_id = @candidate_id
     @candidate = Candidate.friendly.find(params[:id])
   end
 
