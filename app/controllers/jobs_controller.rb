@@ -13,6 +13,8 @@ class JobsController < ApplicationController
     #@jobs = Job.order("created_at DESC").page(params[:page]).per_page(8)
     @jobs = Job.order("created_at DESC").paginate(:page => params[:page], :per_page => 8)
     @companies = Company.all.order("created_at DESC")
+    #@job.company_id = @company.id
+    #@company.job_id = @job.id
   end
 
   def feed
@@ -26,6 +28,7 @@ class JobsController < ApplicationController
     @apply = Apply.new
     @apply.job_id = @job_id
     @job = Job.friendly.find(params[:id])
+    @companies = Company.all.order("created_at DESC")
   end
 
   def edit

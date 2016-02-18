@@ -1,6 +1,6 @@
 
     <% @jobss.limit(4).each do |job| %>
-      <% if job.company_name == @company.name %>
+      <% if (job.company_name == @company.name) || (job.website_url == @company.website) %>
         <div class='medium-12 columns company-main-nav company'> 
           <div class='medium-12 columns company-main-nav company'>
             <span class='h'>Carear At <%= @company.name %></span>
