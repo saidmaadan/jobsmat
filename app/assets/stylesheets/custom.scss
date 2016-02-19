@@ -10,6 +10,10 @@ $body-color: #666;
 $head-color: #333;
 $footer-color: #062F33;
 
+*{
+  margin: 0;
+  padding: 0;
+}
 
 html, body {
   margin: 0 auto;
@@ -225,6 +229,8 @@ ul.off-canvas-list li a:hover{
 }
 
 main{
+  margin: 0;
+  padding: 0;
   margin-bottom: 0px;
   width: 100%;
   min-height:100%;

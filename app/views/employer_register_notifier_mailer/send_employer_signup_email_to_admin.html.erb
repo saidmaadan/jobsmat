@@ -50,26 +50,21 @@
     </header>
     <div class='main'>
       <h4>
-        Hello <%= @candidate.name %>,
+        Hello Admin,
       </h4>
 
-      <div class='title'>Thanks for signing up with Jobsmat</div>
-      <p>You can now find your next career jobs from <a href="http://www.jobsmat.com/contact">thousands of jobs!</a><br>
-      
-      <span class='update'>Update Your Profile</span>
+      <div class='title'>We have a new employer who signed up on your website. Here are the details:</div>
       <p>
-        Now sign in, create your eye catching profile, alongside with your recent updated resume, your profile gives employers and recruiters a great idea of who you are and the job you're after. We advise you edit your profile regularly to keep it up to date!
-      </p><br>
-
-      
-      <span class='update'>Contact JobsMat</span>
+        UserName: <%= @employer.username %>
+      </p>
       <p>
-        If you have any questions please use our <a href="http://www.jobsmat.com/contact">contact form"</a> to get in touch. Someone from our team will follow up quickly.
-        
+        Name: <%= link_to @employer.name, @employer %>
+      </p>
+      <p>
+        Email: <%= @employer.email %>
       </p>
 
-      Good luck with your job search,<br>
-      
+
       <b>The JobsMat Team</b><br>
       <a href="mailto:support@jobsmat.com">support@jobsmat.com</a><br>
       <a href="http://www.jobsmat.com">www.jobsmat.com</a>
