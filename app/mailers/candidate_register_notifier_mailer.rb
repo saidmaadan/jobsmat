@@ -1,5 +1,5 @@
 class CandidateRegisterNotifierMailer < ApplicationMailer
-  default :from => 'support@jobsmat.com'
+  default :from => 'info@jobsmat.com'
 
   def send_candidate_signup_email_to_admin(candidate)
     @candidate = candidate

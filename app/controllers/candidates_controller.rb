@@ -40,8 +40,8 @@ class CandidatesController < ApplicationController
     @candidate = Candidate.new(candidate_params)
     if @candidate.save 
       session[:candidate_id] = @candidate.id
-      CandidateNotifier.send_signup_email(@candidate).deliver
-      CandidateRegisterNotifierMailer.send_candidate_signup_email_to_admin(@candidate).deliver
+      CandidateNotifier.send_signup_email(@candidate).deliver_now
+      CandidateRegisterNotifierMailer.send_candidate_signup_email_to_admin(@candidate).deliver_now
       redirect_to @candidate, notice: "Thanks for signing up as job applicant"
     else
       render :new
