@@ -55,7 +55,7 @@
             <% Tip.all.order("created_at DESC").limit(1).each do |tip| %>
               <div class='careers-footer'>
                 <%= link_to tip.title, tip, style:"font-size:20px;" %><br>
-                <%= truncate(tip.content.gsub(/(<[^>]+>)/, ''), length: 240) %><%= link_to "read more", tip, style:"font-size:17px;color:#f04124;" %>
+                <%= truncate(tip.content.gsub(/(<[^>]+>)/, ''), length: 240) %><%= link_to "read more", tip, style:"font-size:17px;color:#43ac6a;" %>
                 <!-- <span class='text-right'><%#= time_ago_in_words(tip.created_at) %> ago</span> -->
               </div>
               
@@ -85,7 +85,7 @@
                 </span>
 
                 <span class='social-link linkedin'>
-                  <a href="https://www.linkedin.com/company/inventtive/" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a> 
+                  <a href="https://www.linkedin.com/company/jobsmat" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a> 
                 </span>
               </div>
               </div>
