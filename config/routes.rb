@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get '/terms' =>'pages#terms'
 
-  get '/privacy' =>'pages#faq'
+  get '/privacy' =>'pages#privacy'
   get '/feed' => 'jobs#feed'
 
   get "signin" => "sessions#new"
