@@ -326,21 +326,31 @@ footer{
     color: $body-color;
     bottom: 0;
     padding: 10px;
-    
-    a{
-      color: $body-color;
+    display: inline;
+    .ssl{
+      display: inline;
+      margin-right: 10px;
+      margin-left: 20px;
+      padding: -8px;
+      float:left;
     }
-    a:hover{
-      color: $primary-color;
-    }
-    p{
-      margin-bottom: -1px;
-    }
-    .fa{
-      color: $green-color;
-    }
-    .fa:hover{
-      color: $green-color;
+    .copy{
+      display: inline;
+      a{
+        color: $body-color;
+      }
+      a:hover{
+        color: $primary-color;
+      }
+      p{
+        margin-bottom: -1px;
+      }
+      .fa{
+        color: $green-color;
+      }
+      .fa:hover{
+        color: $green-color;
+      }
     }
   }
 }
