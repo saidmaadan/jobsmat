@@ -204,9 +204,10 @@
     margin-top: 5px;
   }
 }
+
 .company-main-top{
   padding: 10px 20px;
-  max-height: 1350px;
+  // max-height: 1350px;
   float: right;
   overflow: auto;
   h3{
@@ -384,6 +385,16 @@
      .fa-github-alt{
       background: #ddd;
     }
+  }
+}
+.company-aside-job{
+  padding: 10px;
+  max-height: 300px;
+  float: right;
+  overflow: auto;
+  overflow-x: hidden;
+  h2{
+    font-size: 16px;
   }
 }
 

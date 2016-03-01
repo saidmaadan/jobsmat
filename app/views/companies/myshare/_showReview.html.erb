@@ -1,22 +1,6 @@
 <% if @reviews.blank? %>
 <% else %>
   <div class='small-12 columns company-main-job company'>
-    <% @reviews.limit(2).each do |r| %>
-      <div class='small-12 columns company-main-job company'>
-        <div class='small-12 columns'>
-          <%= r.created_at.strftime("%-m/%-d/%y") %><br>
-          <div class='star-rating' data-score= <%= r.rating %> >
-          </div>
-        </div>
-        <div class='small-12 columns'>
-          <p><%= h(r.pros).gsub(/\n/, '<br/>').html_safe %></p>
-          <% if current_employer %>
-            <%# if (r.user == current_user) || (current_user.admin?)%>
-            <%= link_to "Edit", edit_company_review_path(@company, r) %> | 
-            <%= link_to "Delete", company_review_path(@company, r), method: :delete, data: { confirm: 'Are you sure?' }%>
-          <% end %>
-        </div>
-      </div>
-    <% end %><br>
+    <%= render "companies/myshare/review_partial" %>
   </div>
 <% end %>

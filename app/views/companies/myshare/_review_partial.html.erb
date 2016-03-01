@@ -1,8 +1,7 @@
 <% @reviews.limit(1).each do |r| %>
-<section class="review-bottom">
-  <div class="row">
-    <div class='medium-2 small-3 columns'>  </div>
-    <div class='medium-10 small-9 columns'>
+<div class="row">
+    <div class='medium-10 small-9 columns'>Company Review</div>
+    <div class='medium-2 small-3 columns'>
       <%= r.created_at.strftime("%-m/%-d/%y") %>
     </div><br><br>
     <div class='small-12 columns'>
@@ -15,7 +14,7 @@
           <div class='star-rating' data-score= <%= r.rating %> ></div><br>
           <span><%= r.employee_type %> | Work at <%= @company.name %> on <%= r.employee_status %></span><br>
         </div>
-      </div>
+      </div><br>
       <div class='small-12 columns'>
         <p><span>Pros</span><br><%= h(r.pros).gsub(/\n/, '<br/>').html_safe %></p>
         <p><span>Cons</span><br><%= h(r.cons).gsub(/\n/, '<br/>').html_safe %></p>
@@ -29,9 +28,8 @@
           <%= link_to "Edit", edit_company_review_path(@company, r) %> | 
           <%= link_to "Delete", company_review_path(@company, r), method: :delete, data: { confirm: 'Are you sure?' }%>
         <% end %><br>
-        
+
       </div>
     </div>
   </div><br>
-</section><br>
 <% end %>

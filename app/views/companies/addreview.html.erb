@@ -1,21 +1,20 @@
 <div class='company-show'>
   <%= render partial: "companies/myshare/header" %>
-  
- 
   <div class='medium-12 columns company-main'>
      <div class='row'>
       <div class='medium-8 columns'>
         <div class='row'>
           <div class='medium-12 columns company-main-top company'>
             <div class='row'>
-              <div class='small-11 small-centered columns'>
+              <div class='small-11 small-centered columns'><br>
+                <h2>Work at <%= @company.name %>? Share Your Experiences</h2>
+
+                <div class='small-12 small-centered columns review-form'>
+                  <%= render partial: 'reviews/form' %> 
+                </div><hr>
                 <div id='reviews'>
                   <%= render partial: 'companies/myshare/review' %>
                 </div>
-              </div>
-            
-              <div class='small-11 small-centered columns review-form'>
-                <%= render partial: 'reviews/form' %> 
               </div>
             </div>
           </div>

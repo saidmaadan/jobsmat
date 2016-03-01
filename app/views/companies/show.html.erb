@@ -75,20 +75,40 @@
           <div class='medium-12 columns company-main-nav company'>
             <%= render partial: "companies/myshare/company_about" %>
           </div>
-          
-            <div>
-              <%= render partial: "companies/myshare/company_jobs" %>
-            </div>
 
-            <div>
-              <%= render partial: "companies/myshare/showReview" %>
-            </div>
+          <div>
+            <%= render partial: "companies/myshare/showReview" %>
+          </div>
             
         </div>
       </div>
       
       <div class='medium-4 columns company-aside'>
-        <%= render partial: "companies/myshare/aside" %>
+        <% if @jobbs.any? %>
+          <div class='hide-for-small-only medium-12 columns company'><br>
+            <h4>Jobs at <%= @company.name %></h4>
+            <section class='company-aside-job'>
+              <% @jobbs.each do |job| %>
+                <% if (job.company_name == @company.name) || (job.website_url == @company.website) %>
+                  <div class='row'>
+                    <div class='medium-4 small-3 columns'>
+                      <%= image_tag @company.logo_url, style: "width:50px;height:50px;" if @company.logo_url %>
+                    </div>
+                    <div class='medium-8 small-9 columns'>
+                      <h2><%= link_to job.title, job %></h2>
+                      <%= job.city if job.city %>,&nbsp;<%= job.state if job.state %>
+                      
+                    </div>
+                  </div>
+                <% end %><br>
+              <% end %>
+            </section>
+          </div>
+        <% else %>
+        <% end %>
+        <div><br><br>
+          <%= render partial: "companies/myshare/aside" %>
+        </div>
       </div>
     </div>
   </div>

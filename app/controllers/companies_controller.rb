@@ -41,6 +41,7 @@ class CompaniesController < ApplicationController
   end
 
   def show
+    @jobsss = Job.all.order("created_at DESC")
     # @jobs = @jobs.where(title: params["title"]) if params["title"].present?
     # @jobs = @jobs.where(city: params["city"]) if params["city"].present?
   end
@@ -86,7 +87,7 @@ class CompaniesController < ApplicationController
     else
       @avg_rating = @reviews.average(:rating).round(2)
     end
-    @jobbs = Job.order("created_at DESC").select do |job| (job.company_name == @company.name) || (job.website_url == @company.website)
+    @jobbs = Job.all.order("created_at DESC").select do |job| (job.company_name == @company.name) || (job.website_url == @company.website)
     end
    
     @company.job_id = @job_id

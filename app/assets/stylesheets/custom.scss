@@ -48,6 +48,7 @@ html, body {
     font-size: 20px;
     color: red;
   }
+
 }
 
 .stars-rating, img {
@@ -66,7 +67,7 @@ a{
 h1{font-size: 25px;}
 h2{font-size: 22px;}
 h3{font-size: 20px;}
-h4{font-size: 18px; color: $body-color;}
+h4{font-size: 18px; color: $body-color; font-weight: normal;}
 h5{font-size: 16px;}
 h6{font-size: 15px;}
 a:hover{color: $primary-color;}
