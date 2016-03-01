@@ -22,9 +22,9 @@
         <p><span>Advice</span><br><%= h(r.advice).gsub(/\n/, '<br/>').html_safe %></p>
         <% if @reviewss.length == 1 %>
         <% else %>
-          <%= link_to" See all #{@reviewss.length} Reviews", company_review_path(@company) %>
+          <%= link_to" See all #{@reviewss.length} Reviews", companies_review_path(@company) %>
         <% end %><br>
-        <% if current_employer %>
+        <% if current_employer_admin? %>
         <%# if (r.user == current_user) || (current_user.admin?)%>
           <%= link_to "Edit", edit_company_review_path(@company, r) %> | 
           <%= link_to "Delete", company_review_path(@company, r), method: :delete, data: { confirm: 'Are you sure?' }%>

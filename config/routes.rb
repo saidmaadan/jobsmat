@@ -40,9 +40,9 @@ Rails.application.routes.draw do
 
   
   get "companies/add" => "companies#new", as: "companies/add"
-  get "companies/:id/review" => "companies#review", as: "company/review"
+  get "companies/:id/review" => "companies#review", as: "companies/review"
   get "companies/:id/addreview" => "companies#addreview", as: "company/addreview"
-  get "companies/:id/interview" => "companies#interview", as: "company/interview"
+  get "companies/:id/interview" => "companies#interview", as: "companies/interview"
   get "companies/:id/addinterview" => "companies#addinterview", as: "company/addinterview"
   get "companies/:id/job" => "companies#job", as: "company/job"
   get "companies/:id/about" => "companies#about", as: "company/about"

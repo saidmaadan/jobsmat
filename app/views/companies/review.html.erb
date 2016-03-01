@@ -39,7 +39,7 @@
                   <p><span>Pros</span><br><%= h(r.pros).gsub(/\n/, '<br/>').html_safe %></p>
                   <p><span>Cons</span><br><%= h(r.cons).gsub(/\n/, '<br/>').html_safe %></p>
                   <p><span>Advice</span><br><%= h(r.advice).gsub(/\n/, '<br/>').html_safe %></p>
-                  <% if current_employer %>
+                  <% if current_employer_admin? %>
                   <%# if (r.user == current_user) || (current_user.admin?)%>
                     <%= link_to "Edit", edit_company_review_path(@company, r) %> | 
                     <%= link_to "Delete", company_review_path(@company, r), method: :delete, data: { confirm: 'Are you sure?' }%>

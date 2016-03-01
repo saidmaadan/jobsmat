@@ -45,18 +45,18 @@
                   <th>
                     <div class='review-rating text-center'>
                       <% if @reviewss.length == 1 %>
-                        <%= "#{@reviewss.length} " %><br><%= link_to "Review", company_review_path(@company)%>
+                        <%= "#{@reviewss.length} " %><br><%= link_to "Review", companies_review_path(@company) %>
                       <% else %>
-                        <%= "#{@reviewss.length} " %><br><%= link_to "Reviews", company_review_path(@company)%>
+                        <%= "#{@reviewss.length} " %><br><%= link_to "Reviews", companies_review_path(@company) %>
                       <% end %>
                     </div>
                   </th> 
                   <th>
                     <div class='interview-rating text-center'>
                       <% if @interviewss.length == 1 %>
-                        <%= "#{@interviewss.length} " %><br><%= link_to "Interview", company_interview_path(@company) %>
+                        <%= "#{@interviewss.length} " %><br><%= link_to "Interview", companies_interview_path(@company) %>
                       <% else %>
-                        <%= "#{@interviewss.length} " %><br><%= link_to "Interviews", company_interview_path(@company) %>
+                        <%= "#{@interviewss.length} " %><br><%= link_to "Interviews", companies_interview_path(@company) %>
                       <% end %>
                     </div>
                   </th>

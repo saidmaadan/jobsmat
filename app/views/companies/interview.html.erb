@@ -65,7 +65,7 @@
                     <p><span><b>Interview Anwsers<b></span><br><%= interview.anwsers %></p>
                   <% end %>
                 <% end %><br><br>
-                <% if current_employer || current_candidate %>
+                <% if current_employer_admin? %>
               <%= link_to "Edit", edit_company_interview_path(@company, interview) %> | 
               <%= link_to "Delete", company_interview_path(@company, interview), method: :delete, data: { confirm: 'Are you sure?' }%>
             <br>     
