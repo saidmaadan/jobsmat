@@ -1,5 +1,5 @@
 <div class="fade">
-  <% @companies.each do |company| %>  
+  <% @companies.each do |company| %>
     <div>
       <span>
         <%# if company.company_image_url %>
@@ -9,39 +9,39 @@
           <p>
             <h1 class="hide-for-small-only">Search for Companies by Name</h1>
             <div class="medium-10 medium-offset-1 small-12 columns">
-              <%= form_tag search_companies_path, method: :get do %> 
-                <div class="row collapse"> 
+              <%= form_tag search_companies_path, method: :get do %>
+                <div class="row collapse">
                   <div class="small-9 columns">
                     <%= text_field_tag :search, params[:search], placeholder: "Search for company by name..." %>
                   </div>
                   <div class="small-3 columns">
                     <%= submit_tag 'Company', name: nil, class: "warning button postfix " %>
-                  </div>   
+                  </div>
                 </div>
               <% end %>
             </div>
           </p>
         </span>
-        <span class='content show-for-large-only'>
+        <span class='content show-for-large-up'>
           <%# if company.logo_url %>
             <%= image_tag company.logo_url, alt: company.name %>
           <%# end %>
-          <span> 
+          <span>
             <h4><%= link_to company.name, company %></h4>
             <p><%= company.industry %></p>
           </span>
         </span>
         <span class='content-medium show-for-medium-only'>
           <%= image_tag company.logo_url, alt: company.name %>
-          <span> 
+          <span>
             <h4><%= link_to company.name, company %></h4>
           </span>
-           
-        </span> 
-      </span> 
+
+        </span>
+      </span>
     </div>
   <% end %>
-</div> 
+</div>
 
 <script type="text/javascript">
   $(document).ready(function(){
@@ -54,7 +54,7 @@
       autoplay: true,
       autoplaySpeed: 5000,
       cssEase: 'linear'
-      
+
     });
   });
 </script>

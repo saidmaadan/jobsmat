@@ -1,4 +1,10 @@
 <% if @reviews.blank? %>
+<h3>No reviews yet.
+  <% if current_employer || current_candidate %>
+    Be the first to post your review for <h3><%= link_to @company.name, company_addreview_path(@company) %></h3>
+  <% else %>
+    <%= link_to 'Be the first, Signin to Add-Review', signin_path %>
+  <% end %>
 <% else %>
   <div class='small-12 columns company-main-job company'>
     <%= render "companies/myshare/review_partial" %>

@@ -4,8 +4,13 @@
     <div class='medium-12 columns company-main'>
       <div class='row'>
         <div class='medium-12 columns company-main-top company'>
-          <h3>No interviews yet. Be the first to share your interview process if any with <%= link_to @company.name, company_addinterview_path(@company) %></h3>
-        </div>
+          <h3>No interviews yet.
+            <% if current_employer || current_candidate %>
+              Be the first to share your interview process if any with
+              <%= link_to @company.name, company_addinterview_path(@company) %></h3>
+            <% else %>
+              <%= link_to 'Be the first, Signin to Add-Interview', signin_path %>
+            <% end %>
       </div>
     </div>
   <% else %>
@@ -32,25 +37,25 @@
                     <div class='row'>
                       <div class='medium-4 small-6 columns'>
                         <%= interview.interview_difficulty %> Interview
-                      </div> 
-              
+                      </div>
+
                       <div class='medium-4 small-6 columns'>
                         <% if interview.hired === "Yes" %>
                           Accepted offer
                         <% else interview.hired === "No" %>
                           No Offer
                         <% end %>
-                      </div> 
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            
+
             <div class='row '>
               <div class='medium-2 small-3 columns'></div>
               <div class='medium-10 small-9 columns'><br>
-                  
+
                 <% if interview.process%>
                   <p><span><b>Interview Process</b></span><br>
                   <%= interview.process %></p>
@@ -66,13 +71,13 @@
                   <% end %>
                 <% end %><br><br>
                 <% if current_employer_admin? %>
-              <%= link_to "Edit", edit_company_interview_path(@company, interview) %> | 
+              <%= link_to "Edit", edit_company_interview_path(@company, interview) %> |
               <%= link_to "Delete", company_interview_path(@company, interview), method: :delete, data: { confirm: 'Are you sure?' }%>
-            <br>     
+            <br>
             <% end %>
               </div>
-            </div><hr>   
-            
+            </div><hr>
+
           <% end %>
           <div class='text-center'>
             <%= will_paginate @interviews, renderer: BootstrapPagination::Rails, class: 'text-center' %>

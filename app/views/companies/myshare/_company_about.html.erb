@@ -13,13 +13,9 @@
      <p><%= @company.about.html_safe %></p>
     </section>
     <section role="tabpanel" aria-hidden="true" class="content" id="review">
-      <% if @reviews.blank? %>
-        <h3>No reviews yet. Be the first to write review about <%= link_to @company.name, company_addreview_path(@company) %></h3>
-      <% else %>
         <div>
             <%= render partial: "companies/myshare/showReview" %>
           </div>
-      <% end %>
     </section>
     <section role="tabpanel" aria-hidden="true" class="content" id="interview">
       <div>
@@ -28,7 +24,7 @@
     </section>
     <section role="tabpanel" aria-hidden="true" class="content" id="add-review">
       <div class='small-12 columns review-form'>
-        <%= render partial: 'reviews/form' %> 
+        <%= render partial: 'reviews/form' %>
       </div>
     </section>
     <section role="tabpanel" aria-hidden="true" class="content" id="add-interview">

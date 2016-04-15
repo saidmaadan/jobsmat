@@ -10,7 +10,7 @@
         <div class='medium-4 columns'>
           <div class='row'>
             <div class='medium-3 small-2 columns'>
-              <img src="https://s3.amazonaws.com/inventivelabs/jobsmat/imgs/icon3.png"> 
+              <img src="https://s3.amazonaws.com/inventivelabs/jobsmat/imgs/icon3.png">
             </div>
             <div class='medium-9 small-10 columns'>
               <h4>Search for your favorite company</h4>
@@ -21,7 +21,7 @@
         <div class='medium-4 columns'>
           <div class='row'>
             <div class='medium-3 small-2 columns'>
-              <img src="https://s3.amazonaws.com/inventivelabs/jobsmat/imgs/icon4.png"> 
+              <img src="https://s3.amazonaws.com/inventivelabs/jobsmat/imgs/icon4.png">
             </div>
             <div class='medium-9 small-10 columns'>
               <h4>Read Company Reviews</h4>
@@ -32,7 +32,7 @@
         <div class='medium-4 columns'>
           <div class='row'>
             <div class='medium-3 small-2 columns'>
-              <img src="https://s3.amazonaws.com/inventivelabs/jobsmat/imgs/icon5.png"> 
+              <img src="https://s3.amazonaws.com/inventivelabs/jobsmat/imgs/icon5.png">
             </div>
             <div class='medium-9 small-10 columns'>
               <h4>Company Interview Process</h4>
@@ -53,9 +53,9 @@
           <h2 class='text-center'>Featured Companies</h2>
           <%# @companies.in_groups_of(3) do |group| %>
             <div class='row'>
-              <% @companies.limit(9).each do |company| %>
-                <div class='large-11 large-centered columns'>
-                  <div class='show-for-large-only large-4 columns'>
+              <% @companies.limit(6).each do |company| %>
+                <div class='large-up-11 large-centered columns'>
+                  <div class='show-for-large-up-only large-4 columns company-feature-main'>
                     <div class='row'>
                       <div class='medium-5 small-5 columns company-feature'><br>
                         <%= image_tag company.logo_url if company.logo_url %>
@@ -80,7 +80,7 @@
                       <div class='medium-7 small-7 columns company-name'>
                         <h4><%= link_to company.name, company %></h4>
                         <div class='review-rating'>
-                          <%= "#{company.reviews.length} Reviews" %> 
+                          <%= "#{company.reviews.length} Reviews" %>
                         </div>
                       </div>
                     </div>
@@ -96,7 +96,7 @@
                     <div class='medium-7 small-7 columns company-name'>
                       <h4><%= link_to company.name, company %></h4>
                       <div class='review-rating'>
-                        <%= "#{company.reviews.length} Reviews" %> 
+                        <%= "#{company.reviews.length} Reviews" %>
                       </div>
                     </div>
                   </div>
@@ -105,7 +105,7 @@
             </div>
           <%# end %>
           <%#= will_paginate @companies, renderer: BootstrapPagination::Rails %>
-            
+
         </div>
       </div>
     </div>
