@@ -55,7 +55,7 @@
             <div class='row'>
               <% @companies.limit(6).each do |company| %>
                 <div class='large-up-11 large-centered columns'>
-                  <div class='show-for-large-up-only large-4 columns company-feature-main'>
+                  <div class='show-for-large-up large-4 columns company-feature-main'>
                     <div class='row'>
                       <div class='medium-5 small-5 columns company-feature'><br>
                         <%= image_tag company.logo_url if company.logo_url %>
@@ -70,9 +70,9 @@
                   </div>
                 </div>
               <% end %>
-              <% @companies.limit(6).each do |company| %>
+              <% @companies.limit(4).each do |company| %>
                 <div class='medium-12 medium-centered columns'>
-                  <div class='show-for-medium-only medium-4 columns'>
+                  <div class='show-for-medium-only medium-6 columns'>
                     <div class='row'>
                       <div class='medium-5 small-5 columns company-feature'><br>
                         <%= image_tag company.logo_url if company.logo_url %>
@@ -87,13 +87,13 @@
                   </div>
                 </div>
               <% end %>
-              <% @companies.limit(3).each do |company| %>
-                <div class='show-for-small-only columns'>
+              <% @companies.limit(2).each do |company| %>
+                <div class='show-for-small-only small-10 small-centered columns'>
                   <div class='row'>
-                    <div class='medium-5 small-5 columns company-feature'><br>
+                    <div class='small-5 columns company-feature'><br>
                       <%= image_tag company.logo_url if company.logo_url %>
                     </div>
-                    <div class='medium-7 small-7 columns company-name'>
+                    <div class='small-7 columns company-name'>
                       <h4><%= link_to company.name, company %></h4>
                       <div class='review-rating'>
                         <%= "#{company.reviews.length} Reviews" %>
