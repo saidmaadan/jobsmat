@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="msvalidate.01" content="9B5E0CBEB2211CCC2BF9391F1F5F48CB" />
+    <meta name="google-site-verification" content="EvwN2qgeAzm1XV1M07PF7JeQmvIvLtz6xbxK-F2DCHg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title> 
+      <title>
       <% if yield(:title).present? %>
           <%= yield(:title) %>
       <% else %>
@@ -32,13 +34,13 @@
   <body>
     <header class='fixed'>
       <%= render 'layouts/top_navigation' %>
-    </header> 
+    </header>
     <div class="off-canvas-wrap docs-wrap" data-offcanvas="">
       <div class="inner-wrap">
- 
+
         <header>
           <%= render 'layouts/navigation' %>
-        </header> 
+        </header>
         <main role="main">
            <%= render 'layouts/messages' %>
            <%= yield %>
@@ -46,7 +48,7 @@
 
         <a class="exit-off-canvas"></a>
         <%= render "layouts/footer" %>
-      </div> 
+      </div>
     </div>
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js"></script>
     <div id="fb-root"></div>
